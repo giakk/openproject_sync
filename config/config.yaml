@@ -1,0 +1,153 @@
+# OpenProject Database Synchronization - Configurazione Ubuntu
+# Ottimizzato per installazione diretta su Ubuntu 22 con OpenProject
+
+databases:
+  sql_server:
+    host: "localhost"
+    port: 1433
+    database: "TestDB"
+    username: "tester"
+    password: "Riccardo03"
+    timeout: 30
+    query_path: "/home/riccardo/syncer/app/queries/query.sql"
+
+    
+  postgresql:
+    # Configurazione per database PostgreSQL locale di OpenProject
+    # Ottieni questi valori con: sudo openproject config:get DATABASE_URL
+    host: "localhost"
+    port: 5432
+    database: "openproject_dev"  # Di solito è 'openproject'
+    username: "tester"
+    password: "riccardo"
+    # password: "openproject-dev-password"
+
+    # Pool di connessioni ottimizzato per server locale
+    min_connections: 2
+    max_connections: 8
+
+openproject:
+  # URL dell'istanza OpenProject (stesso server)
+  url: "http://localhost:3000"
+  api_key: "a7d02f23ea9dbdd5dbfd2dcc0f04fef3a6293a8e0af3e3a87b490ca829cc4074"
+  
+  # Timeout ottimizzato per connessione locale
+  timeout: 1
+  
+  custom_fields:
+    numero_cliente: null
+    indirizzo: null  
+    telefono: null
+    numero_commessa: null
+
+sync:
+  interval_minutes: 15  # Più frequente dato che è tutto locale
+  batch_size: 50        # Batch più piccoli per evitare sovraccarico
+  max_retries: 3
+  
+  filters:
+    only_active: true
+    min_date: "2023-01-01"
+
+logging:
+  level: "INFO"
+  file: "/home/riccardo/syncer/logs/sync.log"
+  max_file_size: "10MB"
+  backup_count: 10
+  
+  error_file: "/home/riccardo/syncer/logs/sync_errors.log"
+  
+  # Logging specifico per Ubuntu/systemd
+  systemd_integration: true
+  console_output: false  # Evita output duplicati in journalctl
+
+web_api:
+  host: "127.0.0.1"  # Solo locale per sicurezza
+  port: 8000
+  api_key: "change-this-secure-api-key-now"
+  
+  cors:
+    allow_origins: 
+      - "http://localhost"
+      - "https://your-domain.com"  # Il tuo dominio OpenProject
+    allow_credentials: true
+
+# Ottimizzazioni per ambiente Ubuntu
+performance:
+  # Uso ottimale delle risorse su VM
+  worker_processes: 2
+  connection_pool_size: 5
+  
+  # Cache per ridurre chiamate API
+  cache:
+    enabled: true
+    custom_fields_ttl: 7200  # 2 ore
+    project_cache_ttl: 3600  # 1 ora
+    
+  # Batch processing ottimizzato
+  batch:
+    size: 25
+    delay_between_batches: 1  # secondi
+
+# Monitoraggio e salute del servizio
+monitoring:
+  health_check:
+    enabled: true
+    interval: 300  # 5 minuti
+    
+  metrics:
+    enabled: true
+    retention_days: 7
+    export_file: "/home/riccardo/syncer//data/metrics.json"
+
+# Sicurezza per ambiente di produzione
+security:
+  # Restrizioni per API
+  rate_limiting:
+    enabled: true
+    requests_per_minute: 10
+    
+  # Log delle operazioni sensibili
+  audit_log:
+    enabled: true
+    file: "/home/riccardo/syncer/logs/audit.log"
+
+# Configurazioni specifiche Ubuntu/systemd
+system:
+  # PID file per systemd
+  pid_file: "/home/riccardo/syncer/data/sync.pid"
+  
+  # Directory di lavoro
+  working_directory: "/home/riccardo/syncer/app"
+  
+  # User/Group (per systemd)
+  user: "opsyncer"
+  group: "opsyncer"
+  
+  # File lock per evitare esecuzioni multiple
+  lock_file: "/home/riccardo/syncer/data/sync.lock"
+
+# Notifiche locali (usando mail di sistema)
+notifications:
+  email:
+    enabled: false  # Configura se hai postfix/sendmail
+    method: "sendmail"  # Usa sendmail di sistema
+    recipients:
+      errors: ["root@localhost"]
+      
+  syslog:
+    enabled: true
+    facility: "daemon"
+    
+# Backup e manutenzione
+maintenance:
+  # Pulizia automatica log vecchi
+  cleanup:
+    enabled: true
+    retain_days: 30
+    
+  # Backup stato sincronizzazione  
+  backup:
+    enabled: true
+    interval_hours: 24
+    backup_dir: "/home/riccardo/syncer/backups"
