@@ -8,37 +8,25 @@ databases:
     database: "TestDB"
     username: "tester"
     password: "Riccardo03"
-    timeout: 30
     query_path: "/home/riccardo/syncer/app/queries/query.sql"
 
     
   postgresql:
-    # Configurazione per database PostgreSQL locale di OpenProject
+    # Configurazione per database PostgreSQL locale
     # Ottieni questi valori con: sudo openproject config:get DATABASE_URL
     host: "localhost"
     port: 5432
-    database: "openproject_dev"  # Di solito è 'openproject'
+    database: "sync_cache_db"
     username: "tester"
     password: "riccardo"
-    # password: "openproject-dev-password"
+    query_path: ""
 
-    # Pool di connessioni ottimizzato per server locale
-    min_connections: 2
-    max_connections: 8
+    # password: "openproject-dev-password"
 
 openproject:
   # URL dell'istanza OpenProject (stesso server)
   url: "http://localhost:3000"
   api_key: "a7d02f23ea9dbdd5dbfd2dcc0f04fef3a6293a8e0af3e3a87b490ca829cc4074"
-  
-  # Timeout ottimizzato per connessione locale
-  timeout: 1
-  
-  custom_fields:
-    numero_cliente: null
-    indirizzo: null  
-    telefono: null
-    numero_commessa: null
 
 sync:
   interval_minutes: 15  # Più frequente dato che è tutto locale

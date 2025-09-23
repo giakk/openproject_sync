@@ -20,8 +20,8 @@ import asyncpg
 import pyodbc
 import yaml
 from dataclasses import dataclass
-from configManager import ConfigManager
-from databaseConnector import DatabaseConnector
+from app.config.configManager import ConfigManager
+from app.config.databaseConnector import DatabaseConnector
 
 @dataclass
 class IndirizzoImpianto:
