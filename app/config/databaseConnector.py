@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 
-from app.config.configManager import ConfigManager
+
 import pyodbc
 import psycopg2
 import logging
 from contextlib import contextmanager
 from typing import Generator
-from configManager import CacheDBConfig, DatabaseConfig
+from .configManager import CacheDBConfig, DatabaseConfig
+import sys
+
 
 logger = logging.getLogger(__name__)
 
@@ -18,6 +20,17 @@ class DatabaseConnector:
         self.gestionale_config = gestionale_config
         self._sql_conn = None
         self._pg_pool = None
+        self._query = None
+
+    def load_query(self, query_file: str) -> None:
+        """Carica la query SQL dal file"""
+        try:
+            with open(query_file, 'r', encoding='utf-8') as f:
+                self._query = f.read().strip()
+            logger.info(f"Query SQL caricata da {query_file}")
+        except Exception as e:
+            logger.error(f"Errore nel caricamento della query: {e}")
+            sys.exit(1)
     
     def connect_sql_server(self) -> pyodbc.Connection:
         """Connessione a SQL Server"""
@@ -98,7 +111,7 @@ class DatabaseConnector:
     # DA QUI NUOVO   
         
     @contextmanager
-    def get_gestionale_connection(self) -> pyodbc.Connection:
+    def get_gestionale_connection(self) -> Generator[pyodbc.Connection, None, None]:
         """Context manager per connessione gestionale (readonly)"""
         conn = None
         try:
@@ -179,3 +192,46 @@ class DatabaseConnector:
                    f"Cache: {results['cache']}, Tutto OK: {all_ok}")
         
         return results
+    
+    def initialize_cache_database(self) -> bool:
+
+        try:
+
+            # query = self.load_query(self.cache_config.query_path)
+
+            with self.get_cache_connection() as conn:
+                with conn.cursor() as cursor:
+
+                    # for statement in query.split(";"):
+                    #     stmt = statement.strip()
+                    #     if stmt:  # salta righe vuote
+                    #         cursor.execute(stmt + ";")
+
+
+                    cursor.execute("""
+                        SELECT COUNT(*) FROM information_schema.tables 
+                        WHERE table_name = 'cached_users' AND table_schema = 'public'
+                    """)
+                    
+                    table_exists = cursor.fetchone()[0] > 0
+                    
+                    if table_exists:
+                        logger.info("Database cache già inizializzato")
+                        return True
+                    
+                    # Se non esistono, crea schema
+                    logger.info("Inizializzazione database cache...")
+                    
+                    # Qui potresti eseguire lo script SQL di migrazione
+                    # Per semplicità, assumiamo che il DB sia già stato inizializzato manualmente
+                    logger.warning("Schema database cache non trovato. "
+                                 "Eseguire manualmente migrations/init_sync_db.sql")
+                    
+                    return False
+
+                logger.info("Migrazione database cache eseguita con successo.")
+                return True
+
+        except Exception as e:
+            logger.error(f"Errore inizializzazione database cache: {e}")
+            return False

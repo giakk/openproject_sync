@@ -17,6 +17,7 @@ databases:
     host: "localhost"
     port: 5432
     database: "sync_cache_db"
+    # database: "openproject_dev"
     username: "tester"
     password: "riccardo"
     query_path: ""
@@ -26,7 +27,7 @@ databases:
 openproject:
   # URL dell'istanza OpenProject (stesso server)
   url: "http://localhost:3000"
-  api_key: "a7d02f23ea9dbdd5dbfd2dcc0f04fef3a6293a8e0af3e3a87b490ca829cc4074"
+  apikey: "a7d02f23ea9dbdd5dbfd2dcc0f04fef3a6293a8e0af3e3a87b490ca829cc4074"
 
 sync:
   interval_minutes: 15  # Più frequente dato che è tutto locale
