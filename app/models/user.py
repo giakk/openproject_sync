@@ -26,7 +26,6 @@ class GestionaleUser:
     def to_dict(self) -> Dict[str, Any]:
         """Converte in dizionario per hashing e serializzazione"""
         return {
-            'id': self.id,
             'email': self.email,
             'firstname': self.firstName,
             'lastname': self.lastName,
@@ -44,8 +43,7 @@ class GestionaleUser:
 @dataclass
 class OpenProjectUser:
     """Modello utente per OpenProject"""
-    id: Optional[int] = None
-    login: Optional[str] = None
+    id: int = None
     firstName: str = ""
     lastName: str = ""
     email: str = ""
@@ -53,7 +51,8 @@ class OpenProjectUser:
     password: str = "Open_Project@2025!"
     status: UserStatus = UserStatus.ACTIVE
     phone: str = None
-    custom_fields_cache = {}
+    custom_fields_cache: Dict[str, str]
+    ref: str
 
     def to_api_payload(self) -> Dict[str, Any]:
         """Converte in payload per API OpenProject"""
@@ -77,13 +76,16 @@ class OpenProjectUser:
 
             
         return payload
+    
+    
+
 
 
 @dataclass
 class CachedUser:
     """Modello utente nel database di appoggio"""
     gestionale_id: str
-    openproject_id: Optional[int] = None
+    openproject_id: int = None
     email: str = ""
     current_hash: str = ""
     last_sync_hash: Optional[str] = None
