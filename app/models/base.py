@@ -17,6 +17,43 @@ class ApiComplexStructure:
             'title': self.title
         }
     
+class OpenProjectStatus (Enum):
+
+    ON_TRACK = {
+        "href": "/api/v3/project_statuses/on_track",
+        "title": "On track"
+    }
+
+    AT_RISK = {
+        "href": "/api/v3/project_statuses/at_risk",
+        "title": "At risk"
+    }
+
+    OFF_TRACK = {
+        "href": "/api/v3/project_statuses/off_track",
+        "title": "Off track"
+    }
+
+    NOT_STARTED = {
+        "href": "/api/v3/project_statuses/not_started",
+        "title": "Not started"
+    }
+    
+    FINISCHED = {
+        "href": "/api/v3/project_statuses/finished",
+        "title": "Finished"
+    }
+
+    DISCONTINUED = {
+        "href": "/api/v3/project_statuses/discontinued",
+        "title": "Discontinued"
+    }
+
+
+class OperationType(Enum):
+    CREATE = "create"
+    UPDATE = "update"
+    DELETE = "delete"
 
 
 @dataclass

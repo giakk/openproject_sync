@@ -4,14 +4,7 @@ from typing import Optional, Dict, Any
 from enum import Enum
 import hashlib
 import json
-from .user import OpenProjectUser
-from .base import ApiComplexStructure
-
-
-class StatoFatturazione(Enum):
-    FATTURATO = "Fatturato"
-    DAFATTURARE = "Da Fatturare"
-    ACCONTO = "Acconto"
+from .base import OpenProjectStatus
 
 @dataclass
 class IndirizzoImpianto:
@@ -26,9 +19,32 @@ class IndirizzoImpianto:
         """Concatena tutte le variabili della classe come stringa per l'hash"""
         return f"{self.NominativoImp}_{self.IndirizzoImp}_{self.LocazioneImp}_{self.CapImp}_{self.LocalitaImp}_{self.ProvImp}"
     
+    def format(self) -> str:
+        return(f"{self.NominativoImp}\n"
+               f"{self.IndirizzoImp}, {self.CapImp}, {self.ProvImp}")
+    
+
+@dataclass    
+class Amministratore:
+    Name: str
+    Tel: str
+    Cell: str
+    Mail: str
+    Pec: str
+
+    def to_string(self) -> str:
+        """Concatena tutte le variabili della classe come stringa per l'hash"""
+        return f"{self.Name}_{self.Tel}_{self.Cell}_{self.Mail}_{self.Pec}"
+    
+    def format(self) -> str:
+        return(f"{self.Name}\n"
+               f"{self.Tel}\n"
+               f"{self.Cell}\n"
+               f"{self.Mail}")
+    
 
 @dataclass
-class gestionaleProject:
+class GestionaleProject:
 
     NrCommessa: str
     CodImpianto: str
@@ -37,6 +53,7 @@ class gestionaleProject:
     StatoCommessa: str
     StatoFatturazione: str
     Note: str
+    Ammin: Amministratore
     Indirizzo: IndirizzoImpianto
     
     def to_string(self) -> str:
@@ -45,10 +62,13 @@ class gestionaleProject:
         apertura_str = self.AperturaCommessa.isoformat() if self.AperturaCommessa else ""
         fine_str = self.FineLavori.isoformat() if self.FineLavori else ""
         
-        return f"{self.NrCommessa}_{self.CodImpianto}_{apertura_str}_{fine_str}_{self.StatoCommessa}_{self.StatoFatturazione}_{self.Note}_{self.Indirizzo.to_string}"
+        return f"{self.NrCommessa}_{self.CodImpianto}_{apertura_str}_{fine_str}_{self.StatoCommessa}_{self.StatoFatturazione}_{self.Note}"
+
+    def concatenate_data(self) -> str:
+        return f"{self.to_string()}_{self.Indirizzo.to_string()}_{self.Ammin.to_string()}"
 
     def calculate_hash(self) -> str:
-        return hashlib.sha256(self.to_string.encode()).hexdigest()
+        return hashlib.sha256(self.concatenate_data.encode()).hexdigest()
 
 
 @dataclass
@@ -60,18 +80,17 @@ class OpenProjectProject:
     public: bool = True
     codImpianto: str = None
     indirizzo: str = None
-    apertura: datetime = None
-    fineLavori: datetime = None
+    apertura: str = None
+    fineLavori: str = None
     note: str = None
-    fatturazione: StatoFatturazione = None
-    admin: OpenProjectUser = None
+    fatturazione: str = None
+    amministratore: str = None
+    stato: str = OpenProjectStatus.ON_TRACK
     custom_fields_cache: Dict[str, str]
 
 
     def get_identifier(self) -> str:
         return self.name.lower().replace('/', '-')
-    
-    def 
 
 
     def to_api_payload(self) -> Dict[str, Any]:
@@ -81,13 +100,54 @@ class OpenProjectProject:
             'name': self.name,
             'description': f"Progetto per commessa {self.name}",
             'public': bool(True),
+            'status': self.stato,
             self.custom_fields_cache['Numero Impianto']: self.codImpianto,
             self.custom_fields_cache['Indirizzo Impianto']: self.indirizzo,
-            self.custom_fields_cache['Apertura Commessa']: self.apertura.isoformat(),
-            self.custom_fields_cache['Fine Lavori']: self.fineLavori.isoformat(),
+            self.custom_fields_cache['Apertura Commessa']: self.apertura,
+            self.custom_fields_cache['Fine Lavori']: self.fineLavori,
             self.custom_fields_cache['Note']: self.note,
             self.custom_fields_cache['Stato Fatturazione']: self.fatturazione,
-            self.custom_fields_cache['Administrator']: self.admin.ref
+            self.custom_fields_cache['Amministratore']: self.amministratore
         }
 
 
+@dataclass
+class CachedProject:
+
+    gestionale_id: str
+    openproject_id: int = None
+    current_hash: str = ""
+    last_sync_hash: Optional[str] = None
+    last_sync_at: Optional[datetime] = None
+    sync_status: str = "pending"  # pending, synced, error
+    sync_attempts: int = 0
+    last_error: Optional[str] = None
+    created_at: Optional[datetime] = field(default_factory=datetime.now)
+    updated_at: Optional[datetime] = field(default_factory=datetime.now)
+
+    def needs_sync(self) -> bool:
+        """Determina se l'utente necessita sincronizzazione"""
+        return (
+            self.current_hash != self.last_sync_hash or
+            self.sync_status == "error" or
+            self.openproject_id is None
+        )
+    
+
+    def is_sync_failed(self) -> bool:
+        """Determina se la sincronizzazione è fallita troppe volte"""
+        return self.sync_attempts >= 3 and self.sync_status == "error"
+    
+
+@dataclass
+class UserSyncOperation:
+    """Rappresenta un'operazione di sincronizzazione"""
+    operation_type: str  # create, update, delete
+    gestionale_project: GestionaleProject
+    openproject_project: OpenProjectProject
+    cached_projec: CachedProject
+    validation_errors: list = field(default_factory=list)
+    
+    def is_valid(self) -> bool:
+        """Verifica se l'operazione è valida"""
+        return len(self.validation_errors) == 0
