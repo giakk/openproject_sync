@@ -15,7 +15,7 @@ class DatabaseConfig:
     database: str
     username: str
     password: str
-    query_path: str
+    extract_projects_query: str
     
 @dataclass
 class CacheDBConfig:
@@ -71,7 +71,7 @@ class ConfigManager:
                 database=self._config['databases']['sql_server']['database'],
                 username=self._config['databases']['sql_server']['username'],
                 password=self._config['databases']['sql_server']['password'],
-                query_path=self._config['databases']['sql_server']['query_path']
+                extract_projects_query=self._config['databases']['sql_server']['extract_projects_query']
             )
             
             self.cache_db = CacheDBConfig(

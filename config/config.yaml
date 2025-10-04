@@ -8,7 +8,7 @@ databases:
     database: "TestDB"
     username: "tester"
     password: "Riccardo03"
-    query_path: "/home/riccardo/syncer/app/queries/query.sql"
+    extract_projects_query: "/home/riccardo/syncer/app/queries/mainQuery.sql"
 
     
   postgresql:
