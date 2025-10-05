@@ -4,7 +4,7 @@ import pyodbc
 import logging
 from contextlib import contextmanager
 from typing import Generator, List
-from ..config.configManager import OpenProjectConfig
+from ..config.ConfigManager import OpenProjectConfig
 from ..models.project import Amministratore, IndirizzoImpianto, OpenProjectProject
 import sys
 
@@ -38,6 +38,19 @@ class OpenProjectInterface:
         self.cache_duration = timedelta(hours=1)  # Cache valida per 1 ora
         
         self.load_custom_fields_to_cache()
+
+    
+    def test_connection(self) -> bool:
+
+        try:
+            response = GetRequest(connection=self.connection,
+                                   context="/api/v3").execute()
+            
+            logger.debug("Test connection OpenProject API is PASS")
+            return True
+        except Exception as e:
+            logger.debug(f"Test conneciton OpenProject API is FAILED: {e}")
+
 
 
     def get_projects_schema(self):

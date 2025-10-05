@@ -156,8 +156,8 @@ class CachedProject:
     
 
 @dataclass
-class UserSyncOperation:
-    """Rappresenta un'operazione di sincronizzazione"""
+class ProjectSyncOperation:
+    """Represent the syncronization operation"""
     operation_type: str  # create, update, delete
     gestionale_project: GestionaleProject
     openproject_project: OpenProjectProject

@@ -42,7 +42,7 @@ logging:
   level: "INFO"
   file: "/home/riccardo/syncer/logs/sync.log"
   max_file_size: "10MB"
-  backup_count: 10
+  backup_count: 5
   
   error_file: "/home/riccardo/syncer/logs/sync_errors.log"
   

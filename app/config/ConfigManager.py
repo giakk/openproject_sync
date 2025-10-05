@@ -46,6 +46,14 @@ class SyncConfig:
     max_retry_attempts: int = 3
     enable_auto_correction: bool = False
 
+@dataclass
+class LoggerConfig:
+
+    level: str = "INFO"
+    filename: str = "/home/riccardo/syncer/logs/sync.log"
+    max_file_size: int
+    backup_count: int
+
 
 class ConfigManager:
     """Gestisce la configurazione dell'applicazione"""
@@ -57,6 +65,7 @@ class ConfigManager:
         self.openproject = None
         self.cache_db = None
         self.sync = None
+        self.logger = None
         self.load_config()
     
     def load_config(self) -> None:
@@ -86,6 +95,13 @@ class ConfigManager:
             self.openproject = OpenProjectConfig(
                 api_key=self._config['openproject']['apikey'],
                 base_url=self._config['openproject']['url']
+            )
+
+            self.logger = LoggerConfig(
+                level=self.config['logging']['level'],
+                filename=self.config['logging']['file'],
+                backup_count=self.config['logging']['backup_count'],
+                max_file_size=self.config['logging']['max_file_size']
             )
             
             self.sync = SyncConfig()

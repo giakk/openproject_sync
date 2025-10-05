@@ -98,7 +98,7 @@ class ProjectMapper:
                 cached_project.updated_at = datetime.now()
 
 
-            logger.debug(f"Correttamente aggiornata commessa {gestionale_project.NrCommessa} Gimi -> Cache")
+            logger.debug(f"Correctly updated project {gestionale_project.NrCommessa} Gimi -> Cache")
             return cached_project
 
 

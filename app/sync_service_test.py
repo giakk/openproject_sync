@@ -20,7 +20,7 @@ import asyncpg
 import pyodbc
 import yaml
 from dataclasses import dataclass
-from app.config.configManager import ConfigManager
+from app.config.ConfigManager import ConfigManager
 from app.config.databaseConnector import DatabaseConnector
 
 @dataclass

@@ -6,7 +6,7 @@ import psycopg2
 import logging
 from contextlib import contextmanager
 from typing import Generator
-from .configManager import CacheDBConfig, DatabaseConfig
+from .ConfigManager import CacheDBConfig, DatabaseConfig
 import sys
 
 ### è stato rimpiazzado da diverse classi in servicies... andrà in disuso

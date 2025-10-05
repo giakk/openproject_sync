@@ -3,7 +3,7 @@ from datetime import datetime
 import logging
 import psycopg2
 from psycopg2.extras import RealDictCursor
-from ..config.configManager import CacheDBConfig
+from ..config.ConfigManager import CacheDBConfig
 from contextlib import contextmanager
 from typing import Generator, List
 from ..models.project import CachedProject
@@ -138,4 +138,41 @@ class CacheDatabaseService:
             raise Exception(f"Error during the update of project {project.gestionale_id}: {e}")
         
 
+    def get_project_by_gestionale_id(self, gestionale_id: str) -> Optional[CachedProject]:
+
+        query = """
+
+        SELECT * FROM cached_projects
+        WHERE gestionale_id = %s
+            
+        """
     
+        try: 
+            with self.get_cache_connection() as conn:
+                with conn.cursor() as cursor:
+                    cursor.execute(query, (gestionale_id,))
+                    row = cursor.fetchone()
+
+                    if not row:
+                        return None
+                    
+                    return self._row_to_cached_project(row)
+                
+
+        except psycopg2.Error as e:
+            logger.error(f"Error during data recover of project {gestionale_id}: {e}")
+            raise Exception(f"Error during data recover of project {gestionale_id}: {e}")
+        
+
+    def _row_to_cached_project(self, row) -> CachedProject:
+
+        return CachedProject(
+            gestionale_id=row['gestionale_id'],
+            openproject_id=row['openproject_id'],
+            current_hash=row['current_hash'],
+            last_sync_hash=row['last_sync_hash'],
+            last_sync_at=row['last_sync_at'],
+            created_at=row['created_at'],
+            updated_at=row['updated_at'],
+            sync_status=row['sync_status']
+        )

@@ -4,7 +4,7 @@ import pyodbc
 import logging
 from contextlib import contextmanager
 from typing import Generator, List
-from ..config.configManager import DatabaseConfig
+from ..config.ConfigManager import DatabaseConfig
 from ..models.project import GestionaleProject, Amministratore, IndirizzoImpianto
 import sys
 
@@ -74,7 +74,7 @@ class GestionaleService:
             sys.exit(1)
         
 
-    def get_Gimi_data(self) -> List[GestionaleProject]:
+    def extract_Gimi_projects_entries(self) -> List[GestionaleProject]:
 
         query = self.load_query(self.config.extract_projects_query)
 
@@ -118,6 +118,5 @@ class GestionaleService:
                     return projects
 
         except pyodbc.Error as e:
-            logger.error(f"Errore durante l'esecuzione della query {self.self.config.extract_projects_query}: {e}")
-            # TODO: Gestisci il raise degli errori
-        
+            logger.error(f"Errore durante l'esecuzione della query {self.config.extract_projects_query}: {e}")
+            raise Exception(f"Errore durante l'esecuzione della query {self.config.extract_projects_query}: {e}")       
