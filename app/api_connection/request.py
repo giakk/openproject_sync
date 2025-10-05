@@ -3,8 +3,8 @@ from json.decoder import JSONDecodeError
 
 import requests
 
-from api_connection.command import Command
-from api_connection.exceptions.request_exception import RequestError
+from .command import Command
+from .exceptions.request_exception import RequestError
 
 
 class Request(Command):

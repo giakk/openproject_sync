@@ -4,10 +4,10 @@ import logging
 import sys
 from datetime import datetime
 from typing import Dict, List, Any
-from .config import ConfigManager
-from .servicies.sync import SyncService
+from app.config.ConfigManager import ConfigManager
+from app.servicies.sync import SyncService
 
-from .utils.logger import setup_logging
+from app.utils.logger import setup_logging
 
 logger = logging.getLogger(__name__)
 

@@ -51,8 +51,8 @@ class LoggerConfig:
 
     level: str = "INFO"
     filename: str = "/home/riccardo/syncer/logs/sync.log"
-    max_file_size: int
-    backup_count: int
+    max_file_size: int = "10MB"
+    backup_count: int = 5
 
 
 class ConfigManager:

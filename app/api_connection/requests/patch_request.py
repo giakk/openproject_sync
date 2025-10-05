@@ -1,7 +1,7 @@
 import requests
 from requests.auth import HTTPBasicAuth
 
-from api_connection.request import Request
+from ..request import Request
 
 
 class PatchRequest(Request):

@@ -51,8 +51,8 @@ class OpenProjectUser:
     password: str = "Open_Project@2025!"
     status: UserStatus = UserStatus.ACTIVE
     phone: str = None
-    custom_fields_cache: Dict[str, str]
-    ref: str
+    custom_fields_cache: Dict[str, str] = None
+    ref: str = ""
 
     def to_api_payload(self) -> Dict[str, Any]:
         """Converte in payload per API OpenProject"""

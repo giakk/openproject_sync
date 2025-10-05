@@ -8,10 +8,10 @@ from ..config.ConfigManager import OpenProjectConfig
 from ..models.project import Amministratore, IndirizzoImpianto, OpenProjectProject
 import sys
 
-from api_connection.requests.post_request import PostRequest
-from api_connection.requests.get_request import GetRequest
-from api_connection.requests.patch_request import PatchRequest
-from connection import Connection
+from ..api_connection.requests.post_request import PostRequest
+from ..api_connection.requests.get_request import GetRequest
+from ..api_connection.requests.patch_request import PatchRequest
+from ..utils.connection import Connection
 from datetime import datetime, timedelta
 import requests
 import json

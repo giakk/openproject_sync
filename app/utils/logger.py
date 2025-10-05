@@ -28,7 +28,7 @@ def setup_logging(
     
     # Formato di default
     if not format_string:
-        format_string = "%(asctime)s - %(name)s - %(levelname)s - %(funcName)s:%(lineno)d - %(message)s"
+        format_string = "%(asctime)s - %(levelname)s - func:%(funcName)s - %(message)s"
     
     # Configurazione base
     root_logger = logging.getLogger()

@@ -75,7 +75,7 @@ class GestionaleProject:
 class OpenProjectProject:
 
     id: int = None
-    name: str
+    name: str = ""
     active: bool = True
     public: bool = True
     codImpianto: str = None
@@ -86,7 +86,7 @@ class OpenProjectProject:
     fatturazione: str = None
     amministratore: str = None
     stato: str = OpenProjectStatus.ON_TRACK
-    custom_fields_cache: Dict[str, str]
+    custom_fields_cache: Dict[str, str] = None
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
 
