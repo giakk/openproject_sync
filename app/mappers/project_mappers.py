@@ -105,3 +105,4 @@ class ProjectMapper:
         except Exception as e:
             logger.error(f"Errore durante l'aggiornamento Gimi -> Cache per commessa {gestionale_project.NrCommessa}: {e}")
             raise
+

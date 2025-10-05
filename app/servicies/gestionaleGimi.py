@@ -11,6 +11,7 @@ import sys
 
 logger = logging.getLogger(__name__)
 
+
 class GestionaleService:
 
     """

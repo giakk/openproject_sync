@@ -87,7 +87,8 @@ class OpenProjectProject:
     amministratore: str = None
     stato: str = OpenProjectStatus.ON_TRACK
     custom_fields_cache: Dict[str, str]
-
+    created_at: Optional[datetime] = None
+    updated_at: Optional[datetime] = None
 
     def get_identifier(self) -> str:
         return self.name.lower().replace('/', '-')
@@ -101,6 +102,21 @@ class OpenProjectProject:
             'description': f"Progetto per commessa {self.name}",
             'public': bool(True),
             'status': self.stato,
+            'active': self.active,
+            self.custom_fields_cache['Numero Impianto']: self.codImpianto,
+            self.custom_fields_cache['Indirizzo Impianto']: self.indirizzo,
+            self.custom_fields_cache['Apertura Commessa']: self.apertura,
+            self.custom_fields_cache['Fine Lavori']: self.fineLavori,
+            self.custom_fields_cache['Note']: self.note,
+            self.custom_fields_cache['Stato Fatturazione']: self.fatturazione,
+            self.custom_fields_cache['Amministratore']: self.amministratore
+        }
+    
+    def to_api_payload(self, is_for_update: bool) -> Dict[str, Any]:
+
+        return {
+            'status': self.stato,
+            'active': self.active,
             self.custom_fields_cache['Numero Impianto']: self.codImpianto,
             self.custom_fields_cache['Indirizzo Impianto']: self.indirizzo,
             self.custom_fields_cache['Apertura Commessa']: self.apertura,
@@ -120,8 +136,8 @@ class CachedProject:
     last_sync_hash: Optional[str] = None
     last_sync_at: Optional[datetime] = None
     sync_status: str = "pending"  # pending, synced, error
-    sync_attempts: int = 0
-    last_error: Optional[str] = None
+    # sync_attempts: int = 0
+    # last_error: Optional[str] = None
     created_at: Optional[datetime] = field(default_factory=datetime.now)
     updated_at: Optional[datetime] = field(default_factory=datetime.now)
 
@@ -134,9 +150,9 @@ class CachedProject:
         )
     
 
-    def is_sync_failed(self) -> bool:
-        """Determina se la sincronizzazione è fallita troppe volte"""
-        return self.sync_attempts >= 3 and self.sync_status == "error"
+    # def is_sync_failed(self) -> bool:
+    #     """Determina se la sincronizzazione è fallita troppe volte"""
+    #     return self.sync_attempts >= 3 and self.sync_status == "error"
     
 
 @dataclass
