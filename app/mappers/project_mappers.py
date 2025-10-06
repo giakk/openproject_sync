@@ -65,7 +65,7 @@ class ProjectMapper:
                 gestionale_id=gestionale_project.NrCommessa,
                 current_hash=gestionale_project.calculate_hash(),
                 sync_status="pending",
-                sync_attempts=0,
+                # sync_attempts=0,
                 created_at=datetime.now(),
                 updated_at=datetime.now(),
                 

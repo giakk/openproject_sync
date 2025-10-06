@@ -142,14 +142,15 @@ class CacheDatabaseService:
 
         query = """
 
-        SELECT * FROM cached_projects
+        SELECT *
+        FROM cached_projects
         WHERE gestionale_id = %s
             
         """
     
         try: 
             with self.get_cache_connection() as conn:
-                with conn.cursor() as cursor:
+                with conn.cursor(cursor_factory=RealDictCursor) as cursor:
                     cursor.execute(query, (gestionale_id,))
                     row = cursor.fetchone()
 

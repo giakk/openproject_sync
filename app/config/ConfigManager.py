@@ -138,6 +138,10 @@ class ConfigManager:
     @property
     def gestionale_config(self) -> DatabaseConfig:
         return self.gestionale_db
+
+    @property
+    def openproject_config(self) -> OpenProjectConfig:
+        return self.openproject
     
     @property
     def config(self) -> Dict:
@@ -151,9 +155,6 @@ class ConfigManager:
     def postgresql_config(self) -> Dict:
         return self._config['databases']['postgresql']
     
-    @property
-    def openproject_config(self) -> Dict:
-        return self._config['openproject']
     
     @property
     def sync_config(self) -> Dict:

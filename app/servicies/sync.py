@@ -16,12 +16,12 @@ logger = logging.getLogger(__name__)
 class SyncService:
 
     def __init__(self, config: ConfigManager):
-        self.gestionale_service = GestionaleService()
-        self.openproject_service = OpenProjectInterface()
-        self.cache_service = CacheDatabaseService()
+        self.global_config = config
+        self.gestionale_service = GestionaleService(self.global_config.gestionale_config)
+        self.openproject_service = OpenProjectInterface(self.global_config.openproject_config)
+        self.cache_service = CacheDatabaseService(self.global_config.cacheDB_config)
         self.project_mapper = ProjectMapper()
 
-        self.global_config = config
 
         self.stats = {
             'start_time': None,
@@ -88,9 +88,10 @@ class SyncService:
                     updated_cached = self.project_mapper.update_gestionale_to_cache(project, cached_project)
                     self.cache_service.update_existing_project(updated_cached)
                 else:
+                    if project.StatoCommessa != 'Chiusa': 
                     # create new project in cache database
-                    new_cached = self.project_mapper.map_gestionale_to_cache(project)
-                    self.cache_service.insert_new_project(new_cached)
+                        new_cached = self.project_mapper.map_gestionale_to_cache(project)
+                        self.cache_service.insert_new_project(new_cached)
             
             except Exception as e:
                 logger.error(f"Error during cache update for project {project.NrCommessa}: {e}")

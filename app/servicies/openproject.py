@@ -58,12 +58,8 @@ class OpenProjectInterface:
         try:
             response = GetRequest(connection=self.connection,
                                    context="/api/v3/projects/schema").execute()
-            
-            response.raise_for_status()
                 
-            if response.content:
-                return response.json()
-            return {}
+            return response
             
         except requests.exceptions.RequestException as e:
             logger.error(f"Errore durante la chiamata API: {e}")
@@ -78,11 +74,7 @@ class OpenProjectInterface:
             response = GetRequest(connection=self.connection,
                                    context="/api/v3/projects").execute()
             
-            response.raise_for_status()
-                
-            if response.content:
-                return response.json()
-            return {}
+            return response
             
         except requests.exceptions.RequestException as e:
             logger.error(f"Errore durante la chiamata API: {e}")
@@ -102,16 +94,14 @@ class OpenProjectInterface:
                                    headers={"Content-Type": "application/json"},
                                    json=payload).execute()
             
-
-            created_project = response.json()
             
             # Parse of the response to update the data
-            record.id = created_project.get('id')
-            record.created_at = created_project.get('createdAt')
-            record.updated_at = created_project.get('updatedAt')
+            record.id = response.get('id')
+            record.created_at = response.get('createdAt')
+            record.updated_at = response.get('updatedAt')
             
-            logger.info(f"Progetto creato con successo: {created_project.get('name')} (ID: {created_project.get('id')})")
-            return created_project
+            logger.info(f"Progetto creato con successo: {response.get('name')} (ID: {response.get('id')})")
+            return record
                 
         except requests.exceptions.HTTPError as e:
             logging.error(f"Errore HTTP nella creazione del progetto: {e}")
@@ -125,7 +115,7 @@ class OpenProjectInterface:
             logging.error(f"Errore generico nella creazione del progetto: {e}")
             return None
 
-    def update_project (self, record: OpenProjectProject, id: int): 
+    def update_project (self, record: OpenProjectProject, id: int) -> OpenProjectProject: 
 
         try:
 
@@ -136,11 +126,11 @@ class OpenProjectInterface:
                                    headers={"Content-Type": "application/json"},
                                    json=payload).execute()
             
+            record.updated_at = response.get('updated_at')
+            
+            logging.info(f"Progetto creato con successo: {response.get('name')} (ID: {response.get('id')})")
                 
-            updated_project = response.json()
-            logging.info(f"Progetto creato con successo: {updated_project.get('name')} (ID: {updated_project.get('id')})")
-                
-            return updated_project
+            return record
                 
         except requests.exceptions.HTTPError as e:
             logging.error(f"Errore HTTP nella creazione del progetto: {e}")

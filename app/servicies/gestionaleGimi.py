@@ -7,6 +7,7 @@ from typing import Generator, List
 from ..config.ConfigManager import DatabaseConfig
 from ..models.project import GestionaleProject, Amministratore, IndirizzoImpianto
 import sys
+from datetime import datetime
 
 
 logger = logging.getLogger(__name__)
@@ -67,8 +68,10 @@ class GestionaleService:
         """Carica la query SQL dal file"""
         try:
             with open(query_path, 'r', encoding='utf-8') as f:
-                self._query = f.read().strip()
+                query = f.read().strip()
             logging.info(f"Query SQL caricata da {query_path}")
+            return query
+
         except Exception as e:
             logging.error(f"Errore nel caricamento della query: {e}")
             sys.exit(1)
@@ -90,8 +93,8 @@ class GestionaleService:
                         project = GestionaleProject(
                             NrCommessa=str(row.NrCommessa), 
                             CodImpianto=str(row.CodImpianto),
-                            AperturaCommessa=row.AperturaCommessa,
-                            FineLavori=row.FineLavori,
+                            AperturaCommessa=self.string_to_datetime(row.AperturaCommessa),
+                            FineLavori=self.string_to_datetime(row.FineLavori),
                             StatoCommessa=str(row.StatoCommessa or ""),
                             StatoFatturazione=str(row.StatoFatturaz or ""),
                             Note=str(row.Note or ""),
@@ -100,11 +103,11 @@ class GestionaleService:
                                 Tel=str(row.Amm_tel_ufficio or ""),
                                 Cell=str(row.Amm_cellulare or ""),
                                 Mail=str(row.Amm_email or ""),
-                                Pac=str("")
+                                Pec=str("")
                             ),
                             Indirizzo=IndirizzoImpianto(
                                 NominativoImp=str(row.Imp_nominativo or ""),
-                                IndirizzoImp=str(row.Imp_Indirizzo or ""),
+                                IndirizzoImp=str(row.Imp_indirizzo or ""),
                                 LocazioneImp=str(row.Imp_locazione or ""),
                                 CapImp=str(row.Imp_cap or ""),
                                 LocalitaImp=str(row.Imp_localita or ""),
@@ -120,3 +123,12 @@ class GestionaleService:
         except pyodbc.Error as e:
             logger.error(f"Errore durante l'esecuzione della query {self.config.extract_projects_query}: {e}")
             raise Exception(f"Errore durante l'esecuzione della query {self.config.extract_projects_query}: {e}")       
+        
+
+    def string_to_datetime(self, data_str: str) -> datetime | None:
+        if not data_str or data_str.strip() == "":
+            return None
+        try:
+            return datetime.strptime(data_str, '%d/%m/%Y')
+        except (ValueError, TypeError):
+            return None

@@ -68,7 +68,7 @@ class GestionaleProject:
         return f"{self.to_string()}_{self.Indirizzo.to_string()}_{self.Ammin.to_string()}"
 
     def calculate_hash(self) -> str:
-        return hashlib.sha256(self.concatenate_data.encode()).hexdigest()
+        return hashlib.sha256(self.concatenate_data().encode()).hexdigest()
 
 
 @dataclass

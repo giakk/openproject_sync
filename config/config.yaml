@@ -5,7 +5,7 @@ databases:
   sql_server:
     host: "localhost"
     port: 1433
-    database: "TestDB"
+    database: "GimiDB"
     username: "tester"
     password: "Riccardo03"
     extract_projects_query: "/home/riccardo/syncer/app/queries/mainQuery.sql"
