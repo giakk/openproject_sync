@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS cached_projects (
     openproject_id INTEGER,
     current_hash VARCHAR(64),
     last_sync_hash VARCHAR(64),
-    sync_status CHAR(32) NOT NULL,
+    sync_status VARCHAR(32) NOT NULL,
     last_sync_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

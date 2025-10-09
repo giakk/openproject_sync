@@ -4373,3 +4373,344 @@ DETAIL:  Failing row contains (R23/144, null, 0c0599ef04cc4b2627129e5e99a6f44d4d
 2025-10-06 22:10:03,221 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
 2025-10-06 22:10:10,495 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
 2025-10-06 22:10:10,501 - INFO - func:_update_cache_from_gestionale - Updating Cache Database...
+2025-10-09 19:03:30,538 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-10-09 19:03:30,540 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-10-09 19:03:40,169 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-10-09 19:03:40,170 - INFO - func:load_custom_fields_to_cache - Cache aggiornata con 7 custom fields
+2025-10-09 19:03:45,890 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-10-09 19:03:45,892 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-10-09 19:03:53,440 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-10-09 19:03:53,447 - INFO - func:_update_cache_from_gestionale - Updating Cache Database...
+2025-10-09 19:05:05,758 - ERROR - func:get_cache_connection - Errore connessione gestionale: syntax error at or near "("
+LINE 3:         UPDATE cached_projects (
+                                       ^
+
+2025-10-09 19:05:12,290 - ERROR - func:_update_cache_from_gestionale - Error during cache update for project R23/144: Connessione gestionale fallita: syntax error at or near "("
+LINE 3:         UPDATE cached_projects (
+                                       ^
+
+2025-10-09 19:08:47,659 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-10-09 19:08:47,661 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-10-09 19:08:47,835 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-10-09 19:08:47,836 - INFO - func:load_custom_fields_to_cache - Cache aggiornata con 7 custom fields
+2025-10-09 19:08:48,236 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-10-09 19:08:48,237 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-10-09 19:08:55,908 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-10-09 19:08:55,913 - INFO - func:_update_cache_from_gestionale - Updating Cache Database...
+2025-10-09 19:09:45,435 - INFO - func:update_existing_project - Project R23/144 correctly updated in Cache
+2025-10-09 19:10:22,520 - INFO - func:update_existing_project - Project T25/100 correctly updated in Cache
+2025-10-09 19:10:22,616 - INFO - func:update_existing_project - Project T25/101 correctly updated in Cache
+2025-10-09 19:10:22,710 - INFO - func:update_existing_project - Project R25/236 correctly updated in Cache
+2025-10-09 19:10:22,806 - INFO - func:update_existing_project - Project R25/238 correctly updated in Cache
+2025-10-09 19:10:24,269 - INFO - func:update_existing_project - Project P19/115 correctly updated in Cache
+2025-10-09 19:10:26,933 - INFO - func:update_existing_project - Project N24/103 correctly updated in Cache
+2025-10-09 19:10:27,025 - INFO - func:update_existing_project - Project N24/105 correctly updated in Cache
+2025-10-09 19:10:32,922 - INFO - func:update_existing_project - Project R24/217 correctly updated in Cache
+2025-10-09 19:10:36,987 - INFO - func:update_existing_project - Project N25/100 correctly updated in Cache
+2025-10-09 19:10:38,380 - INFO - func:update_existing_project - Project N25/107 correctly updated in Cache
+2025-10-09 19:10:38,473 - INFO - func:update_existing_project - Project N25/107 correctly updated in Cache
+2025-10-09 19:10:41,751 - INFO - func:update_existing_project - Project N24/114 correctly updated in Cache
+2025-10-09 19:10:42,647 - INFO - func:update_existing_project - Project P23/111 correctly updated in Cache
+2025-10-09 19:10:49,666 - INFO - func:update_existing_project - Project P14/110 correctly updated in Cache
+2025-10-09 19:10:59,382 - INFO - func:update_existing_project - Project N24/117 correctly updated in Cache
+2025-10-09 19:10:59,458 - INFO - func:update_existing_project - Project N25/105 correctly updated in Cache
+2025-10-09 19:11:01,605 - INFO - func:update_existing_project - Project N25/102 correctly updated in Cache
+2025-10-09 19:11:01,688 - INFO - func:update_existing_project - Project N25/103 correctly updated in Cache
+2025-10-09 19:11:01,784 - INFO - func:update_existing_project - Project N25/104 correctly updated in Cache
+2025-10-09 19:11:01,867 - INFO - func:update_existing_project - Project N25/104 correctly updated in Cache
+2025-10-09 19:11:01,971 - INFO - func:update_existing_project - Project N25/104 correctly updated in Cache
+2025-10-09 19:11:03,738 - INFO - func:update_existing_project - Project R24/111 correctly updated in Cache
+2025-10-09 19:11:03,848 - INFO - func:update_existing_project - Project R25/232 correctly updated in Cache
+2025-10-09 19:11:04,077 - INFO - func:update_existing_project - Project R25/223 correctly updated in Cache
+2025-10-09 19:11:04,161 - INFO - func:update_existing_project - Project R25/224 correctly updated in Cache
+2025-10-09 19:11:06,836 - INFO - func:update_existing_project - Project R23/134 correctly updated in Cache
+2025-10-09 19:11:07,538 - INFO - func:update_existing_project - Project R24/205 correctly updated in Cache
+2025-10-09 19:11:07,802 - INFO - func:update_existing_project - Project P25/124 correctly updated in Cache
+2025-10-09 19:11:07,905 - INFO - func:update_existing_project - Project P24/124 correctly updated in Cache
+2025-10-09 19:11:09,908 - INFO - func:update_existing_project - Project N24/110 correctly updated in Cache
+2025-10-09 19:11:10,000 - INFO - func:update_existing_project - Project N24/110 correctly updated in Cache
+2025-10-09 19:11:10,088 - INFO - func:update_existing_project - Project N24/110 correctly updated in Cache
+2025-10-09 19:11:11,783 - INFO - func:update_existing_project - Project N24/109 correctly updated in Cache
+2025-10-09 19:11:13,171 - INFO - func:update_existing_project - Project R24/210 correctly updated in Cache
+2025-10-09 19:11:14,469 - INFO - func:update_existing_project - Project R25/206 correctly updated in Cache
+2025-10-09 19:11:14,578 - INFO - func:update_existing_project - Project R25/207 correctly updated in Cache
+2025-10-09 19:11:14,671 - INFO - func:update_existing_project - Project R25/204 correctly updated in Cache
+2025-10-09 19:11:14,758 - INFO - func:update_existing_project - Project R25/205 correctly updated in Cache
+2025-10-09 19:11:15,516 - INFO - func:update_existing_project - Project R24/136 correctly updated in Cache
+2025-10-09 19:11:15,820 - INFO - func:update_existing_project - Project R25/203 correctly updated in Cache
+2025-10-09 19:11:16,925 - INFO - func:update_existing_project - Project T24/102 correctly updated in Cache
+2025-10-09 19:11:17,009 - INFO - func:update_existing_project - Project T24/102 correctly updated in Cache
+2025-10-09 19:11:17,100 - INFO - func:update_existing_project - Project T24/102 correctly updated in Cache
+2025-10-09 19:11:18,558 - INFO - func:update_existing_project - Project N24/106 correctly updated in Cache
+2025-10-09 19:11:20,412 - INFO - func:update_existing_project - Project N24/115 correctly updated in Cache
+2025-10-09 19:11:21,134 - INFO - func:update_existing_project - Project P25/121 correctly updated in Cache
+2025-10-09 19:11:21,640 - INFO - func:update_existing_project - Project R25/231 correctly updated in Cache
+2025-10-09 19:11:22,555 - INFO - func:update_existing_project - Project R25/225 correctly updated in Cache
+2025-10-09 19:11:23,648 - INFO - func:update_existing_project - Project R25/235 correctly updated in Cache
+2025-10-09 19:11:24,727 - INFO - func:update_existing_project - Project P18/124 correctly updated in Cache
+2025-10-09 19:11:26,726 - INFO - func:update_existing_project - Project P25/118 correctly updated in Cache
+2025-10-09 19:11:27,141 - INFO - func:update_existing_project - Project R25/184 correctly updated in Cache
+2025-10-09 19:11:27,931 - INFO - func:update_existing_project - Project N25/111 correctly updated in Cache
+2025-10-09 19:11:28,012 - INFO - func:update_existing_project - Project R25/237 correctly updated in Cache
+2025-10-09 19:11:30,288 - INFO - func:update_existing_project - Project P23/102 correctly updated in Cache
+2025-10-09 19:11:32,034 - INFO - func:update_existing_project - Project R25/197 correctly updated in Cache
+2025-10-09 19:11:32,120 - INFO - func:update_existing_project - Project R25/196 correctly updated in Cache
+2025-10-09 19:11:34,627 - INFO - func:update_existing_project - Project N23/111 correctly updated in Cache
+2025-10-09 19:11:34,757 - INFO - func:update_existing_project - Project R25/228 correctly updated in Cache
+2025-10-09 19:11:34,841 - INFO - func:update_existing_project - Project N24/101 correctly updated in Cache
+2025-10-09 19:11:36,776 - INFO - func:update_existing_project - Project N24/120 correctly updated in Cache
+2025-10-09 19:11:36,967 - INFO - func:update_existing_project - Project N24/121 correctly updated in Cache
+2025-10-09 19:11:37,606 - INFO - func:update_existing_project - Project N24/118 correctly updated in Cache
+2025-10-09 19:11:37,701 - INFO - func:update_existing_project - Project N24/118 correctly updated in Cache
+2025-10-09 19:11:37,798 - INFO - func:update_existing_project - Project N24/118 correctly updated in Cache
+2025-10-09 19:11:37,897 - INFO - func:update_existing_project - Project N24/119 correctly updated in Cache
+2025-10-09 19:11:38,012 - INFO - func:update_existing_project - Project N24/119 correctly updated in Cache
+2025-10-09 19:11:38,092 - INFO - func:update_existing_project - Project N24/119 correctly updated in Cache
+2025-10-09 19:11:38,187 - INFO - func:update_existing_project - Project N24/119 correctly updated in Cache
+2025-10-09 19:11:38,360 - INFO - func:update_existing_project - Project N25/106 correctly updated in Cache
+2025-10-09 19:11:38,609 - INFO - func:update_existing_project - Project N25/108 correctly updated in Cache
+2025-10-09 19:11:38,762 - INFO - func:update_existing_project - Project N25/109 correctly updated in Cache
+2025-10-09 19:11:39,174 - INFO - func:update_existing_project - Project R25/189 correctly updated in Cache
+2025-10-09 19:11:39,948 - INFO - func:update_existing_project - Project N25/110 correctly updated in Cache
+2025-10-09 19:11:40,124 - INFO - func:update_existing_project - Project R25/226 correctly updated in Cache
+2025-10-09 19:11:40,226 - INFO - func:update_existing_project - Project R25/226 correctly updated in Cache
+2025-10-09 21:17:47,410 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-10-09 21:17:47,411 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-10-09 21:17:47,801 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-10-09 21:17:47,803 - INFO - func:load_custom_fields_to_cache - Cache aggiornata con 7 custom fields
+2025-10-09 21:17:53,844 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-10-09 21:17:53,845 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-10-09 21:18:01,427 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-10-09 21:18:14,362 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-10-09 21:20:35,059 - INFO - func:_extract_cache_data - Extracted 64 projects from cache
+2025-10-09 21:20:55,665 - INFO - func:_identify_sync_operation - Analizing the necessary sync operations
+2025-10-09 21:23:03,268 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR12/118: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,269 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR12/120: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,269 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR12/122: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,270 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR12/161: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,271 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR12/162: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,273 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR13/122: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,274 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectN13/104: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,275 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectN13/105: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,275 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectN13/106: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,276 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectN13/107: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,276 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR13/140: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,278 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT13/100: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,280 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR13/145: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,281 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR13/160: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,282 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT13/101: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,284 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT13/102: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,285 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR13/192: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,286 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT14/100: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,286 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT14/101: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,288 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT14/102: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,290 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT14/103: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,291 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR14/160: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,293 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT14/104: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,294 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT14/105: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,295 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT14/106: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,296 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT14/107: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,298 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT14/108: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,298 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR14/211: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,299 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR14/212: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,300 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR14/213: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,303 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR14/214: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,303 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR14/215: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,305 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR14/216: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,306 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR14/217: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,307 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT14/109: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,309 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT14/110: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,310 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR14/227: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,310 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR14/228: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,311 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT15/100: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,312 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR15/143: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,313 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT15/101: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,314 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT15/102: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,315 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT15/103: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,315 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectP15/108: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,316 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT15/104: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,318 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT16/100: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,319 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT16/101: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,320 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT16/102: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,323 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT16/103: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,323 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT16/104: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,324 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT16/105: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,324 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR16/113: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,325 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR16/116: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,326 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT16/106: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,328 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR16/121: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,329 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT16/107: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,331 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT16/108: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,333 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR16/132: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,334 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT16/109: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,335 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT16/110: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,336 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR16/140: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,337 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR16/144: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,337 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT16/111: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,338 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR16/153: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,338 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR16/154: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,339 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT16/112: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,340 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT16/113: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,341 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR16/174: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,342 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT16/114: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,343 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT17/100: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,344 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT17/101: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,345 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT17/102: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,345 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT17/103: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,346 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT17/104: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,346 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT17/105: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,347 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectN17/103: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,348 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR17/123: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,348 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR17/137: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,348 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectP17/122: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,350 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT17/106: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,351 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT17/107: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,352 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT17/108: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,353 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT17/111: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,354 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT18/100: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,356 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT18/101: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,357 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT18/102: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,357 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectN19/100: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,358 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectN18/107: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,358 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT18/103: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,359 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT18/104: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,359 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT18/105: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,360 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT19/111: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,361 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT18/106: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,362 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT18/108: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,363 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectP18/129: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,364 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT19/101: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,364 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectN19/102: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,365 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT19/100: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,366 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT19/102: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,367 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT19/103: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,368 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT19/104: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,368 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT19/105: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,369 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectN19/111: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,369 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR19/125: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,370 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT19/106: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,371 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT19/107: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,372 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectN19/114: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,375 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT19/109: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,376 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT19/1: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,376 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT19/110: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,376 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT19/112: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,377 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectP19/135: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,378 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT19/113: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,379 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT19/114: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,379 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectP19/147: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,380 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT20/100: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,380 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectN22/103: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,380 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR20/110: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,381 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT20/101: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,382 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT20/102: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,382 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT20/103: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,383 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT20/104: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,384 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT20/105: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,385 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectP20/126: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,386 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR20/133: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,387 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT20/106: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,388 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT20/107: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,389 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT20/108: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,390 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectP20/143: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,391 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT21/100: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,392 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT21/101: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,393 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR21/119: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,394 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR21/131: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,395 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectP21/115: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,395 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT21/102: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,397 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR21/130: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,398 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR21/123: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,399 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR21/143: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,400 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR21/141: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,400 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT21/103: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,401 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR21/145: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,402 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT21/104: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,403 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectP22/101: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,403 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT22/100: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,404 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT22/101: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,405 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT22/102: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,406 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT22/103: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,406 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectN22/111: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,407 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT22/104: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,408 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT22/105: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,409 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT22/106: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,410 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT22/107: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,410 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT22/108: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,411 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectP22/124: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,411 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT22/109: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,412 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT22/110: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,413 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT22/111: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,413 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT22/112: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,414 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT22/113: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,415 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT22/114: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,415 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT22/115: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,416 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT22/116: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,417 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT23/100: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,417 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT23/102: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,418 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT23/103: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,419 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT23/104: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,419 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT23/105: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,420 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT23/106: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,420 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT23/108: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,421 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT23/109: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,422 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT23/110: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:03,423 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT23/111: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:23:45,193 - ERROR - func:map_gestionale_to_openproject - Errore durante il mapping Gimi -> Openproject per commessa R23/144: 'NoneType' object has no attribute 'isoformat'
+2025-10-09 21:23:49,198 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectR23/144: 'NoneType' object has no attribute 'isoformat'
+2025-10-09 21:24:04,150 - ERROR - func:_identify_sync_operation - Error during creation of operation for projectT24/100: 'NoneType' object has no attribute 'openproject_id'
+2025-10-09 21:50:09,059 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-10-09 21:50:09,060 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-10-09 21:50:09,442 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-10-09 21:50:09,444 - INFO - func:load_custom_fields_to_cache - Cache aggiornata con 7 custom fields
+2025-10-09 21:50:10,058 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-10-09 21:50:10,061 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-10-09 21:50:18,336 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-10-09 21:50:26,061 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-10-09 21:50:26,110 - INFO - func:_extract_cache_data - Extracted 0 projects from cache
+2025-10-09 21:50:30,367 - INFO - func:_identify_sync_operation - Analizing the necessary sync operations
+2025-10-09 21:51:55,339 - ERROR - func:map_gestionale_to_openproject - Errore durante il mapping Gimi -> Openproject per commessa R23/144: 'NoneType' object has no attribute 'isoformat'
+2025-10-09 21:52:04,198 - ERROR - func:_identify_sync_operation - Error while handling project R23/144: 'NoneType' object has no attribute 'isoformat'
+2025-10-09 21:52:54,946 - ERROR - func:map_gestionale_to_openproject - Errore durante il mapping Gimi -> Openproject per commessa T25/100: 'NoneType' object has no attribute 'isoformat'
+2025-10-09 21:52:54,950 - ERROR - func:_identify_sync_operation - Error while handling project T25/100: 'NoneType' object has no attribute 'isoformat'
+2025-10-09 22:05:08,040 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-10-09 22:05:08,042 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-10-09 22:05:08,191 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-10-09 22:05:08,193 - INFO - func:load_custom_fields_to_cache - Cache aggiornata con 7 custom fields
+2025-10-09 22:05:08,595 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-10-09 22:05:08,598 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-10-09 22:05:17,158 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-10-09 22:05:22,450 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-10-09 22:05:22,498 - INFO - func:_extract_cache_data - Extracted 0 projects from cache
+2025-10-09 22:05:27,159 - INFO - func:_identify_sync_operation - Analizing the necessary sync operations
+2025-10-09 22:08:50,565 - INFO - func:_identify_sync_operation - Cache correctly updated
+2025-10-09 22:09:46,051 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-10-09 22:09:46,053 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-10-09 22:09:46,206 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-10-09 22:09:46,207 - INFO - func:load_custom_fields_to_cache - Cache aggiornata con 7 custom fields
+2025-10-09 22:09:46,588 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-10-09 22:09:46,590 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-10-09 22:09:54,379 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-10-09 22:10:00,466 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-10-09 22:10:00,519 - INFO - func:_extract_cache_data - Extracted 0 projects from cache
+2025-10-09 22:10:00,520 - INFO - func:_identify_sync_operation - Analizing the necessary sync operations
+2025-10-09 22:10:17,072 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-10-09 22:10:17,073 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-10-09 22:10:17,517 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-10-09 22:10:17,520 - INFO - func:load_custom_fields_to_cache - Cache aggiornata con 7 custom fields
+2025-10-09 22:10:17,951 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-10-09 22:10:17,951 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-10-09 22:10:25,252 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-10-09 22:10:25,259 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-10-09 22:10:25,299 - INFO - func:_extract_cache_data - Extracted 0 projects from cache
+2025-10-09 22:10:25,299 - INFO - func:_identify_sync_operation - Analizing the necessary sync operations
+2025-10-09 22:11:14,432 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-10-09 22:11:14,433 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-10-09 22:11:14,583 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-10-09 22:11:14,585 - INFO - func:load_custom_fields_to_cache - Cache aggiornata con 7 custom fields
+2025-10-09 22:11:14,953 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-10-09 22:11:14,955 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-10-09 22:11:23,127 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-10-09 22:11:23,136 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-10-09 22:11:23,179 - INFO - func:_extract_cache_data - Extracted 0 projects from cache
+2025-10-09 22:11:23,181 - INFO - func:_identify_sync_operation - Analizing the necessary sync operations

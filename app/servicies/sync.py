@@ -22,6 +22,7 @@ class SyncService:
         self.cache_service = CacheDatabaseService(self.global_config.cacheDB_config)
         self.project_mapper = ProjectMapper()
 
+        self.cached_projects = [CachedProject]
 
         self.stats = {
             'start_time': None,
@@ -47,8 +48,15 @@ class SyncService:
         gestionale_project = self.gestionale_service.extract_Gimi_projects_entries()
         self.stats['total_projects'] = len(gestionale_project)
 
-        # 3. Update Cache Databare with data just retrived from Gimi Database
-        self._update_cache_from_gestionale(gestionale_project)
+        # 3. Extract all data from Cache DB
+        self._extract_cache_data()
+
+        # 4. Analyse each of the project extracted from Gimi
+        sync_operations = self._identify_sync_operation(gestionale_project)
+
+        # 5. Execute operations
+
+
 
 
 
@@ -74,28 +82,79 @@ class SyncService:
         logger.debug("All connection OK")
 
 
-    def _update_cache_from_gestionale(self, projects_list: List[GestionaleProject]):
 
-        logger.info("Updating Cache Database...")
+    def _extract_cache_data(self):
+
+        logger.info("Extracting data from Cache database...")
+
+        self.cached_projects = self.cache_service.get_projects_in_cache()
+
+        logger.info(f"Extracted {len(self.cached_projects)} projects from cache")
+
+
+
+    def _identify_sync_operation(self, projects_list: List[GestionaleProject]):
+        
+        logger.info("Analizing the necessary sync operations")
+
+        operations = [ProjectSyncOperation]
+
 
         for project in projects_list:
+
             try:
 
-                cached_project = self.cache_service.get_project_by_gestionale_id(project.NrCommessa)
+                # Search for the project into the cache
+                cached_project = next((gimi_project for gimi_project in self.cached_projects
+                                       if gimi_project.gestionale_id == project.NrCommessa), None)
 
                 if cached_project:
-                    # project exist, will be updated
-                    updated_cached = self.project_mapper.update_gestionale_to_cache(project, cached_project)
-                    self.cache_service.update_existing_project(updated_cached)
+                    # project exist. If needed, will be updated
+                    if self.project_mapper.update_gestionale_to_cache(project, cached_project):
+
+                        openproject_project = self.project_mapper.map_gestionale_to_openproject(project)
+
+                        operation = ProjectSyncOperation(
+                            operation_type="update",
+                            gestionale_project=project,
+                            openproject_project=openproject_project,
+                            cached_projec=cached_project
+                        )
+
+                        operations.append(operation)
+
                 else:
+                    # project not existing
+
                     if project.StatoCommessa != 'Chiusa': 
                     # create new project in cache database
-                        new_cached = self.project_mapper.map_gestionale_to_cache(project)
-                        self.cache_service.insert_new_project(new_cached)
-            
+                    
+                        new_cache_project = self.project_mapper.map_gestionale_to_cache(project)
+
+                        self.cached_projects.append(new_cache_project)
+
+                        openproject_project = self.project_mapper.map_gestionale_to_openproject(project)
+
+                        operation = ProjectSyncOperation(
+                            operation_type="create",
+                            gestionale_project=project,
+                            openproject_project=openproject_project,
+                            cached_projec=new_cache_project
+                        )
+
+                        operations.append(operation)
+
             except Exception as e:
-                logger.error(f"Error during cache update for project {project.NrCommessa}: {e}")
+                logger.error(f"Error while handling project {project.NrCommessa}: {e}")
                 continue
+
+        logger.info("Cache correctly updated")
+
+
+                
+
+
+
 
         
 

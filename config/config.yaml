@@ -1,6 +1,8 @@
 # OpenProject Database Synchronization - Configurazione Ubuntu
 # Ottimizzato per installazione diretta su Ubuntu 22 con OpenProject
 
+# All tbe information 
+
 databases:
   sql_server:
     host: "localhost"

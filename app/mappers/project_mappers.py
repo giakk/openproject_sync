@@ -24,8 +24,8 @@ class ProjectMapper:
             openproject_project = OpenProjectProject(
                 name=gestionale_project.NrCommessa,
                 codImpianto=gestionale_project.CodImpianto,
-                apertura=gestionale_project.AperturaCommessa.isoformat(),
-                fineLavori=gestionale_project.FineLavori.isoformat(),
+                apertura=gestionale_project.get_AperturaCommessa_as_str(),
+                fineLavori=gestionale_project.get_FineLavori_as_str(),
                 indirizzo=gestionale_project.Indirizzo.format(),
                 amministratore=gestionale_project.Ammin.format(),
                 fatturazione=gestionale_project.StatoFatturazione,
@@ -81,12 +81,14 @@ class ProjectMapper:
             raise
 
     
-    def update_gestionale_to_cache(self, gestionale_project: GestionaleProject, cached_project: CachedProject) -> CachedProject:
+    def update_gestionale_to_cache(self, gestionale_project: GestionaleProject, cached_project: CachedProject) -> bool:
 
         """
         Map the data from Gimi database to an entry of the cache (intermedate) database
 
         """
+
+        need_operation = False
 
         try:
 
@@ -96,10 +98,12 @@ class ProjectMapper:
                 cached_project.current_hash = new_hash
                 cached_project.sync_status = "pending" if cached_project.sync_status != "error" else "error"
                 cached_project.updated_at = datetime.now()
+                need_operation = True
 
 
             logger.debug(f"Correctly updated project {gestionale_project.NrCommessa} Gimi -> Cache")
-            return cached_project
+
+            return need_operation
 
 
         except Exception as e:

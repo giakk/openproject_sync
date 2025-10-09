@@ -70,6 +70,15 @@ class GestionaleProject:
     def calculate_hash(self) -> str:
         return hashlib.sha256(self.concatenate_data().encode()).hexdigest()
 
+    def get_AperturaCommessa_as_str(self):
+        if self.AperturaCommessa is None:
+            return ""
+        return self.AperturaCommessa.isoformat()
+
+    def get_FineLavori_as_str(self):
+        if self.FineLavori is None:
+            return ""
+        return self.FineLavori.isoformat()
 
 @dataclass
 class OpenProjectProject:

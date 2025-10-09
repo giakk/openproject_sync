@@ -94,6 +94,33 @@ class CacheDatabaseService:
             raise Exception(f"Error during the creation of project {project.gestionale_id}: {e}")
         
 
+    def get_projects_in_cache(self) -> List[CachedProject]:
+
+        query = """
+        SELECT *
+        FROM cached_projects
+        """
+        
+        projects = []
+    
+        try: 
+            with self.get_cache_connection() as conn:
+                with conn.cursor(cursor_factory=RealDictCursor) as cursor:
+                    cursor.execute(query)
+                    rows = cursor.fetchall()
+
+                    for row in rows:
+
+                        projects.append(self._row_to_cached_project(row))
+
+                    return projects
+                
+
+        except psycopg2.Error as e:
+            logger.error(f"Error during data recover of all projecta: {e}")
+            raise Exception(f"Error during data recover of all projects: {e}")
+        
+
     def update_existing_project(self, project: CachedProject) -> CachedProject:
 
         """
@@ -103,16 +130,14 @@ class CacheDatabaseService:
 
         query = """
 
-        UPDATE cached_projects (
-
+        UPDATE cached_projects SET
             openproject_id = %s,
             current_hash = %s,
             last_sync_hash = %s,
             last_sync_at = %s,
             sync_status = %s,
             updated_at = %s
-        
-        ) WHERE gestionale_id = %s
+        WHERE gestionale_id = %s
 
         """
 
