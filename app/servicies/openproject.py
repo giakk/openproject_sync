@@ -82,12 +82,34 @@ class OpenProjectInterface:
         except json.JSONDecodeError as e:
             logger.error(f"Errore nel parsing del JSON: {e}")
             return None
+        
+
+    def find_project(self, identifier):
+
+        projects_data = self.get_list_of_projects()
+
+        # Verifica che i dati siano validi
+        if not projects_data or '_embedded' not in projects_data:   # TODO: manage exception for invalid data
+            return None
+        
+        elements = projects_data['_embedded'].get('elements', [])
+        
+        # Ricerca diretta, si ferma al primo match
+        search_result = next((project for project in elements 
+                    if project.get('identifier') == identifier), None)
+
+        # Return OpenProject ID if found any 
+        if search_result is None:
+            return None
+    
+        return search_result.get('id') 
+    
 
     def create_project(self, record: OpenProjectProject) -> OpenProjectProject:
         
         try:
 
-            payload = record.to_api_payload()
+            payload = record.to_api_payload(is_for_update=False)
 
             response = PostRequest(connection=self.connection,
                                    context="/api/v3/projects",

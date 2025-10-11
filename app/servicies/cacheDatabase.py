@@ -202,3 +202,4 @@ class CacheDatabaseService:
             updated_at=row['updated_at'],
             sync_status=row['sync_status']
         )
+    

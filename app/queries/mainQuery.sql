@@ -1,4 +1,5 @@
-Select iif(Pre_sigla_commessa<>'', concat(Pre_sigla_commessa,'/', Pre_numero_commessa), convert(nvarchar, Pre_numero_commessa)) as NrCommessa,	
+Select Pre_id as GimiID,
+	iif(Pre_sigla_commessa<>'', concat(Pre_sigla_commessa,'/', Pre_numero_commessa), convert(nvarchar, Pre_numero_commessa)) as NrCommessa,	
 	format(Pre_data_commessa, 'dd/MM/yyyy') as AperturaCommessa, 
 	coalesce(PreI_impianto,'') as CodImpianto, 
 	coalesce(Imp_nominativo,'') as Imp_nominativo,	concat(Imp_pref_via,' ',Imp_via) As Imp_indirizzo, coalesce(Imp_locazione,'') as Imp_locazione,

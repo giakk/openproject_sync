@@ -91,6 +91,7 @@ class GestionaleService:
 
                     for row in rows:
                         project = GestionaleProject(
+                            GimiID=str(row.GimiID),
                             NrCommessa=str(row.NrCommessa), 
                             CodImpianto=str(row.CodImpianto),
                             AperturaCommessa=self.string_to_datetime(row.AperturaCommessa),

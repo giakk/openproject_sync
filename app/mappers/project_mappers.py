@@ -23,6 +23,7 @@ class ProjectMapper:
 
             openproject_project = OpenProjectProject(
                 name=gestionale_project.NrCommessa,
+                identifier=gestionale_project.get_id(),
                 codImpianto=gestionale_project.CodImpianto,
                 apertura=gestionale_project.get_AperturaCommessa_as_str(),
                 fineLavori=gestionale_project.get_FineLavori_as_str(),
@@ -62,7 +63,7 @@ class ProjectMapper:
         try:
 
             cached_project = CachedProject(
-                gestionale_id=gestionale_project.NrCommessa,
+                gestionale_id=gestionale_project.get_id(),
                 current_hash=gestionale_project.calculate_hash(),
                 sync_status="pending",
                 # sync_attempts=0,
@@ -110,3 +111,34 @@ class ProjectMapper:
             logger.error(f"Errore durante l'aggiornamento Gimi -> Cache per commessa {gestionale_project.NrCommessa}: {e}")
             raise
 
+    
+    def mark_sync_success(self, cached_project: CachedProject, op_project: OpenProjectProject):
+
+        try:
+
+            cached_project.openproject_id = op_project.id
+            cached_project.last_sync_hash = cached_project.current_hash
+            cached_project.updated_at = datetime.now()
+            cached_project.last_sync_at = op_project.updated_at
+            cached_project.sync_status = "synced"
+
+            logger.debug(f"Sync success for project op_id: {op_project.id}")
+
+        except Exception as e:
+
+            logger.error(f"Error during cache update for project {op_project.id}: {e}")
+            raise
+    
+    def mark_sync_failed(self, cached_project: CachedProject):
+
+        try:
+
+            cached_project.updated_at = datetime.now()
+            cached_project.sync_status = "error"
+
+            logger.debug(f"Sync success for project op_id: {cached_project.gestionale_id}")
+
+        except Exception as e:
+
+            logger.error(f"Error during cache update for project {cached_project.gestionale_id}: {e}")
+            raise

@@ -46,6 +46,7 @@ class Amministratore:
 @dataclass
 class GestionaleProject:
 
+    GimiID: str
     NrCommessa: str
     CodImpianto: str
     AperturaCommessa: datetime
@@ -55,6 +56,9 @@ class GestionaleProject:
     Note: str
     Ammin: Amministratore
     Indirizzo: IndirizzoImpianto
+
+    def get_id(self) -> str:
+        return f"{self.GimiID}-{self.CodImpianto}"
     
     def to_string(self) -> str:
         """Concatena tutte le variabili della classe come stringa per l'hash"""
@@ -84,6 +88,7 @@ class GestionaleProject:
 class OpenProjectProject:
 
     id: int = None
+    identifier: str = None
     name: str = ""
     active: bool = True
     public: bool = True
@@ -99,18 +104,32 @@ class OpenProjectProject:
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
 
-    def get_identifier(self) -> str:
-        return self.name.lower().replace('/', '-')
 
+    def to_api_payload(self, is_for_update: bool) -> Dict[str, Any]:
 
-    def to_api_payload(self) -> Dict[str, Any]:
+        status_value = self.stato.value if isinstance(self.stato, OpenProjectStatus) else self.stato
+
+        if is_for_update == True:
+
+            return {
+                'status': status_value,
+                'active': self.active,
+                self.custom_fields_cache['Numero Impianto']: self.codImpianto,
+                self.custom_fields_cache['Indirizzo Impianto']: self.indirizzo,
+                self.custom_fields_cache['Apertura Commessa']: self.apertura,
+                self.custom_fields_cache['Fine Lavori']: self.fineLavori,
+                self.custom_fields_cache['Note']: self.note,
+                self.custom_fields_cache['Stato Fatturazione']: self.fatturazione,
+                self.custom_fields_cache['Administrator']: self.amministratore
+            }
+        
 
         return {
-            'identifier': self.get_identifier(),
+            'identifier': self.identifier,
             'name': self.name,
             'description': f"Progetto per commessa {self.name}",
             'public': bool(True),
-            'status': self.stato,
+            'status': status_value,
             'active': self.active,
             self.custom_fields_cache['Numero Impianto']: self.codImpianto,
             self.custom_fields_cache['Indirizzo Impianto']: self.indirizzo,
@@ -118,21 +137,7 @@ class OpenProjectProject:
             self.custom_fields_cache['Fine Lavori']: self.fineLavori,
             self.custom_fields_cache['Note']: self.note,
             self.custom_fields_cache['Stato Fatturazione']: self.fatturazione,
-            self.custom_fields_cache['Amministratore']: self.amministratore
-        }
-    
-    def to_api_payload(self, is_for_update: bool) -> Dict[str, Any]:
-
-        return {
-            'status': self.stato,
-            'active': self.active,
-            self.custom_fields_cache['Numero Impianto']: self.codImpianto,
-            self.custom_fields_cache['Indirizzo Impianto']: self.indirizzo,
-            self.custom_fields_cache['Apertura Commessa']: self.apertura,
-            self.custom_fields_cache['Fine Lavori']: self.fineLavori,
-            self.custom_fields_cache['Note']: self.note,
-            self.custom_fields_cache['Stato Fatturazione']: self.fatturazione,
-            self.custom_fields_cache['Amministratore']: self.amministratore
+            self.custom_fields_cache['Administrator']: self.amministratore
         }
 
 
@@ -170,7 +175,7 @@ class ProjectSyncOperation:
     operation_type: str  # create, update, delete
     gestionale_project: GestionaleProject
     openproject_project: OpenProjectProject
-    cached_projec: CachedProject
+    cached_project: CachedProject
     validation_errors: list = field(default_factory=list)
     
     def is_valid(self) -> bool:
