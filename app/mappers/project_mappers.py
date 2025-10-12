@@ -118,8 +118,8 @@ class ProjectMapper:
 
             cached_project.openproject_id = op_project.id
             cached_project.last_sync_hash = cached_project.current_hash
-            cached_project.updated_at = datetime.now()
-            cached_project.last_sync_at = op_project.updated_at
+            cached_project.updated_at = op_project.updated_at
+            cached_project.last_sync_at = datetime.now()
             cached_project.sync_status = "synced"
 
             logger.debug(f"Sync success for project op_id: {op_project.id}")

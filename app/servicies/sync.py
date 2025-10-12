@@ -57,6 +57,9 @@ class SyncService:
         # 5. Execute operations
         self._execute_sync_operations(sync_operations)
 
+        #6. Update cached project in db
+        self.cache_service.update_cache_db(self.cached_projects)
+
 
 
 

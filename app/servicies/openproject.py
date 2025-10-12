@@ -148,7 +148,10 @@ class OpenProjectInterface:
                                    headers={"Content-Type": "application/json"},
                                    json=payload).execute()
             
-            record.updated_at = response.get('updated_at')
+            record.updated_at = response.get('updatedAt')
+            
+            if record.id is None:
+                record.id = response.get('id')
             
             logging.info(f"Progetto creato con successo: {response.get('name')} (ID: {response.get('id')})")
                 

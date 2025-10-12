@@ -190,6 +190,66 @@ class CacheDatabaseService:
             raise Exception(f"Error during data recover of project {gestionale_id}: {e}")
         
 
+    def update_cache_db(self, projects: List[CachedProject]):
+
+        """
+        Inserisce o aggiorna tutti i progetti nel database con una singola operazione bulk.
+        Usa ON CONFLICT per gestire gli upsert in modo efficiente.
+        """
+        if not projects:
+            return
+        
+        # Prepara i dati da inserire
+        values = [
+            (
+                p.gestionale_id,
+                p.openproject_id,
+                p.current_hash,
+                p.last_sync_hash,
+                p.last_sync_at,
+                p.sync_status,
+                p.created_at,
+                p.updated_at
+            )
+            for p in projects
+        ]
+        
+        # Query con ON CONFLICT per upsert
+        query = """
+            INSERT INTO cached_projects (
+                gestionale_id,
+                openproject_id,
+                current_hash,
+                last_sync_hash,
+                last_sync_at,
+                sync_status,
+                created_at,
+                updated_at
+            ) VALUES %s
+            ON CONFLICT (gestionale_id) 
+            DO UPDATE SET
+                openproject_id = EXCLUDED.openproject_id,
+                current_hash = EXCLUDED.current_hash,
+                last_sync_hash = EXCLUDED.last_sync_hash,
+                last_sync_at = EXCLUDED.last_sync_at,
+                sync_status = EXCLUDED.sync_status,
+                updated_at = EXCLUDED.updated_at
+        """
+        
+        try: 
+            with self.get_cache_connection() as conn:
+                with conn.cursor() as cursor:
+                    cursor.execute(query, values)
+                    
+                    conn.commit()
+                    
+                    logger.info(f"✓ Updated {len(projects)} project in cache db")
+        
+        except psycopg2.Error as e:
+            print(f"✗ Error during cache update: {e}")
+            raise
+
+
     def _row_to_cached_project(self, row) -> CachedProject:
 
         return CachedProject(
