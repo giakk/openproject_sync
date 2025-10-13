@@ -1,12 +1,9 @@
 #!/usr/bin/env python3
 
-import pyodbc
 import logging
-from contextlib import contextmanager
-from typing import Generator, List
 from ..config.ConfigManager import OpenProjectConfig
-from ..models.project import Amministratore, IndirizzoImpianto, OpenProjectProject
-import sys
+from ..models.project import OpenProjectProject
+
 
 from ..api_connection.requests.post_request import PostRequest
 from ..api_connection.requests.get_request import GetRequest
@@ -16,7 +13,9 @@ from datetime import datetime, timedelta
 import requests
 import json
 import logging
-from typing import Dict, List, Optional, Any
+from typing import Dict
+import urllib.parse
+
 
 
 logger = logging.getLogger(__name__)
@@ -68,13 +67,36 @@ class OpenProjectInterface:
             logger.error(f"Errore nel parsing del JSON: {e}")
             return None
         
-    def get_list_of_projects(self):
+    def find_project(self, identifier: str):
 
         try:
-            response = GetRequest(connection=self.connection,
-                                   context="/api/v3/projects").execute()
+
+            filter_structure = [
+                {
+                    "name_and_identifier": {
+                        "operator": "=",
+                        "values": [identifier]
+                    }
+                }
+            ]
+
+            # Converti in JSON string
+            filter_json = json.dumps(filter_structure)
             
-            return response
+            # URL encode
+            filter_encoded = urllib.parse.quote(filter_json)
+
+            full_url = f"/api/v3/projects?filters={filter_encoded}"
+
+            response = GetRequest(connection=self.connection,
+                                context=full_url).execute()
+            
+            if response.get('total') == 0 and response.get('count') == 0:
+                return None
+                
+            element = response['_embedded'].get('elements')
+
+            return element[0].get('id')
             
         except requests.exceptions.RequestException as e:
             logger.error(f"Errore durante la chiamata API: {e}")
@@ -84,25 +106,25 @@ class OpenProjectInterface:
             return None
         
 
-    def find_project(self, identifier):
+    # def find_project(self, identifier):
 
-        projects_data = self.get_list_of_projects()
+    #     search_result = self.get_list_of_projects(identifier)
 
-        # Verifica che i dati siano validi
-        if not projects_data or '_embedded' not in projects_data:   # TODO: manage exception for invalid data
-            return None
+    #     # Verifica che i dati siano validi
+    #     # if not projects_data or '_embedded' not in projects_data:   # TODO: manage exception for invalid data
+    #     #     return None
         
-        elements = projects_data['_embedded'].get('elements', [])
+    #     # elements = projects_data['_embedded'].get('elements', [])
         
-        # Ricerca diretta, si ferma al primo match
-        search_result = next((project for project in elements 
-                    if project.get('identifier') == identifier), None)
+    #     # # Ricerca diretta, si ferma al primo match
+    #     # search_result = next((project for project in elements 
+    #     #             if project.get('identifier') == identifier), None)
 
-        # Return OpenProject ID if found any 
-        if search_result is None:
-            return None
+    #     # Return OpenProject ID if found any 
+    #     if search_result is None:
+    #         return None
     
-        return search_result.get('id') 
+    #     return search_result.get('id') 
     
 
     def create_project(self, record: OpenProjectProject) -> OpenProjectProject:

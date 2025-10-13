@@ -252,3 +252,417 @@
 2025-10-12 13:04:16,189 - INFO - func:_execute_sync_operations - Executing 77 operations....
 2025-10-12 13:04:22,636 - INFO - func:_execute_create_operations - Creation of 77 projects...
 2025-10-12 13:04:52,494 - INFO - func:update_project - Progetto creato con successo: R23/144 (ID: 31)
+2025-10-13 18:58:41,118 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-10-13 18:58:41,119 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-10-13 18:58:41,296 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-10-13 18:58:41,297 - INFO - func:load_custom_fields_to_cache - Cache aggiornata con 7 custom fields
+2025-10-13 18:58:46,196 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-10-13 18:58:46,197 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-10-13 18:58:54,016 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-10-13 18:58:54,026 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-10-13 18:58:54,077 - INFO - func:_extract_cache_data - Extracted 0 projects from cache
+2025-10-13 18:58:54,078 - INFO - func:_identify_sync_operation - Analizing the necessary sync operations
+2025-10-13 18:58:54,164 - INFO - func:_identify_sync_operation - Cache correctly updated
+2025-10-13 18:58:57,933 - INFO - func:_execute_sync_operations - Executing 77 operations....
+2025-10-13 18:58:57,936 - INFO - func:_execute_create_operations - Creation of 77 projects...
+2025-10-13 18:58:59,545 - INFO - func:update_project - Progetto creato con successo: R23/144 (ID: 31)
+2025-10-13 19:04:51,483 - INFO - func:create_project - Progetto creato con successo: T25/100 (ID: 32)
+2025-10-13 19:06:47,465 - INFO - func:create_project - Progetto creato con successo: T25/101 (ID: 33)
+2025-10-13 19:18:10,421 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-10-13 19:18:10,423 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-10-13 19:18:10,540 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-10-13 19:18:10,541 - INFO - func:load_custom_fields_to_cache - Cache aggiornata con 7 custom fields
+2025-10-13 19:18:11,031 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-10-13 19:18:11,032 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-10-13 19:18:19,002 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-10-13 19:18:19,010 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-10-13 19:18:19,068 - INFO - func:_extract_cache_data - Extracted 0 projects from cache
+2025-10-13 19:18:19,069 - INFO - func:_identify_sync_operation - Analizing the necessary sync operations
+2025-10-13 19:18:19,137 - INFO - func:_identify_sync_operation - Cache correctly updated
+2025-10-13 19:18:24,945 - INFO - func:_execute_sync_operations - Executing 77 operations....
+2025-10-13 19:18:24,948 - INFO - func:_execute_create_operations - Creation of 77 projects...
+2025-10-13 19:18:25,772 - INFO - func:update_project - Progetto creato con successo: R23/144 (ID: 31)
+2025-10-13 19:18:26,512 - INFO - func:update_project - Progetto creato con successo: T25/100 (ID: 32)
+2025-10-13 19:18:27,466 - INFO - func:update_project - Progetto creato con successo: T25/101 (ID: 33)
+2025-10-13 19:18:29,300 - INFO - func:create_project - Progetto creato con successo: R25/236 (ID: 34)
+2025-10-13 19:18:30,957 - INFO - func:create_project - Progetto creato con successo: R25/238 (ID: 35)
+2025-10-13 19:18:32,703 - INFO - func:create_project - Progetto creato con successo: P19/115 (ID: 36)
+2025-10-13 19:18:34,405 - INFO - func:create_project - Progetto creato con successo: N24/103 (ID: 37)
+2025-10-13 19:18:36,298 - INFO - func:create_project - Progetto creato con successo: N24/105 (ID: 38)
+2025-10-13 19:18:38,063 - INFO - func:create_project - Progetto creato con successo: R24/217 (ID: 39)
+2025-10-13 19:18:39,814 - INFO - func:create_project - Progetto creato con successo: N25/100 (ID: 40)
+2025-10-13 19:18:41,563 - INFO - func:create_project - Progetto creato con successo: N25/107 (ID: 41)
+2025-10-13 19:18:43,326 - INFO - func:create_project - Progetto creato con successo: N25/107 (ID: 42)
+2025-10-13 19:18:45,062 - INFO - func:create_project - Progetto creato con successo: N24/114 (ID: 43)
+2025-10-13 19:18:46,870 - INFO - func:create_project - Progetto creato con successo: P23/111 (ID: 44)
+2025-10-13 19:18:48,781 - INFO - func:create_project - Progetto creato con successo: P14/110 (ID: 45)
+2025-10-13 19:18:50,655 - INFO - func:create_project - Progetto creato con successo: N24/117 (ID: 46)
+2025-10-13 19:18:52,547 - INFO - func:create_project - Progetto creato con successo: N25/105 (ID: 47)
+2025-10-13 19:18:54,399 - INFO - func:create_project - Progetto creato con successo: N25/102 (ID: 48)
+2025-10-13 19:18:56,285 - INFO - func:create_project - Progetto creato con successo: N25/103 (ID: 49)
+2025-10-13 19:18:58,173 - INFO - func:create_project - Progetto creato con successo: N25/104 (ID: 50)
+2025-10-13 19:19:00,081 - INFO - func:create_project - Progetto creato con successo: N25/104 (ID: 51)
+2025-10-13 19:19:02,066 - INFO - func:create_project - Progetto creato con successo: N25/104 (ID: 52)
+2025-10-13 19:19:03,880 - INFO - func:create_project - Progetto creato con successo: R24/111 (ID: 53)
+2025-10-13 19:19:05,751 - INFO - func:create_project - Progetto creato con successo: R25/232 (ID: 54)
+2025-10-13 19:19:07,718 - INFO - func:create_project - Progetto creato con successo: R25/223 (ID: 55)
+2025-10-13 19:19:09,551 - INFO - func:create_project - Progetto creato con successo: R25/224 (ID: 56)
+2025-10-13 19:19:11,566 - INFO - func:create_project - Progetto creato con successo: R23/134 (ID: 57)
+2025-10-13 19:23:56,244 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-10-13 19:23:56,246 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-10-13 19:23:56,347 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-10-13 19:23:56,349 - INFO - func:load_custom_fields_to_cache - Cache aggiornata con 7 custom fields
+2025-10-13 19:23:56,752 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-10-13 19:23:56,754 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-10-13 19:24:04,790 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-10-13 19:24:04,799 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-10-13 19:24:04,847 - INFO - func:_extract_cache_data - Extracted 0 projects from cache
+2025-10-13 19:24:04,851 - INFO - func:_identify_sync_operation - Analizing the necessary sync operations
+2025-10-13 19:24:04,954 - INFO - func:_identify_sync_operation - Cache correctly updated
+2025-10-13 19:24:16,700 - INFO - func:_execute_sync_operations - Executing 77 operations....
+2025-10-13 19:24:16,701 - INFO - func:_execute_create_operations - Creation of 77 projects...
+2025-10-13 19:24:17,809 - ERROR - func:create_project - Errore generico nella creazione del progetto: Error running request with the URL (HTTPError): 'http://localhost:3000/api/v3/projects'.
+ {"_type":"Error","errorIdentifier":"urn:openproject-org:api:v3:errors:PropertyConstraintViolation","message":"Identifier has already been taken.","_embedded":{"details":{"attribute":"identifier"}}}
+2025-10-13 19:24:17,810 - ERROR - func:_handle_operation_success - Errore gestione successo per utente 4660-: 'NoneType' object has no attribute 'id'
+2025-10-13 19:24:18,954 - ERROR - func:create_project - Errore generico nella creazione del progetto: Error running request with the URL (HTTPError): 'http://localhost:3000/api/v3/projects'.
+ {"_type":"Error","errorIdentifier":"urn:openproject-org:api:v3:errors:PropertyConstraintViolation","message":"Identifier has already been taken.","_embedded":{"details":{"attribute":"identifier"}}}
+2025-10-13 19:24:18,954 - ERROR - func:_handle_operation_success - Errore gestione successo per utente 5871-: 'NoneType' object has no attribute 'id'
+2025-10-13 19:24:20,378 - ERROR - func:create_project - Errore generico nella creazione del progetto: Error running request with the URL (HTTPError): 'http://localhost:3000/api/v3/projects'.
+ {"_type":"Error","errorIdentifier":"urn:openproject-org:api:v3:errors:PropertyConstraintViolation","message":"Identifier has already been taken.","_embedded":{"details":{"attribute":"identifier"}}}
+2025-10-13 19:24:20,379 - ERROR - func:_handle_operation_success - Errore gestione successo per utente 5977-: 'NoneType' object has no attribute 'id'
+2025-10-13 19:24:21,476 - ERROR - func:create_project - Errore generico nella creazione del progetto: Error running request with the URL (HTTPError): 'http://localhost:3000/api/v3/projects'.
+ {"_type":"Error","errorIdentifier":"urn:openproject-org:api:v3:errors:PropertyConstraintViolation","message":"Identifier has already been taken.","_embedded":{"details":{"attribute":"identifier"}}}
+2025-10-13 19:24:21,479 - ERROR - func:_handle_operation_success - Errore gestione successo per utente 6445-: 'NoneType' object has no attribute 'id'
+2025-10-13 19:24:22,487 - ERROR - func:create_project - Errore generico nella creazione del progetto: Error running request with the URL (HTTPError): 'http://localhost:3000/api/v3/projects'.
+ {"_type":"Error","errorIdentifier":"urn:openproject-org:api:v3:errors:PropertyConstraintViolation","message":"Identifier has already been taken.","_embedded":{"details":{"attribute":"identifier"}}}
+2025-10-13 19:24:22,491 - ERROR - func:_handle_operation_success - Errore gestione successo per utente 6474-: 'NoneType' object has no attribute 'id'
+2025-10-13 19:25:13,581 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-10-13 19:25:13,582 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-10-13 19:25:13,719 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-10-13 19:25:13,720 - INFO - func:load_custom_fields_to_cache - Cache aggiornata con 7 custom fields
+2025-10-13 19:25:14,109 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-10-13 19:25:14,114 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-10-13 19:25:22,326 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-10-13 19:25:22,339 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-10-13 19:25:22,388 - INFO - func:_extract_cache_data - Extracted 0 projects from cache
+2025-10-13 19:25:22,388 - INFO - func:_identify_sync_operation - Analizing the necessary sync operations
+2025-10-13 19:25:22,495 - INFO - func:_identify_sync_operation - Cache correctly updated
+2025-10-13 19:25:28,184 - INFO - func:_execute_sync_operations - Executing 77 operations....
+2025-10-13 19:25:38,283 - INFO - func:_execute_create_operations - Creation of 77 projects...
+2025-10-13 19:29:09,404 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-10-13 19:29:09,406 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-10-13 19:29:09,504 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-10-13 19:29:09,505 - INFO - func:load_custom_fields_to_cache - Cache aggiornata con 7 custom fields
+2025-10-13 19:29:09,903 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-10-13 19:29:09,905 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-10-13 19:29:18,092 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-10-13 19:29:18,100 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-10-13 19:29:18,142 - INFO - func:_extract_cache_data - Extracted 0 projects from cache
+2025-10-13 19:29:18,144 - INFO - func:_identify_sync_operation - Analizing the necessary sync operations
+2025-10-13 19:29:18,238 - INFO - func:_identify_sync_operation - Cache correctly updated
+2025-10-13 19:29:23,097 - INFO - func:_execute_sync_operations - Executing 77 operations....
+2025-10-13 19:29:23,098 - INFO - func:_execute_create_operations - Creation of 77 projects...
+2025-10-13 19:44:59,628 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-10-13 19:44:59,630 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-10-13 19:44:59,837 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-10-13 19:44:59,842 - INFO - func:load_custom_fields_to_cache - Cache aggiornata con 7 custom fields
+2025-10-13 19:45:00,326 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-10-13 19:45:00,329 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-10-13 19:45:08,890 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-10-13 19:45:08,900 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-10-13 19:45:08,939 - INFO - func:_extract_cache_data - Extracted 0 projects from cache
+2025-10-13 19:45:08,940 - INFO - func:_identify_sync_operation - Analizing the necessary sync operations
+2025-10-13 19:45:09,038 - INFO - func:_identify_sync_operation - Cache correctly updated
+2025-10-13 19:45:15,369 - INFO - func:_execute_sync_operations - Executing 77 operations....
+2025-10-13 19:45:20,149 - INFO - func:_execute_create_operations - Creation of 77 projects...
+2025-10-13 19:46:36,591 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-10-13 19:46:36,592 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-10-13 19:46:36,702 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-10-13 19:46:36,702 - INFO - func:load_custom_fields_to_cache - Cache aggiornata con 7 custom fields
+2025-10-13 19:46:37,093 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-10-13 19:46:37,096 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-10-13 19:46:45,076 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-10-13 19:46:45,086 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-10-13 19:46:45,152 - INFO - func:_extract_cache_data - Extracted 0 projects from cache
+2025-10-13 19:46:45,154 - INFO - func:_identify_sync_operation - Analizing the necessary sync operations
+2025-10-13 19:46:45,261 - INFO - func:_identify_sync_operation - Cache correctly updated
+2025-10-13 19:46:51,401 - INFO - func:_execute_sync_operations - Executing 77 operations....
+2025-10-13 19:46:51,404 - INFO - func:_execute_create_operations - Creation of 77 projects...
+2025-10-13 19:47:31,543 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-10-13 19:47:31,544 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-10-13 19:47:31,688 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-10-13 19:47:31,690 - INFO - func:load_custom_fields_to_cache - Cache aggiornata con 7 custom fields
+2025-10-13 19:47:32,085 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-10-13 19:47:32,086 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-10-13 19:47:40,067 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-10-13 19:47:40,074 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-10-13 19:47:40,126 - INFO - func:_extract_cache_data - Extracted 0 projects from cache
+2025-10-13 19:47:40,127 - INFO - func:_identify_sync_operation - Analizing the necessary sync operations
+2025-10-13 19:47:40,201 - INFO - func:_identify_sync_operation - Cache correctly updated
+2025-10-13 19:47:44,254 - INFO - func:_execute_sync_operations - Executing 77 operations....
+2025-10-13 19:47:44,257 - INFO - func:_execute_create_operations - Creation of 77 projects...
+2025-10-13 19:48:18,555 - ERROR - func:_create_single_project - Error during OP creation of R23/144: Session.request() got an unexpected keyword argument 'filters'
+2025-10-13 21:10:39,936 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-10-13 21:10:39,938 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-10-13 21:10:40,487 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-10-13 21:10:40,489 - INFO - func:load_custom_fields_to_cache - Cache aggiornata con 7 custom fields
+2025-10-13 21:10:41,020 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-10-13 21:10:41,024 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-10-13 21:10:49,332 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-10-13 21:10:49,339 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-10-13 21:10:49,386 - INFO - func:_extract_cache_data - Extracted 0 projects from cache
+2025-10-13 21:10:49,387 - INFO - func:_identify_sync_operation - Analizing the necessary sync operations
+2025-10-13 21:10:49,494 - INFO - func:_identify_sync_operation - Cache correctly updated
+2025-10-13 21:10:55,075 - INFO - func:_execute_sync_operations - Executing 77 operations....
+2025-10-13 21:10:55,079 - INFO - func:_execute_create_operations - Creation of 77 projects...
+2025-10-13 21:11:51,145 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-10-13 21:11:51,146 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-10-13 21:11:51,271 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-10-13 21:11:51,273 - INFO - func:load_custom_fields_to_cache - Cache aggiornata con 7 custom fields
+2025-10-13 21:11:51,856 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-10-13 21:11:51,860 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-10-13 21:12:00,985 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-10-13 21:12:00,993 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-10-13 21:12:01,060 - INFO - func:_extract_cache_data - Extracted 0 projects from cache
+2025-10-13 21:12:01,061 - INFO - func:_identify_sync_operation - Analizing the necessary sync operations
+2025-10-13 21:12:01,215 - INFO - func:_identify_sync_operation - Cache correctly updated
+2025-10-13 21:15:37,725 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-10-13 21:15:37,726 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-10-13 21:15:37,904 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-10-13 21:15:37,905 - INFO - func:load_custom_fields_to_cache - Cache aggiornata con 7 custom fields
+2025-10-13 21:15:38,428 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-10-13 21:15:38,429 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-10-13 21:15:46,513 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-10-13 21:15:46,524 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-10-13 21:15:46,580 - INFO - func:_extract_cache_data - Extracted 0 projects from cache
+2025-10-13 21:15:46,581 - INFO - func:_identify_sync_operation - Analizing the necessary sync operations
+2025-10-13 21:15:46,697 - INFO - func:_identify_sync_operation - Cache correctly updated
+2025-10-13 21:15:52,498 - INFO - func:_execute_sync_operations - Executing 77 operations....
+2025-10-13 21:15:52,506 - INFO - func:_execute_create_operations - Creation of 77 projects...
+2025-10-13 21:17:44,510 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-10-13 21:17:44,514 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-10-13 21:17:44,635 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-10-13 21:17:44,637 - INFO - func:load_custom_fields_to_cache - Cache aggiornata con 7 custom fields
+2025-10-13 21:17:45,082 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-10-13 21:17:45,083 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-10-13 21:17:52,898 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-10-13 21:17:52,906 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-10-13 21:17:52,945 - INFO - func:_extract_cache_data - Extracted 0 projects from cache
+2025-10-13 21:17:52,946 - INFO - func:_identify_sync_operation - Analizing the necessary sync operations
+2025-10-13 21:17:53,048 - INFO - func:_identify_sync_operation - Cache correctly updated
+2025-10-13 21:17:57,318 - INFO - func:_execute_sync_operations - Executing 77 operations....
+2025-10-13 21:17:57,322 - INFO - func:_execute_create_operations - Creation of 77 projects...
+2025-10-13 21:20:10,825 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-10-13 21:20:10,832 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-10-13 21:20:11,048 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-10-13 21:20:11,049 - INFO - func:load_custom_fields_to_cache - Cache aggiornata con 7 custom fields
+2025-10-13 21:20:11,592 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-10-13 21:20:11,593 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-10-13 21:20:20,087 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-10-13 21:20:20,097 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-10-13 21:20:20,139 - INFO - func:_extract_cache_data - Extracted 0 projects from cache
+2025-10-13 21:20:20,140 - INFO - func:_identify_sync_operation - Analizing the necessary sync operations
+2025-10-13 21:20:20,275 - INFO - func:_identify_sync_operation - Cache correctly updated
+2025-10-13 21:20:23,787 - INFO - func:_execute_sync_operations - Executing 77 operations....
+2025-10-13 21:20:23,790 - INFO - func:_execute_create_operations - Creation of 77 projects...
+2025-10-13 21:20:32,630 - INFO - func:update_project - Progetto creato con successo: R23/144 (ID: 31)
+2025-10-13 21:20:51,547 - INFO - func:update_project - Progetto creato con successo: T25/100 (ID: 32)
+2025-10-13 21:20:57,024 - INFO - func:update_project - Progetto creato con successo: T25/101 (ID: 33)
+2025-10-13 21:20:58,368 - INFO - func:update_project - Progetto creato con successo: R25/236 (ID: 34)
+2025-10-13 21:20:58,918 - INFO - func:update_project - Progetto creato con successo: R25/238 (ID: 35)
+2025-10-13 21:20:59,556 - INFO - func:update_project - Progetto creato con successo: P19/115 (ID: 36)
+2025-10-13 21:21:00,254 - INFO - func:update_project - Progetto creato con successo: N24/103 (ID: 37)
+2025-10-13 21:21:00,810 - INFO - func:update_project - Progetto creato con successo: N24/105 (ID: 38)
+2025-10-13 21:21:01,313 - INFO - func:update_project - Progetto creato con successo: R24/217 (ID: 39)
+2025-10-13 21:21:01,897 - INFO - func:update_project - Progetto creato con successo: N25/100 (ID: 40)
+2025-10-13 21:21:02,476 - INFO - func:update_project - Progetto creato con successo: N25/107 (ID: 41)
+2025-10-13 21:21:03,029 - INFO - func:update_project - Progetto creato con successo: N25/107 (ID: 42)
+2025-10-13 21:21:03,879 - INFO - func:update_project - Progetto creato con successo: N24/114 (ID: 43)
+2025-10-13 21:21:04,471 - INFO - func:update_project - Progetto creato con successo: P23/111 (ID: 44)
+2025-10-13 21:21:05,005 - INFO - func:update_project - Progetto creato con successo: P14/110 (ID: 45)
+2025-10-13 21:21:05,587 - INFO - func:update_project - Progetto creato con successo: N24/117 (ID: 46)
+2025-10-13 21:21:06,224 - INFO - func:update_project - Progetto creato con successo: N25/105 (ID: 47)
+2025-10-13 21:21:06,730 - INFO - func:update_project - Progetto creato con successo: N25/102 (ID: 48)
+2025-10-13 21:21:07,338 - INFO - func:update_project - Progetto creato con successo: N25/103 (ID: 49)
+2025-10-13 21:21:07,947 - INFO - func:update_project - Progetto creato con successo: N25/104 (ID: 50)
+2025-10-13 21:21:08,573 - INFO - func:update_project - Progetto creato con successo: N25/104 (ID: 51)
+2025-10-13 21:21:09,163 - INFO - func:update_project - Progetto creato con successo: N25/104 (ID: 52)
+2025-10-13 21:21:09,810 - INFO - func:update_project - Progetto creato con successo: R24/111 (ID: 53)
+2025-10-13 21:21:10,440 - INFO - func:update_project - Progetto creato con successo: R25/232 (ID: 54)
+2025-10-13 21:21:10,988 - INFO - func:update_project - Progetto creato con successo: R25/223 (ID: 55)
+2025-10-13 21:21:11,596 - INFO - func:update_project - Progetto creato con successo: R25/224 (ID: 56)
+2025-10-13 21:21:12,201 - INFO - func:update_project - Progetto creato con successo: R23/134 (ID: 57)
+2025-10-13 21:21:12,777 - INFO - func:update_project - Progetto creato con successo: R24/205 (ID: 58)
+2025-10-13 21:21:14,285 - INFO - func:create_project - Progetto creato con successo: P25/124 (ID: 59)
+2025-10-13 21:21:15,906 - INFO - func:create_project - Progetto creato con successo: P24/124 (ID: 60)
+2025-10-13 21:21:17,665 - INFO - func:create_project - Progetto creato con successo: N24/110 (ID: 61)
+2025-10-13 21:21:19,183 - INFO - func:create_project - Progetto creato con successo: N24/110 (ID: 62)
+2025-10-13 21:21:21,174 - INFO - func:create_project - Progetto creato con successo: N24/110 (ID: 63)
+2025-10-13 21:21:22,928 - INFO - func:create_project - Progetto creato con successo: N24/109 (ID: 64)
+2025-10-13 21:21:24,773 - INFO - func:create_project - Progetto creato con successo: R24/210 (ID: 65)
+2025-10-13 21:21:26,603 - INFO - func:create_project - Progetto creato con successo: R25/206 (ID: 66)
+2025-10-13 21:21:28,335 - INFO - func:create_project - Progetto creato con successo: R25/207 (ID: 67)
+2025-10-13 21:21:29,927 - INFO - func:create_project - Progetto creato con successo: R25/204 (ID: 68)
+2025-10-13 21:21:31,385 - INFO - func:create_project - Progetto creato con successo: R25/205 (ID: 69)
+2025-10-13 21:21:33,036 - INFO - func:create_project - Progetto creato con successo: R24/136 (ID: 70)
+2025-10-13 21:21:34,484 - INFO - func:create_project - Progetto creato con successo: R25/203 (ID: 71)
+2025-10-13 21:21:35,831 - INFO - func:create_project - Progetto creato con successo: T24/102 (ID: 72)
+2025-10-13 21:21:37,220 - INFO - func:create_project - Progetto creato con successo: T24/102 (ID: 73)
+2025-10-13 21:21:38,612 - INFO - func:create_project - Progetto creato con successo: T24/102 (ID: 74)
+2025-10-13 21:21:40,121 - INFO - func:create_project - Progetto creato con successo: N24/106 (ID: 75)
+2025-10-13 21:21:41,524 - INFO - func:create_project - Progetto creato con successo: N24/115 (ID: 76)
+2025-10-13 21:21:43,061 - INFO - func:create_project - Progetto creato con successo: P25/121 (ID: 77)
+2025-10-13 21:21:44,504 - INFO - func:create_project - Progetto creato con successo: R25/231 (ID: 78)
+2025-10-13 21:21:45,981 - INFO - func:create_project - Progetto creato con successo: R25/225 (ID: 79)
+2025-10-13 21:21:47,445 - INFO - func:create_project - Progetto creato con successo: R25/235 (ID: 80)
+2025-10-13 21:21:48,855 - INFO - func:create_project - Progetto creato con successo: P18/124 (ID: 81)
+2025-10-13 21:21:50,361 - INFO - func:create_project - Progetto creato con successo: P25/118 (ID: 82)
+2025-10-13 21:21:51,712 - INFO - func:create_project - Progetto creato con successo: R25/184 (ID: 83)
+2025-10-13 21:21:53,307 - INFO - func:create_project - Progetto creato con successo: N25/111 (ID: 84)
+2025-10-13 21:21:54,778 - INFO - func:create_project - Progetto creato con successo: R25/237 (ID: 85)
+2025-10-13 21:21:56,269 - INFO - func:create_project - Progetto creato con successo: P23/102 (ID: 86)
+2025-10-13 21:21:57,614 - INFO - func:create_project - Progetto creato con successo: R25/197 (ID: 87)
+2025-10-13 21:21:59,148 - INFO - func:create_project - Progetto creato con successo: R25/196 (ID: 88)
+2025-10-13 21:22:00,572 - INFO - func:create_project - Progetto creato con successo: N23/111 (ID: 89)
+2025-10-13 21:22:02,129 - INFO - func:create_project - Progetto creato con successo: R25/228 (ID: 90)
+2025-10-13 21:22:03,641 - INFO - func:create_project - Progetto creato con successo: N24/101 (ID: 91)
+2025-10-13 21:22:05,115 - INFO - func:create_project - Progetto creato con successo: N24/120 (ID: 92)
+2025-10-13 21:22:06,641 - INFO - func:create_project - Progetto creato con successo: N24/121 (ID: 93)
+2025-10-13 21:22:08,082 - INFO - func:create_project - Progetto creato con successo: N24/118 (ID: 94)
+2025-10-13 21:22:09,493 - INFO - func:create_project - Progetto creato con successo: N24/118 (ID: 95)
+2025-10-13 21:22:11,012 - INFO - func:create_project - Progetto creato con successo: N24/118 (ID: 96)
+2025-10-13 21:22:12,570 - INFO - func:create_project - Progetto creato con successo: N24/119 (ID: 97)
+2025-10-13 21:22:14,128 - INFO - func:create_project - Progetto creato con successo: N24/119 (ID: 98)
+2025-10-13 21:22:15,645 - INFO - func:create_project - Progetto creato con successo: N24/119 (ID: 99)
+2025-10-13 21:22:17,247 - INFO - func:create_project - Progetto creato con successo: N24/119 (ID: 100)
+2025-10-13 21:22:18,794 - INFO - func:create_project - Progetto creato con successo: N25/106 (ID: 101)
+2025-10-13 21:22:20,261 - INFO - func:create_project - Progetto creato con successo: N25/108 (ID: 102)
+2025-10-13 21:22:22,025 - INFO - func:create_project - Progetto creato con successo: N25/109 (ID: 103)
+2025-10-13 21:22:23,564 - INFO - func:create_project - Progetto creato con successo: R25/189 (ID: 104)
+2025-10-13 21:22:25,213 - INFO - func:create_project - Progetto creato con successo: N25/110 (ID: 105)
+2025-10-13 21:22:26,680 - INFO - func:create_project - Progetto creato con successo: R25/226 (ID: 106)
+2025-10-13 21:22:28,121 - INFO - func:create_project - Progetto creato con successo: R25/226 (ID: 107)
+2025-10-13 21:23:11,873 - ERROR - func:main - Fatal error: not all arguments converted during string formatting
+Traceback (most recent call last):
+  File "/home/riccardo/syncer/main.py", line 28, in main
+    syncer.run_full_sync()
+  File "/home/riccardo/syncer/app/servicies/sync.py", line 61, in run_full_sync
+    self.cache_service.update_cache_db(self.cached_projects)
+  File "/home/riccardo/syncer/app/servicies/cacheDatabase.py", line 242, in update_cache_db
+    cursor.execute(query, values)
+TypeError: not all arguments converted during string formatting
+2025-10-13 21:25:51,380 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-10-13 21:25:51,382 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-10-13 21:25:51,560 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-10-13 21:25:51,562 - INFO - func:load_custom_fields_to_cache - Cache aggiornata con 7 custom fields
+2025-10-13 21:25:52,025 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-10-13 21:25:52,026 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-10-13 21:25:59,915 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-10-13 21:25:59,922 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-10-13 21:25:59,963 - INFO - func:_extract_cache_data - Extracted 0 projects from cache
+2025-10-13 21:25:59,965 - INFO - func:_identify_sync_operation - Analizing the necessary sync operations
+2025-10-13 21:26:00,063 - INFO - func:_identify_sync_operation - Cache correctly updated
+2025-10-13 21:26:04,077 - INFO - func:_execute_sync_operations - Executing 77 operations....
+2025-10-13 21:26:04,077 - INFO - func:_execute_create_operations - Creation of 77 projects...
+2025-10-13 21:26:04,662 - INFO - func:update_project - Progetto creato con successo: R23/144 (ID: 31)
+2025-10-13 21:26:05,187 - INFO - func:update_project - Progetto creato con successo: T25/100 (ID: 32)
+2025-10-13 21:26:05,741 - INFO - func:update_project - Progetto creato con successo: T25/101 (ID: 33)
+2025-10-13 21:26:06,294 - INFO - func:update_project - Progetto creato con successo: R25/236 (ID: 34)
+2025-10-13 21:26:06,863 - INFO - func:update_project - Progetto creato con successo: R25/238 (ID: 35)
+2025-10-13 21:26:07,385 - INFO - func:update_project - Progetto creato con successo: P19/115 (ID: 36)
+2025-10-13 21:26:07,933 - INFO - func:update_project - Progetto creato con successo: N24/103 (ID: 37)
+2025-10-13 21:26:08,616 - INFO - func:update_project - Progetto creato con successo: N24/105 (ID: 38)
+2025-10-13 21:26:09,168 - INFO - func:update_project - Progetto creato con successo: R24/217 (ID: 39)
+2025-10-13 21:26:09,663 - INFO - func:update_project - Progetto creato con successo: N25/100 (ID: 40)
+2025-10-13 21:26:10,112 - INFO - func:update_project - Progetto creato con successo: N25/107 (ID: 41)
+2025-10-13 21:26:10,593 - INFO - func:update_project - Progetto creato con successo: N25/107 (ID: 42)
+2025-10-13 21:26:11,127 - INFO - func:update_project - Progetto creato con successo: N24/114 (ID: 43)
+2025-10-13 21:26:11,694 - INFO - func:update_project - Progetto creato con successo: P23/111 (ID: 44)
+2025-10-13 21:26:12,194 - INFO - func:update_project - Progetto creato con successo: P14/110 (ID: 45)
+2025-10-13 21:26:12,770 - INFO - func:update_project - Progetto creato con successo: N24/117 (ID: 46)
+2025-10-13 21:26:13,307 - INFO - func:update_project - Progetto creato con successo: N25/105 (ID: 47)
+2025-10-13 21:26:13,880 - INFO - func:update_project - Progetto creato con successo: N25/102 (ID: 48)
+2025-10-13 21:26:14,367 - INFO - func:update_project - Progetto creato con successo: N25/103 (ID: 49)
+2025-10-13 21:26:14,890 - INFO - func:update_project - Progetto creato con successo: N25/104 (ID: 50)
+2025-10-13 21:26:15,490 - INFO - func:update_project - Progetto creato con successo: N25/104 (ID: 51)
+2025-10-13 21:26:15,996 - INFO - func:update_project - Progetto creato con successo: N25/104 (ID: 52)
+2025-10-13 21:26:16,535 - INFO - func:update_project - Progetto creato con successo: R24/111 (ID: 53)
+2025-10-13 21:26:17,173 - INFO - func:update_project - Progetto creato con successo: R25/232 (ID: 54)
+2025-10-13 21:26:17,746 - INFO - func:update_project - Progetto creato con successo: R25/223 (ID: 55)
+2025-10-13 21:26:18,231 - INFO - func:update_project - Progetto creato con successo: R25/224 (ID: 56)
+2025-10-13 21:26:18,761 - INFO - func:update_project - Progetto creato con successo: R23/134 (ID: 57)
+2025-10-13 21:26:19,373 - INFO - func:update_project - Progetto creato con successo: R24/205 (ID: 58)
+2025-10-13 21:26:19,904 - INFO - func:update_project - Progetto creato con successo: P25/124 (ID: 59)
+2025-10-13 21:26:20,459 - INFO - func:update_project - Progetto creato con successo: P24/124 (ID: 60)
+2025-10-13 21:26:21,000 - INFO - func:update_project - Progetto creato con successo: N24/110 (ID: 61)
+2025-10-13 21:26:21,599 - INFO - func:update_project - Progetto creato con successo: N24/110 (ID: 62)
+2025-10-13 21:26:22,181 - INFO - func:update_project - Progetto creato con successo: N24/110 (ID: 63)
+2025-10-13 21:26:22,779 - INFO - func:update_project - Progetto creato con successo: N24/109 (ID: 64)
+2025-10-13 21:26:23,368 - INFO - func:update_project - Progetto creato con successo: R24/210 (ID: 65)
+2025-10-13 21:26:23,933 - INFO - func:update_project - Progetto creato con successo: R25/206 (ID: 66)
+2025-10-13 21:26:24,625 - INFO - func:update_project - Progetto creato con successo: R25/207 (ID: 67)
+2025-10-13 21:26:25,208 - INFO - func:update_project - Progetto creato con successo: R25/204 (ID: 68)
+2025-10-13 21:26:25,756 - INFO - func:update_project - Progetto creato con successo: R25/205 (ID: 69)
+2025-10-13 21:26:26,388 - INFO - func:update_project - Progetto creato con successo: R24/136 (ID: 70)
+2025-10-13 21:26:26,983 - INFO - func:update_project - Progetto creato con successo: R25/203 (ID: 71)
+2025-10-13 21:26:27,521 - INFO - func:update_project - Progetto creato con successo: T24/102 (ID: 72)
+2025-10-13 21:26:28,205 - INFO - func:update_project - Progetto creato con successo: T24/102 (ID: 73)
+2025-10-13 21:26:28,716 - INFO - func:update_project - Progetto creato con successo: T24/102 (ID: 74)
+2025-10-13 21:26:29,311 - INFO - func:update_project - Progetto creato con successo: N24/106 (ID: 75)
+2025-10-13 21:26:29,874 - INFO - func:update_project - Progetto creato con successo: N24/115 (ID: 76)
+2025-10-13 21:26:30,437 - INFO - func:update_project - Progetto creato con successo: P25/121 (ID: 77)
+2025-10-13 21:26:30,952 - INFO - func:update_project - Progetto creato con successo: R25/231 (ID: 78)
+2025-10-13 21:26:31,503 - INFO - func:update_project - Progetto creato con successo: R25/225 (ID: 79)
+2025-10-13 21:26:32,077 - INFO - func:update_project - Progetto creato con successo: R25/235 (ID: 80)
+2025-10-13 21:26:32,663 - INFO - func:update_project - Progetto creato con successo: P18/124 (ID: 81)
+2025-10-13 21:26:33,218 - INFO - func:update_project - Progetto creato con successo: P25/118 (ID: 82)
+2025-10-13 21:26:33,786 - INFO - func:update_project - Progetto creato con successo: R25/184 (ID: 83)
+2025-10-13 21:26:34,318 - INFO - func:update_project - Progetto creato con successo: N25/111 (ID: 84)
+2025-10-13 21:26:34,816 - INFO - func:update_project - Progetto creato con successo: R25/237 (ID: 85)
+2025-10-13 21:26:35,426 - INFO - func:update_project - Progetto creato con successo: P23/102 (ID: 86)
+2025-10-13 21:26:36,002 - INFO - func:update_project - Progetto creato con successo: R25/197 (ID: 87)
+2025-10-13 21:26:36,601 - INFO - func:update_project - Progetto creato con successo: R25/196 (ID: 88)
+2025-10-13 21:26:37,193 - INFO - func:update_project - Progetto creato con successo: N23/111 (ID: 89)
+2025-10-13 21:26:37,685 - INFO - func:update_project - Progetto creato con successo: R25/228 (ID: 90)
+2025-10-13 21:26:38,299 - INFO - func:update_project - Progetto creato con successo: N24/101 (ID: 91)
+2025-10-13 21:26:38,837 - INFO - func:update_project - Progetto creato con successo: N24/120 (ID: 92)
+2025-10-13 21:26:39,429 - INFO - func:update_project - Progetto creato con successo: N24/121 (ID: 93)
+2025-10-13 21:26:40,052 - INFO - func:update_project - Progetto creato con successo: N24/118 (ID: 94)
+2025-10-13 21:26:40,684 - INFO - func:update_project - Progetto creato con successo: N24/118 (ID: 95)
+2025-10-13 21:26:41,224 - INFO - func:update_project - Progetto creato con successo: N24/118 (ID: 96)
+2025-10-13 21:26:41,843 - INFO - func:update_project - Progetto creato con successo: N24/119 (ID: 97)
+2025-10-13 21:26:42,400 - INFO - func:update_project - Progetto creato con successo: N24/119 (ID: 98)
+2025-10-13 21:26:42,977 - INFO - func:update_project - Progetto creato con successo: N24/119 (ID: 99)
+2025-10-13 21:26:43,545 - INFO - func:update_project - Progetto creato con successo: N24/119 (ID: 100)
+2025-10-13 21:26:44,084 - INFO - func:update_project - Progetto creato con successo: N25/106 (ID: 101)
+2025-10-13 21:26:44,653 - INFO - func:update_project - Progetto creato con successo: N25/108 (ID: 102)
+2025-10-13 21:26:45,228 - INFO - func:update_project - Progetto creato con successo: N25/109 (ID: 103)
+2025-10-13 21:26:45,810 - INFO - func:update_project - Progetto creato con successo: R25/189 (ID: 104)
+2025-10-13 21:26:46,442 - INFO - func:update_project - Progetto creato con successo: N25/110 (ID: 105)
+2025-10-13 21:26:46,972 - INFO - func:update_project - Progetto creato con successo: R25/226 (ID: 106)
+2025-10-13 21:26:47,506 - INFO - func:update_project - Progetto creato con successo: R25/226 (ID: 107)
+2025-10-13 21:27:05,853 - INFO - func:update_cache_db - ✓ Updated 77 project in cache db
+2025-10-13 21:27:50,118 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-10-13 21:27:50,120 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-10-13 21:27:50,245 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-10-13 21:27:50,249 - INFO - func:load_custom_fields_to_cache - Cache aggiornata con 7 custom fields
+2025-10-13 21:27:50,647 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-10-13 21:27:50,648 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-10-13 21:27:58,769 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-10-13 21:27:58,777 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-10-13 21:27:58,845 - INFO - func:_extract_cache_data - Extracted 77 projects from cache
+2025-10-13 21:27:58,849 - INFO - func:_identify_sync_operation - Analizing the necessary sync operations
+2025-10-13 21:27:59,026 - INFO - func:_identify_sync_operation - Cache correctly updated
+2025-10-13 21:28:35,110 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-10-13 21:28:35,112 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-10-13 21:28:35,239 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-10-13 21:28:35,240 - INFO - func:load_custom_fields_to_cache - Cache aggiornata con 7 custom fields
+2025-10-13 21:28:35,622 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-10-13 21:28:35,624 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-10-13 21:28:44,052 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-10-13 21:28:44,070 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-10-13 21:28:44,144 - INFO - func:_extract_cache_data - Extracted 77 projects from cache
+2025-10-13 21:28:49,750 - INFO - func:_identify_sync_operation - Analizing the necessary sync operations
+2025-10-13 21:29:44,700 - INFO - func:_identify_sync_operation - Cache correctly updated
+2025-10-13 21:29:50,775 - INFO - func:_execute_sync_operations - Executing 0 operations....
+2025-10-13 21:30:13,761 - INFO - func:update_cache_db - ✓ Updated 77 project in cache db

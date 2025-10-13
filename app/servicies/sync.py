@@ -269,7 +269,6 @@ class SyncService:
             )
             
             # Update statistics
-            self.stats['successful'] += 1
             self.stats['processed'] += 1
             
             if operation.operation_type == "create":

@@ -2,7 +2,7 @@ from typing import List, Optional
 from datetime import datetime
 import logging
 import psycopg2
-from psycopg2.extras import RealDictCursor
+from psycopg2.extras import RealDictCursor, execute_values
 from ..config.ConfigManager import CacheDBConfig
 from contextlib import contextmanager
 from typing import Generator, List
@@ -239,8 +239,9 @@ class CacheDatabaseService:
         try: 
             with self.get_cache_connection() as conn:
                 with conn.cursor() as cursor:
-                    cursor.execute(query, values)
-                    
+
+                    execute_values(cursor, query, values)
+
                     conn.commit()
                     
                     logger.info(f"✓ Updated {len(projects)} project in cache db")
