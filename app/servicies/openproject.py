@@ -175,7 +175,7 @@ class OpenProjectInterface:
             if record.id is None:
                 record.id = response.get('id')
             
-            logging.info(f"Progetto creato con successo: {response.get('name')} (ID: {response.get('id')})")
+            logging.info(f"Progetto aggiornato con successo: {response.get('name')} (ID: {response.get('id')})")
                 
             return record
                 

@@ -197,7 +197,7 @@ class SyncService:
         if not operations:
             return
 
-        logger.info(f"Creation of {len(operations)} projects...")
+        logger.info(f"Update of {len(operations)} projects...")
 
         for operation in operations:
 

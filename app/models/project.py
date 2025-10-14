@@ -109,6 +109,12 @@ class OpenProjectProject:
 
         status_value = self.stato.value if isinstance(self.stato, OpenProjectStatus) else self.stato
 
+        note = {
+        "format": "markdown",
+        "raw": self.note,
+        "html": ""
+        }
+
         if is_for_update == True:
 
             return {
@@ -118,7 +124,7 @@ class OpenProjectProject:
                 self.custom_fields_cache['Indirizzo Impianto']: self.indirizzo,
                 self.custom_fields_cache['Apertura Commessa']: self.apertura,
                 self.custom_fields_cache['Fine Lavori']: self.fineLavori,
-                self.custom_fields_cache['Note']: self.note,
+                self.custom_fields_cache['Note']: note,
                 self.custom_fields_cache['Stato Fatturazione']: self.fatturazione,
                 self.custom_fields_cache['Administrator']: self.amministratore
             }
@@ -135,7 +141,7 @@ class OpenProjectProject:
             self.custom_fields_cache['Indirizzo Impianto']: self.indirizzo,
             self.custom_fields_cache['Apertura Commessa']: self.apertura,
             self.custom_fields_cache['Fine Lavori']: self.fineLavori,
-            self.custom_fields_cache['Note']: self.note,
+            self.custom_fields_cache['Note']: note,
             self.custom_fields_cache['Stato Fatturazione']: self.fatturazione,
             self.custom_fields_cache['Administrator']: self.amministratore
         }
