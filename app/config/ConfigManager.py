@@ -35,6 +35,7 @@ class OpenProjectConfig:
     timeout: int = 30
     max_retries: int = 3
     retry_delay: float = 1.0
+    create_template: bool = True
     
 @dataclass
 class SyncConfig:
@@ -94,7 +95,8 @@ class ConfigManager:
             
             self.openproject = OpenProjectConfig(
                 api_key=self._config['openproject']['apikey'],
-                base_url=self._config['openproject']['url']
+                base_url=self._config['openproject']['url'],
+                create_template=self._config['openproject']['create_template']
             )
 
             self.logger = LoggerConfig(

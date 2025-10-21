@@ -145,6 +145,13 @@ class OpenProjectInterface:
             record.updated_at = response.get('updatedAt')
             
             logger.info(f"Progetto creato con successo: {response.get('name')} (ID: {response.get('id')})")
+
+
+            if self.config.create_template is True:
+
+                self.create_work_packages_template(record.id)
+
+
             return record
                 
         except requests.exceptions.HTTPError as e:
@@ -242,3 +249,72 @@ class OpenProjectInterface:
         except Exception as e:
             logger.error(f"Errore nel caricamento della cache: {e}")
             return False
+        
+
+    # WORK PACKAGE
+
+    def create_work_package(self, project_id: int = None, name: str = "") -> int:
+
+        payload = {
+            "subject": name
+        }
+
+        response = PostRequest(connection=self.connection,
+                                context=f"/api/v3/projects/{project_id}/work_packages",
+                                headers={"Content-Type": "application/json"},
+                                json=payload).execute()
+        
+        return response.get('id')
+
+
+    def create_relations(self, first_id: int, second_id: int):
+
+        payload = {
+            "type": "follows",
+            "_links": {
+                "to": {
+                    "href": f"/api/v3/work_packages/{first_id}"
+                }
+            }
+        }
+
+        response = PostRequest(connection=self.connection,
+                                context=f"/api/v3/work_packages/{second_id}/relations",
+                                headers={"Content-Type": "application/json"},
+                                json=payload).execute()
+
+
+    def create_milestone(self, date, project_id):
+
+        payload = {
+            "subject": "Fine Lavori",
+            "dueDate": date,
+            "_links": {
+                "type": {
+                    "href": "/api/v3/types/2"
+                }
+            }
+        }
+
+        response = PostRequest(connection=self.connection,
+                                context=f"/api/v3/projects/{project_id}/work_packages",
+                                headers={"Content-Type": "application/json"},
+                                json=payload).execute()
+
+
+    def create_work_packages_template(self, project_id: int, due_date: datetime):
+
+        id_1 = self.create_work_package(project_id, "O.M.")
+
+        id_2 = self.create_work_package(project_id, "STRUCTURE")
+
+        id_3 = self.create_work_package(project_id, "PROGETTO MECCANICO")
+
+        id_4 = self.create_work_package(project_id, "POGETTO ELETTRICO")
+
+        # if (due_date is not None):
+        #     self.create_milestone(due_date.isoformat(), project_id)
+
+        self.create_relations(id_1, id_2)
+        self.create_relations(id_2, id_3)
+        self.create_relations(id_3, id_4)
