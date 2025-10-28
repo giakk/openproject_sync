@@ -149,7 +149,7 @@ class OpenProjectInterface:
 
             if self.config.create_template is True:
 
-                self.create_work_packages_template(record.id)
+                self.create_work_packages_template(record.id, datetime.now())
 
 
             return record
@@ -306,7 +306,7 @@ class OpenProjectInterface:
 
         id_1 = self.create_work_package(project_id, "O.M.")
 
-        id_2 = self.create_work_package(project_id, "STRUCTURE")
+        id_2 = self.create_work_package(project_id, "STRUTTURA")
 
         id_3 = self.create_work_package(project_id, "PROGETTO MECCANICO")
 
