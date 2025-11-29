@@ -30,8 +30,9 @@ class ProjectMapper:
                 indirizzo=gestionale_project.Indirizzo.format(),
                 amministratore=gestionale_project.Ammin.format(),
                 fatturazione=gestionale_project.StatoFatturazione,
-                note=gestionale_project.Note
-
+                note=gestionale_project.Note,
+                description=gestionale_project.Description,
+                ordine_di_lavoro=gestionale_project.OrdineDiLavoro
             )
 
             if (gestionale_project.StatoCommessa == 'Aperta'):

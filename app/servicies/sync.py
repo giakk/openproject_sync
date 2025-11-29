@@ -111,6 +111,7 @@ class SyncService:
                                        if gimi_project.gestionale_id == project.get_id()), None)
 
                 if cached_project:
+
                     # project exist. If needed, will be updated
                     if self.project_mapper.update_gestionale_to_cache(project, cached_project):
 
@@ -128,11 +129,11 @@ class SyncService:
                         operations.append(operation)
 
                 else:
-                    # project not existing
 
+                    # project not existing
                     if project.StatoCommessa != 'Chiusa': 
-                    # create new project in cache database
                     
+                        # Create new project in cache database
                         new_cache_project = self.project_mapper.map_gestionale_to_cache(project)
 
                         self.cached_projects.append(new_cache_project)
