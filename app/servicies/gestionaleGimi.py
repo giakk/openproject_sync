@@ -99,6 +99,8 @@ class GestionaleService:
                             StatoCommessa=str(row.StatoCommessa or ""),
                             StatoFatturazione=str(row.StatoFatturaz or ""),
                             Note=str(row.Note or ""),
+                            Description=str(row.DescrCommessa or ""),
+                            OrdineDiLavoro=str(row.OrdineLavoro or ""),
                             Ammin=Amministratore(
                                 Name=str(row.Amm_nominativo or ""),
                                 Tel=str(row.Amm_tel_ufficio or ""),

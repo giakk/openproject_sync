@@ -54,6 +54,8 @@ class GestionaleProject:
     StatoCommessa: str
     StatoFatturazione: str
     Note: str
+    Description: str
+    OrdineDiLavoro: str
     Ammin: Amministratore
     Indirizzo: IndirizzoImpianto
 
@@ -97,8 +99,10 @@ class OpenProjectProject:
     apertura: str = None
     fineLavori: str = None
     note: str = None
+    description: str = None
     fatturazione: str = None
     amministratore: str = None
+    ordine_di_lavoro: str = None
     stato: str = OpenProjectStatus.ON_TRACK
     custom_fields_cache: Dict[str, str] = None
     created_at: Optional[datetime] = None
@@ -106,37 +110,19 @@ class OpenProjectProject:
 
 
     def to_api_payload(self, is_for_update: bool) -> Dict[str, Any]:
-
+        
         status_value = self.stato.value if isinstance(self.stato, OpenProjectStatus) else self.stato
 
         note = {
-        "format": "markdown",
-        "raw": self.note,
-        "html": ""
+            "format": "markdown",
+            "raw": self.note,
+            "html": ""
         }
 
-        if is_for_update == True:
+        description = self.format_project_description()
 
-            return {
-                'status': status_value,
-                'active': self.active,
-                self.custom_fields_cache['Numero Impianto']: self.codImpianto,
-                self.custom_fields_cache['Indirizzo Impianto']: self.indirizzo,
-                self.custom_fields_cache['Apertura Commessa']: self.apertura,
-                self.custom_fields_cache['Fine Lavori']: self.fineLavori,
-                self.custom_fields_cache['Note']: note,
-                self.custom_fields_cache['Stato Fatturazione']: self.fatturazione,
-                self.custom_fields_cache['Administrator']: self.amministratore
-            }
-        
-
-        return {
-            'identifier': self.identifier,
-            'name': self.name,
-            'description': f"Progetto per commessa {self.name}",
-            'public': bool(True),
-            'status': status_value,
-            'active': self.active,
+        # Custom fields common to creation and update
+        custom_fields = {
             self.custom_fields_cache['Numero Impianto']: self.codImpianto,
             self.custom_fields_cache['Indirizzo Impianto']: self.indirizzo,
             self.custom_fields_cache['Apertura Commessa']: self.apertura,
@@ -145,6 +131,46 @@ class OpenProjectProject:
             self.custom_fields_cache['Stato Fatturazione']: self.fatturazione,
             self.custom_fields_cache['Administrator']: self.amministratore
         }
+
+        # Other common fields between creation and update
+        payload = {
+            'status': status_value,
+            'active': self.active,
+            'description': description,
+            **custom_fields
+        }
+
+        # Specific fields for creation of a project
+        if not is_for_update:
+            payload.update({
+                'identifier': self.identifier,
+                'name': self.name,
+                'public': True
+            })
+
+        return payload
+    
+    def format_project_description(self):
+
+        COSTANT_SPACE = "\n\n<br style=\"page-break-after:always;\">\n\n### Ordine di lavoro\n\n"
+
+        # List of all the work orders divided
+        work_orders = []
+        if self.ordine_di_lavoro:
+            work_orders = [wo.strip() for wo in self.ordine_di_lavoro.split(';') if wo.strip()]
+
+        # Create markdown list with all the work orders
+        markdown_list = "\n".join([f"* {wo}" for wo in work_orders]) if work_orders else ""
+
+        # Combine description and work orders
+        description_text = (self.description or "") + (COSTANT_SPACE + markdown_list if markdown_list else "")
+
+        return {
+            "format": "markdown",
+            "raw": description_text,
+            "html": ""
+        }
+
 
 
 @dataclass

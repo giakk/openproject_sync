@@ -18,10 +18,21 @@ Select Pre_id as GimiID,
 		ORDER BY st1Indirizzi_Email.Email_indirizzo FOR XML PATH ('')), 3, 1000) [Email] 
 	FROM Indirizzi_Email Indirizzi_Email where Indirizzi_Email.Email_tabella=3 and Indirizzi_Email.Email_chiave_id=Amm_id),''))  as Amm_PEC,
 
- 	Pre_descr_commessa ,coalesce(format(Pre_data_fine_lavori, 'dd/MM/yyyy'),'') as FineLavori, 
+ 	coalesce(format(Pre_data_fine_lavori, 'dd/MM/yyyy'),'') as FineLavori, 
 	iif(pre_stato_doc=4,'Chiusa',iif(pre_stato_doc=5,'Sospesa','Aperta')) as StatoCommessa,
 	iif(Pre_fatturato=1,'Fatturato',iif((select SUM(PREF_IMPONIBILE) from Preventivi_Fatture where PreF_preventivo=Pre_id)>0,'Acconto','Da fatturare')) as StatoFatturaz,
-						 Pre_note as Note
+
+	(SELECT coalesce((SELECT DISTINCT SUBSTRING((SELECT ';' + PrePV_descr_lavoro AS [text()]
+		FROM Preventivi_Pre_voci st1Preventivi_Pre_voci
+		WHERE st1Preventivi_Pre_voci.PrePV_preventivo = Preventivi_Pre_voci.PrePV_preventivo
+			AND st1Preventivi_Pre_voci.PrePV_impianto = Preventivi_Pre_voci.PrePV_impianto
+		ORDER BY st1Preventivi_Pre_voci.PrePV_descr_lavoro FOR XML PATH ('')), 3, 8000) [DescrLavoro]
+	FROM Preventivi_Pre_voci Preventivi_Pre_voci
+	WHERE Preventivi_Pre_voci.PrePV_preventivo = Pre_id
+		AND Preventivi_Pre_voci.PrePV_impianto = PreI_impianto),'')) as OrdineLavoro,
+
+ 	Pre_descr_commessa as DescrCommessa,
+	Pre_note as Note
 
 from Preventivi_Commesse left join Preventivi_Impianti on Preventivi_Commesse.Pre_id = Preventivi_Impianti.PreI_preventivo left join
 	Impianti on Preventivi_Impianti.PreI_impianto = impianti.Imp_codice left join
