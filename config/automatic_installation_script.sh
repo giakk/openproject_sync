@@ -25,7 +25,12 @@ readonly PACKAGES=(
     "curl"
     "wget"
     "vim"
+    "nano"
+    "net-tools"
     "build-essential"
+    "python3.10"
+    "python3.10-venv"
+    "python3-pip"
 )
 
 ################################################################################
@@ -57,15 +62,6 @@ check_root() {
 
 # Check internet connection
 check_internet() {
-    info_msg "Checking internet connection..."
-    if ! ping -c 1 8.8.8.8 &> /dev/null; then
-        error_exit "No internet connection detected"
-    fi
-    success_msg "Internet connection OK"
-}
-
-# Update the system
-update_system() {
     info_msg "Updating package list..."
     apt-get update -qq || error_exit "Unable to update package list"
     success_msg "Package list updated"
@@ -139,7 +135,7 @@ main() {
     # Preliminary checks
     check_root
     check_internet
-        
+    
     # Update system
     update_system
     
