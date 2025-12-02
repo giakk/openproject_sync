@@ -86,6 +86,7 @@ class GestionaleProject:
             return ""
         return self.FineLavori.isoformat()
 
+
 @dataclass
 class OpenProjectProject:
 
@@ -172,7 +173,6 @@ class OpenProjectProject:
         }
 
 
-
 @dataclass
 class CachedProject:
 
@@ -208,8 +208,3 @@ class ProjectSyncOperation:
     gestionale_project: GestionaleProject
     openproject_project: OpenProjectProject
     cached_project: CachedProject
-    validation_errors: list = field(default_factory=list)
-    
-    def is_valid(self) -> bool:
-        """Verifica se l'operazione è valida"""
-        return len(self.validation_errors) == 0

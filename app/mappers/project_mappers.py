@@ -1,9 +1,6 @@
-import re
 import logging
-from typing import Optional
 from datetime import datetime
 
-from ..models.user import GestionaleUser, OpenProjectUser, UserStatus, CachedUser
 from ..models.project import GestionaleProject, OpenProjectProject, CachedProject
 from ..models.base import OpenProjectStatus
 
@@ -137,7 +134,7 @@ class ProjectMapper:
             cached_project.updated_at = datetime.now()
             cached_project.sync_status = "error"
 
-            logger.debug(f"Sync success for project op_id: {cached_project.gestionale_id}")
+            logger.debug(f"Sync failed for project op_id: {cached_project.gestionale_id}")
 
         except Exception as e:
 

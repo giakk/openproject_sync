@@ -6,6 +6,7 @@ from contextlib import contextmanager
 from typing import Generator, List
 from ..config.ConfigManager import DatabaseConfig
 from ..models.project import GestionaleProject, Amministratore, IndirizzoImpianto
+from ..models.user import GestionaleUser
 import sys
 from datetime import datetime
 
@@ -128,6 +129,36 @@ class GestionaleService:
             raise Exception(f"Errore durante l'esecuzione della query {self.config.extract_projects_query}: {e}")       
         
 
+    def extract_Gimi_manutentori_entries(self) -> List[GestionaleUser]:
+    
+        query = self.load_query(self.config.extract_users_query)
+
+        try:
+            with self.get_gestionale_connection() as conn:
+                with conn.cursor() as cursor:
+                    cursor.execute(query)
+                    rows = cursor.fetchall()
+
+                    users = []
+
+                    for row in rows:
+                        user = GestionaleUser(
+                            GimiId=row.GimiID,
+                            nominative=row.Nominativo,
+                            phoneNumber=(row.Cell or ""),
+                            email=(row.Email or "")
+                        )
+
+                        users.append(user)
+                    
+                    logger.info(f"Extracted {len(users)} maintainersv from Gimi database")
+                    return users
+
+        except pyodbc.Error as e:
+            logger.error(f"Errore durante l'esecuzione della query {self.config.extract_projects_query}: {e}")
+            raise Exception(f"Errore durante l'esecuzione della query {self.config.extract_projects_query}: {e}")  
+
+
     def string_to_datetime(self, data_str: str) -> datetime | None:
         if not data_str or data_str.strip() == "":
             return None
@@ -135,3 +166,4 @@ class GestionaleService:
             return datetime.strptime(data_str, '%d/%m/%Y')
         except (ValueError, TypeError):
             return None
+

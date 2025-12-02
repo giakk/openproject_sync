@@ -5,21 +5,19 @@ from enum import Enum
 import hashlib
 import json
 
-class UserStatus(Enum):
-    ACTIVE = "active"
-    LOCKED = "locked"
-    REGISTERED = "registered"
+# class UserStatus(Enum):
+#     ACTIVE = "active"
+#     LOCKED = "locked"
+#     REGISTERED = "registered"
 
 
 @dataclass
 class GestionaleUser:
     """Modello utente dal database gestionale"""
-    id: str
+    GimiId: str
     email: str
-    firstName: str
-    lastName: str
+    nominative: str
     phoneNumber: Optional[str] = None
-    isActive: bool = True
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
     
@@ -27,16 +25,35 @@ class GestionaleUser:
         """Converte in dizionario per hashing e serializzazione"""
         return {
             'email': self.email,
-            'firstname': self.firstName,
-            'lastname': self.lastName,
             'phone': self.phoneNumber,
-            'active': self.isActive
-        }
+            'nominativo': self.nominative
+            }
     
     def calculate_hash(self) -> str:
         """Calcola hash per rilevare cambiamenti"""
         data_str = json.dumps(self.to_dict(), sort_keys=True, default=str)
         return hashlib.sha256(data_str.encode()).hexdigest()
+    
+    def extract_first_and_last_name(self):
+        
+        cleared = self.nominative.split(" - ", 1)[1] if " - " in self.nominative else self.nominative
+        divided = cleared.strip().split()
+
+        lastname = divided[0]
+        name = " ".join(divided[1:])
+        
+        return name, lastname
+    
+    def getEmail(self) -> str:
+
+        if self.email == "":
+
+            name, lastmame = self.extract_first_and_last_name()
+            return f"{lastmame}.{name}@mail_temporanea.it"
+
+        return self.email
+
+
 
 
 
@@ -49,14 +66,13 @@ class OpenProjectUser:
     email: str = ""
     admin: bool = False
     password: str = "Open_Project@2025!"
-    status: UserStatus = UserStatus.ACTIVE
     phone: str = None
     custom_fields_cache: Dict[str, str] = None
-    ref: str = ""
+    created_at: Optional[datetime] = None
+    updated_at: Optional[datetime] = None
 
     def to_api_payload(self) -> Dict[str, Any]:
         """Converte in payload per API OpenProject"""
-        
         
         payload = {
 
@@ -66,7 +82,6 @@ class OpenProjectUser:
             "lastName": self.lastName,
             "email": self.email,
             "admin": False,
-            "status": self.status.value
         }
 
 
@@ -75,11 +90,8 @@ class OpenProjectUser:
             payload[self.custom_fields_cache["Numero"]] = self.phone
 
             
-        return payload
+        return payload 
     
-    
-
-
 
 @dataclass
 class CachedUser:
@@ -91,8 +103,6 @@ class CachedUser:
     last_sync_hash: Optional[str] = None
     last_sync_at: Optional[datetime] = None
     sync_status: str = "pending"  # pending, synced, error
-    sync_attempts: int = 0
-    last_error: Optional[str] = None
     created_at: Optional[datetime] = field(default_factory=datetime.now)
     updated_at: Optional[datetime] = field(default_factory=datetime.now)
     
@@ -103,11 +113,7 @@ class CachedUser:
             self.sync_status == "error" or
             self.openproject_id is None
         )
-    
-    def is_sync_failed(self) -> bool:
-        """Determina se la sincronizzazione è fallita troppe volte"""
-        return self.sync_attempts >= 3 and self.sync_status == "error"
-    
+        
 
 class OperationType(Enum):
     CREATE = "create"
@@ -122,10 +128,4 @@ class UserSyncOperation:
     gestionale_user: GestionaleUser
     openproject_user: OpenProjectUser
     cached_user: CachedUser
-    validation_errors: list = field(default_factory=list)
-    auto_corrections: list = field(default_factory=list)
-    
-    def is_valid(self) -> bool:
-        """Verifica se l'operazione è valida"""
-        return len(self.validation_errors) == 0
     
