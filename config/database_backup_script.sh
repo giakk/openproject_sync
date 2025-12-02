@@ -49,3 +49,14 @@ OUTPUT_FILE=${BACKUP_DIR}/${FILE}
 
   echo "Backup completed: $(date)"
 } >> ${LOG_FILE} 2>&1
+
+# sudo mkdir -p /backup_psql
+# sudo chown postgres:postgres /backup_psql
+# sudo chmod 700 /backup_psql
+# sudo crontab -u postgres -e
+# 0 2 * * * /path/to/backup.sh
+
+## Checking work script
+# sudo crontab -u postgres -l
+# sudo -u postgres /path/to/backup.sh
+# cat /backup_psql/backup.log
