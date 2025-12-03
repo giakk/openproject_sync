@@ -32,7 +32,8 @@ class OpenProjectInterface:
             apikey= self.config.api_key
             )
         
-        self._custom_fields_cache = {}
+        self._project_custom_fields_cache = {}
+        self._user_custom_fields_cache = {}
         self.cache_timestamp = None
         self.cache_duration = timedelta(hours=1)  # Cache valida per 1 ora
         
@@ -57,6 +58,21 @@ class OpenProjectInterface:
         try:
             response = GetRequest(connection=self.connection,
                                    context="/api/v3/projects/schema").execute()
+                
+            return response
+            
+        except requests.exceptions.RequestException as e:
+            logger.error(f"Errore durante la chiamata API: {e}")
+            return None
+        except json.JSONDecodeError as e:
+            logger.error(f"Errore nel parsing del JSON: {e}")
+            return None
+        
+    def get_users_schema(self):
+
+        try:
+            response = GetRequest(connection=self.connection,
+                                   context="/api/v3/users/schema").execute()
                 
             return response
             
@@ -238,12 +254,19 @@ class OpenProjectInterface:
                 return False
             
             # Aggiorna la cache
-            self._custom_fields_cache = self.extract_custom_fields_from_schema(schema)
+            self._project_custom_fields_cache = self.extract_custom_fields_from_schema(schema)
             
+            schema = self.get_users_schema()
+            if not schema:
+                return False
+            
+            self._user_custom_fields_cache = self.extract_custom_fields_from_schema(schema)
+
             # Aggiorna timestamp cache
             self.cache_timestamp = datetime.now()
-            
-            logger.info(f"Cache aggiornata con {len(self._custom_fields_cache)} custom fields")
+
+
+            logger.info(f"Custom fields aggiornati con {len(self._project_custom_fields_cache)} per progetto e {len(self._user_custom_fields_cache)} per utenti")
             return True
             
         except Exception as e:

@@ -52,6 +52,10 @@ class GestionaleUser:
             return f"{lastmame}.{name}@mail_temporanea.it"
 
         return self.email
+    
+    def getPhone(self) -> str:
+
+        return self.phoneNumber.strip().replace(" ", "")
 
 
 

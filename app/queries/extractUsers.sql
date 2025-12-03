@@ -1,3 +1,4 @@
+-- Active: 1764787205320@@localhost@1433@GimiDB
 SELECT 
     m.Man_id AS GimiID,
     m.Man_nominativo AS Nominativo,

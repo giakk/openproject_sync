@@ -17,7 +17,7 @@ class UserMapper:
                 firstName=name,
                 lastName=lastname,
                 email=Gimi_manutentore.getEmail(),
-                phone=Gimi_manutentore.phoneNumber,
+                phone=Gimi_manutentore.getPhone(),
             )
 
             logger.debug(f"Correttamente mappato utente {Gimi_manutentore.email} Gimi -> OpenProject")

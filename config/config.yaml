@@ -8,7 +8,7 @@ databases:
     username: "tester"
     password: "Riccardo03"
     extract_projects_query: "/home/riccardo/syncer/app/queries/mainQuery.sql"
-    extract_manutentori_query: "/home/riccardo/syncer/app/queries/manutentori.sql"
+    extract_manutentori_query: "/home/riccardo/syncer/app/queries/extractUsers.sql"
 
     
   postgresql:

@@ -151,7 +151,7 @@ class GestionaleService:
 
                         users.append(user)
                     
-                    logger.info(f"Extracted {len(users)} maintainersv from Gimi database")
+                    logger.info(f"Extracted {len(users)} maintainers from Gimi database")
                     return users
 
         except pyodbc.Error as e:

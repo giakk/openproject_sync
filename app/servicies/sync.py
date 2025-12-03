@@ -5,10 +5,12 @@ from datetime import datetime
 from typing import List, Dict, Any
 
 from ..models.project import GestionaleProject, OpenProjectProject, CachedProject, ProjectSyncOperation
+from ..models.user import GestionaleUser, OpenProjectUser, CachedUser, UserSyncOperation
 from ..servicies.openproject import OpenProjectInterface
 from ..servicies.gestionaleGimi import GestionaleService
 from ..servicies.cacheDatabase import CacheDatabaseService
 from ..mappers.project_mappers import ProjectMapper
+from ..mappers.user_mapper import UserMapper
 from ..config import ConfigManager
 
 logger = logging.getLogger(__name__)
@@ -21,7 +23,9 @@ class SyncService:
         self.openproject_service = OpenProjectInterface(self.global_config.openproject_config)
         self.cache_service = CacheDatabaseService(self.global_config.cacheDB_config)
         self.project_mapper = ProjectMapper()
+        self.user_mapper = UserMapper()
 
+        self.cached_users = []
         self.cached_projects = []
 
         self.stats = {
@@ -46,26 +50,21 @@ class SyncService:
         # 2. Extract entries from Gimi Database
         logger.info("Extracting project entries from Gimi Database")
         gestionale_project = self.gestionale_service.extract_Gimi_projects_entries()
+        gimi_manutentori = self.gestionale_service.extract_Gimi_manutentori_entries()
         self.stats['total_projects'] = len(gestionale_project)
 
         # 3. Extract all data from Cache DB
         self._extract_cache_data()
 
         # 4. Analyse each of the project extracted from Gimi
-        sync_operations = self._identify_sync_operation(gestionale_project)
+        # project_sync_operations = self._identify_sync_operation_project(gestionale_project)
+        users_sync_operation = self._identify_sync_operation_users(gimi_manutentori)
 
         # 5. Execute operations
-        self._execute_sync_operations(sync_operations)
+        # self._execute_sync_operations(project_sync_operations)
 
         #6. Update cached project in db
-        self.cache_service.update_cache_db(self.cached_projects)
-
-
-
-
-
-
-
+        # self.cache_service.update_cache_db(self.cached_projects)
 
 
 # Auxiliary Functions
@@ -90,13 +89,14 @@ class SyncService:
 
         logger.info("Extracting data from Cache database...")
 
-        self.cached_projects = self.cache_service.get_projects_in_cache()
+        self.cached_users = self.cache_service.get_users_in_cache()
+        logger.info(f"Extracted {len(self.cached_users)} users from cache")
 
+        self.cached_projects = self.cache_service.get_projects_in_cache()
         logger.info(f"Extracted {len(self.cached_projects)} projects from cache")
 
 
-
-    def _identify_sync_operation(self, projects_list: List[GestionaleProject]) -> List[ProjectSyncOperation]:
+    def _identify_sync_operation_project(self, projects_list: List[GestionaleProject]) -> List[ProjectSyncOperation]:
         
         logger.info("Analizing the necessary sync operations")
 
@@ -117,7 +117,7 @@ class SyncService:
 
                         openproject_project = self.project_mapper.map_gestionale_to_openproject(project)
 
-                        openproject_project.custom_fields_cache = self.openproject_service._custom_fields_cache
+                        openproject_project.custom_fields_cache = self.openproject_service._project_custom_fields_cache
 
                         operation = ProjectSyncOperation(
                             operation_type="update",
@@ -140,7 +140,7 @@ class SyncService:
 
                         openproject_project = self.project_mapper.map_gestionale_to_openproject(project)
 
-                        openproject_project.custom_fields_cache = self.openproject_service._custom_fields_cache
+                        openproject_project.custom_fields_cache = self.openproject_service._project_custom_fields_cache
 
                         operation = ProjectSyncOperation(
                             operation_type="create",
@@ -160,6 +160,64 @@ class SyncService:
         logger.info("Cache correctly updated")
 
         return operations
+    
+    def _identify_sync_operation_users(self, users_list: List[GestionaleUser]) -> List[UserSyncOperation]:
+
+        operations = []
+
+        for user in users_list:
+
+            try:
+
+                cached_user = next((gimi_user for gimi_user in self.cached_users
+                                       if gimi_user.gestionale_id == user.GimiId), None)
+                
+                if cached_user:
+
+                    if self.user_mapper.update_gestionale_user_to_cache(user, cached_user):
+
+                        openproject_user = self.user_mapper.map_gestionale_to_openproject_user(user)
+
+                        openproject_user.custom_fields_cache = self.openproject_service._user_custom_fields_cache
+
+                        operation = UserSyncOperation(
+                            operation_type="update",
+                            gestionale_user=user,
+                            openproject_user=openproject_user,
+                            cached_user= new_cache_user
+                        )
+
+                        operations.append(operation)
+
+
+                else:
+
+                    new_cache_user = self.user_mapper.map_gestionale_to_cache_user((user))
+
+                    self.cached_users.append(new_cache_user)
+
+                    openproject_user = self.user_mapper.map_gestionale_to_openproject_user(user)
+
+                    #TODO: handle custom fields
+                    openproject_user.custom_fields_cache = self.openproject_service._user_custom_fields_cache
+
+                    operation = UserSyncOperation(
+                        operation_type="create",
+                        gestionale_user=user,
+                        openproject_user=openproject_user,
+                        cached_user= new_cache_user
+                    )
+
+                    operations.append(operation)
+
+            except Exception as e:
+                logger.error(f"Error while handling user {user.GimiId}: {e}")
+                continue
+
+        logger.info("Cache correctly updated")
+
+        return operations
+
 
            
     def _execute_sync_operations(self, operations: List[ProjectSyncOperation]):

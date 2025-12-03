@@ -240,3 +240,188 @@
 2025-11-29 17:41:19,821 - INFO - func:create_project - Progetto creato con successo: R25/226 (ID: 732)
 2025-11-29 17:41:27,543 - INFO - func:create_project - Progetto creato con successo: R25/226 (ID: 733)
 2025-11-29 17:41:32,521 - INFO - func:update_cache_db - ✓ Updated 77 project in cache db
+2025-12-03 21:09:50,524 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-12-03 21:09:50,527 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-12-03 21:09:50,882 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-12-03 21:09:50,882 - INFO - func:load_custom_fields_to_cache - Cache aggiornata con 7 custom fields
+2025-12-03 21:09:51,382 - ERROR - func:main - Fatal error: GestionaleService.extract_Gimi_manutentori_entries() missing 1 required positional argument: 'self'
+Traceback (most recent call last):
+  File "/home/riccardo/syncer/main.py", line 28, in main
+    syncer.run_full_sync_user()
+  File "/home/riccardo/syncer/app/servicies/sync.py", line 68, in run_full_sync_user
+    gimi_manutentori = GestionaleService.extract_Gimi_manutentori_entries()
+TypeError: GestionaleService.extract_Gimi_manutentori_entries() missing 1 required positional argument: 'self'
+2025-12-03 21:10:06,437 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-12-03 21:10:06,438 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-12-03 21:10:06,566 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-12-03 21:10:06,567 - INFO - func:load_custom_fields_to_cache - Cache aggiornata con 7 custom fields
+2025-12-03 21:10:22,344 - ERROR - func:main - Fatal error: GestionaleService.extract_Gimi_manutentori_entries() missing 1 required positional argument: 'self'
+Traceback (most recent call last):
+  File "/home/riccardo/syncer/main.py", line 28, in main
+    syncer.run_full_sync_user()
+  File "/home/riccardo/syncer/app/servicies/sync.py", line 68, in run_full_sync_user
+    gimi_manutentori = GestionaleService.extract_Gimi_manutentori_entries()
+TypeError: GestionaleService.extract_Gimi_manutentori_entries() missing 1 required positional argument: 'self'
+2025-12-03 21:10:53,937 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-12-03 21:10:53,939 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-12-03 21:10:54,055 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-12-03 21:10:54,056 - INFO - func:load_custom_fields_to_cache - Cache aggiornata con 7 custom fields
+2025-12-03 21:11:06,935 - ERROR - func:load_query - Errore nel caricamento della query: [Errno 2] No such file or directory: '/home/riccardo/syncer/app/queries/manutentori.sql'
+2025-12-03 21:12:33,123 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-12-03 21:12:33,124 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-12-03 21:12:33,209 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-12-03 21:12:33,211 - INFO - func:load_custom_fields_to_cache - Cache aggiornata con 7 custom fields
+2025-12-03 21:12:39,791 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/extractUsers.sql
+2025-12-03 21:13:16,377 - INFO - func:extract_Gimi_manutentori_entries - Extracted 53 maintainersv from Gimi database
+2025-12-03 21:32:39,505 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-12-03 21:32:39,506 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-12-03 21:32:39,869 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-12-03 21:32:39,870 - INFO - func:load_custom_fields_to_cache - Cache aggiornata con 7 custom fields
+2025-12-03 21:32:44,631 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/extractUsers.sql
+2025-12-03 21:32:50,197 - INFO - func:extract_Gimi_manutentori_entries - Extracted 53 maintainers from Gimi database
+2025-12-03 21:32:59,210 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-12-03 21:33:09,408 - INFO - func:_extract_cache_data - Extracted 0 users from cache
+2025-12-03 21:33:12,058 - INFO - func:_extract_cache_data - Extracted 77 projects from cache
+2025-12-03 22:27:41,366 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-12-03 22:27:41,367 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-12-03 22:28:01,450 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-12-03 22:28:11,191 - INFO - func:extract_custom_fields_from_schema - Estratti 1 custom fields dallo schema
+2025-12-03 22:28:15,289 - INFO - func:load_custom_fields_to_cache - Custom fields aggiornati con 7 per progetto e 1 per utenti
+2025-12-03 22:28:23,629 - ERROR - func:main - Fatal error: 'SyncService' object has no attribute 'run_full_sync_user'
+Traceback (most recent call last):
+  File "/home/riccardo/syncer/main.py", line 28, in main
+    syncer.run_full_sync_user()
+AttributeError: 'SyncService' object has no attribute 'run_full_sync_user'
+2025-12-03 22:28:35,772 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-12-03 22:28:35,773 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-12-03 22:28:38,286 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-12-03 22:28:38,435 - INFO - func:extract_custom_fields_from_schema - Estratti 1 custom fields dallo schema
+2025-12-03 22:28:38,436 - INFO - func:load_custom_fields_to_cache - Custom fields aggiornati con 7 per progetto e 1 per utenti
+2025-12-03 22:28:38,920 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-12-03 22:28:38,921 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-12-03 22:28:41,743 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-12-03 22:28:41,746 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/extractUsers.sql
+2025-12-03 22:28:41,853 - INFO - func:extract_Gimi_manutentori_entries - Extracted 53 maintainers from Gimi database
+2025-12-03 22:28:41,857 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-12-03 22:28:41,873 - INFO - func:_extract_cache_data - Extracted 0 users from cache
+2025-12-03 22:28:41,897 - INFO - func:_extract_cache_data - Extracted 77 projects from cache
+2025-12-03 22:32:48,201 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-12-03 22:32:48,201 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-12-03 22:32:48,300 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-12-03 22:32:48,355 - INFO - func:extract_custom_fields_from_schema - Estratti 1 custom fields dallo schema
+2025-12-03 22:32:48,355 - INFO - func:load_custom_fields_to_cache - Custom fields aggiornati con 7 per progetto e 1 per utenti
+2025-12-03 22:32:48,751 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-12-03 22:32:48,752 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-12-03 22:32:50,820 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-12-03 22:32:50,823 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/extractUsers.sql
+2025-12-03 22:32:50,945 - INFO - func:extract_Gimi_manutentori_entries - Extracted 53 maintainers from Gimi database
+2025-12-03 22:32:50,947 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-12-03 22:32:50,966 - INFO - func:_extract_cache_data - Extracted 0 users from cache
+2025-12-03 22:32:50,989 - INFO - func:_extract_cache_data - Extracted 77 projects from cache
+2025-12-03 22:33:37,042 - ERROR - func:_identify_sync_operation_users - Error while handling user 24: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:49,405 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-12-03 22:33:49,406 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-12-03 22:33:49,502 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-12-03 22:33:49,551 - INFO - func:extract_custom_fields_from_schema - Estratti 1 custom fields dallo schema
+2025-12-03 22:33:49,551 - INFO - func:load_custom_fields_to_cache - Custom fields aggiornati con 7 per progetto e 1 per utenti
+2025-12-03 22:33:49,982 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-12-03 22:33:49,983 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-12-03 22:33:52,171 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-12-03 22:33:52,174 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/extractUsers.sql
+2025-12-03 22:33:52,511 - INFO - func:extract_Gimi_manutentori_entries - Extracted 53 maintainers from Gimi database
+2025-12-03 22:33:52,513 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-12-03 22:33:52,528 - INFO - func:_extract_cache_data - Extracted 0 users from cache
+2025-12-03 22:33:52,548 - INFO - func:_extract_cache_data - Extracted 77 projects from cache
+2025-12-03 22:33:53,343 - ERROR - func:_identify_sync_operation_users - Error while handling user 24: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,344 - ERROR - func:_identify_sync_operation_users - Error while handling user 27: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,345 - ERROR - func:_identify_sync_operation_users - Error while handling user 29: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,345 - ERROR - func:_identify_sync_operation_users - Error while handling user 35: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,346 - ERROR - func:_identify_sync_operation_users - Error while handling user 38: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,347 - ERROR - func:_identify_sync_operation_users - Error while handling user 39: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,347 - ERROR - func:_identify_sync_operation_users - Error while handling user 41: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,347 - ERROR - func:_identify_sync_operation_users - Error while handling user 44: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,347 - ERROR - func:_identify_sync_operation_users - Error while handling user 49: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,348 - ERROR - func:_identify_sync_operation_users - Error while handling user 50: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,348 - ERROR - func:_identify_sync_operation_users - Error while handling user 51: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,348 - ERROR - func:_identify_sync_operation_users - Error while handling user 52: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,348 - ERROR - func:_identify_sync_operation_users - Error while handling user 53: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,349 - ERROR - func:_identify_sync_operation_users - Error while handling user 71: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,350 - ERROR - func:_identify_sync_operation_users - Error while handling user 75: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,350 - ERROR - func:_identify_sync_operation_users - Error while handling user 76: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,350 - ERROR - func:_identify_sync_operation_users - Error while handling user 86: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,351 - ERROR - func:_identify_sync_operation_users - Error while handling user 89: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,351 - ERROR - func:_identify_sync_operation_users - Error while handling user 92: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,351 - ERROR - func:_identify_sync_operation_users - Error while handling user 94: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,352 - ERROR - func:_identify_sync_operation_users - Error while handling user 96: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,352 - ERROR - func:_identify_sync_operation_users - Error while handling user 100: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,352 - ERROR - func:_identify_sync_operation_users - Error while handling user 103: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,352 - ERROR - func:_identify_sync_operation_users - Error while handling user 104: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,352 - ERROR - func:_identify_sync_operation_users - Error while handling user 105: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,352 - ERROR - func:_identify_sync_operation_users - Error while handling user 106: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,353 - ERROR - func:_identify_sync_operation_users - Error while handling user 109: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,353 - ERROR - func:_identify_sync_operation_users - Error while handling user 110: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,353 - ERROR - func:_identify_sync_operation_users - Error while handling user 111: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,353 - ERROR - func:_identify_sync_operation_users - Error while handling user 112: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,354 - ERROR - func:_identify_sync_operation_users - Error while handling user 115: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,354 - ERROR - func:_identify_sync_operation_users - Error while handling user 117: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,354 - ERROR - func:_identify_sync_operation_users - Error while handling user 118: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,354 - ERROR - func:_identify_sync_operation_users - Error while handling user 119: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,354 - ERROR - func:_identify_sync_operation_users - Error while handling user 121: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,354 - ERROR - func:_identify_sync_operation_users - Error while handling user 122: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,354 - ERROR - func:_identify_sync_operation_users - Error while handling user 124: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,354 - ERROR - func:_identify_sync_operation_users - Error while handling user 125: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,355 - ERROR - func:_identify_sync_operation_users - Error while handling user 127: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,355 - ERROR - func:_identify_sync_operation_users - Error while handling user 128: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,356 - ERROR - func:_identify_sync_operation_users - Error while handling user 130: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,356 - ERROR - func:_identify_sync_operation_users - Error while handling user 131: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,356 - ERROR - func:_identify_sync_operation_users - Error while handling user 132: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,357 - ERROR - func:_identify_sync_operation_users - Error while handling user 133: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,357 - ERROR - func:_identify_sync_operation_users - Error while handling user 134: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,357 - ERROR - func:_identify_sync_operation_users - Error while handling user 135: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,357 - ERROR - func:_identify_sync_operation_users - Error while handling user 136: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,357 - ERROR - func:_identify_sync_operation_users - Error while handling user 137: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,357 - ERROR - func:_identify_sync_operation_users - Error while handling user 138: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,358 - ERROR - func:_identify_sync_operation_users - Error while handling user 139: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,358 - ERROR - func:_identify_sync_operation_users - Error while handling user 140: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,359 - ERROR - func:_identify_sync_operation_users - Error while handling user 141: 'GestionaleUser' object has no attribute 'gestionale_id'
+2025-12-03 22:33:53,359 - INFO - func:_identify_sync_operation_users - Cache correctly updated
+2025-12-03 22:34:17,595 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-12-03 22:34:17,595 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-12-03 22:34:17,682 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-12-03 22:34:17,792 - INFO - func:extract_custom_fields_from_schema - Estratti 1 custom fields dallo schema
+2025-12-03 22:34:17,793 - INFO - func:load_custom_fields_to_cache - Custom fields aggiornati con 7 per progetto e 1 per utenti
+2025-12-03 22:34:18,223 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-12-03 22:34:18,224 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-12-03 22:34:20,352 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-12-03 22:34:20,355 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/extractUsers.sql
+2025-12-03 22:34:20,483 - INFO - func:extract_Gimi_manutentori_entries - Extracted 53 maintainers from Gimi database
+2025-12-03 22:34:20,484 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-12-03 22:34:20,498 - INFO - func:_extract_cache_data - Extracted 0 users from cache
+2025-12-03 22:34:20,521 - INFO - func:_extract_cache_data - Extracted 77 projects from cache
+2025-12-03 22:37:07,282 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-12-03 22:37:07,282 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-12-03 22:37:07,450 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-12-03 22:37:07,500 - INFO - func:extract_custom_fields_from_schema - Estratti 1 custom fields dallo schema
+2025-12-03 22:37:07,504 - INFO - func:load_custom_fields_to_cache - Custom fields aggiornati con 7 per progetto e 1 per utenti
+2025-12-03 22:37:07,873 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-12-03 22:37:07,873 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-12-03 22:37:10,011 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-12-03 22:37:10,014 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/extractUsers.sql
+2025-12-03 22:37:10,143 - INFO - func:extract_Gimi_manutentori_entries - Extracted 53 maintainers from Gimi database
+2025-12-03 22:37:10,145 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-12-03 22:37:10,164 - INFO - func:_extract_cache_data - Extracted 0 users from cache
+2025-12-03 22:37:10,182 - INFO - func:_extract_cache_data - Extracted 77 projects from cache
+2025-12-03 22:38:13,077 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-12-03 22:38:13,078 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-12-03 22:38:13,182 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-12-03 22:38:13,233 - INFO - func:extract_custom_fields_from_schema - Estratti 1 custom fields dallo schema
+2025-12-03 22:38:13,234 - INFO - func:load_custom_fields_to_cache - Custom fields aggiornati con 7 per progetto e 1 per utenti
+2025-12-03 22:38:13,563 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-12-03 22:38:13,564 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-12-03 22:38:15,541 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-12-03 22:38:15,544 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/extractUsers.sql
+2025-12-03 22:38:15,863 - INFO - func:extract_Gimi_manutentori_entries - Extracted 53 maintainers from Gimi database
+2025-12-03 22:38:15,865 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-12-03 22:38:15,878 - INFO - func:_extract_cache_data - Extracted 0 users from cache
+2025-12-03 22:38:15,896 - INFO - func:_extract_cache_data - Extracted 77 projects from cache
+2025-12-03 22:39:15,358 - INFO - func:_identify_sync_operation_users - Cache correctly updated
