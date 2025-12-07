@@ -48,8 +48,9 @@ class GestionaleUser:
 
         if self.email == "":
 
-            name, lastmame = self.extract_first_and_last_name()
-            return f"{lastmame}.{name}@mail_temporanea.it"
+            cleared = self.nominative.split(" - ", 1)[1] if " - " in self.nominative else self.nominative
+            cleared = cleared.replace(" ", ".")
+            return f"{cleared}@mail_temporanea.it"
 
         return self.email
     
@@ -75,17 +76,17 @@ class OpenProjectUser:
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
 
-    def to_api_payload(self) -> Dict[str, Any]:
+    def to_api_payload(self, is_for_update: bool) -> Dict[str, Any]:
         """Converte in payload per API OpenProject"""
         
         payload = {
 
-            "login": self.email,
-            "password": self.password,
+            # "login": self.email,
+            # "password": self.password,
             "firstName": self.firstName,
             "lastName": self.lastName,
             "email": self.email,
-            "admin": False,
+            # "admin": False,
         }
 
 
@@ -93,9 +94,17 @@ class OpenProjectUser:
         if self.phone:
             payload[self.custom_fields_cache["Numero"]] = self.phone
 
+        if not is_for_update:
+            payload.update({
+                "admin": False,
+                "login": self.email,
+                'status': "invited",
+                "language": "it"
+            })
+
+        return payload
+
             
-        return payload 
-    
 
 @dataclass
 class CachedUser:

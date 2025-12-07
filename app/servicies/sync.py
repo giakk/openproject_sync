@@ -59,6 +59,7 @@ class SyncService:
         # 4. Analyse each of the project extracted from Gimi
         # project_sync_operations = self._identify_sync_operation_project(gestionale_project)
         users_sync_operation = self._identify_sync_operation_users(gimi_manutentori)
+        self._execute_sync_operations_users(users_sync_operation)
 
         # 5. Execute operations
         # self._execute_sync_operations(project_sync_operations)
@@ -231,6 +232,17 @@ class SyncService:
         self._execute_update_operations(update_operations)
 
 
+    def _execute_sync_operations_users(self, operations: List[UserSyncOperation]):
+
+        logger.info(f"Executing {len(operations)} operations....")
+
+        create_operations = [op for op in operations if op.operation_type == "create"]
+        update_operations = [op for op in operations if op.operation_type == "update"]
+
+        self._execute_create_operations_users(create_operations)
+        self._execute_update_operations_users(update_operations)
+
+
     def _execute_create_operations(self, operations: List[ProjectSyncOperation]):
 
         if not operations:
@@ -251,6 +263,26 @@ class SyncService:
                 continue
 
     
+    def _execute_create_operations_users(self, operations: List[UserSyncOperation]):
+
+        if not operations:
+            return
+
+        logger.info(f"Creation of {len(operations)} users...")
+
+        for operation in operations:
+
+            try:
+
+                result = self._create_single_user(operation)
+                self._handle_operation_success_users(operation, result)
+
+            except Exception as e:
+
+                self._handle_operation_error_users(operation, e)
+                continue
+
+    
     def _execute_update_operations(self, operations: List[ProjectSyncOperation]):
 
         if not operations:
@@ -268,6 +300,25 @@ class SyncService:
             except Exception as e:
 
                 self._handle_operation_error(operation, e)
+                continue
+
+    def _execute_update_operations_users(self, operations: List[UserSyncOperation]):
+
+        if not operations:
+            return
+
+        logger.info(f"Update of {len(operations)} users...")
+
+        for operation in operations:
+
+            try:
+
+                result = self._update_single_user(operation)
+                self._handle_operation_success_users(operation, result)
+
+            except Exception as e:
+
+                self._handle_operation_error_users(operation, e)
                 continue
 
     
@@ -298,6 +349,26 @@ class SyncService:
             raise
 
 
+    def _create_single_user(self, operation: UserSyncOperation) -> OpenProjectUser:
+
+        try:
+
+            id = self.openproject_service.find_user(operation.openproject_user.email)
+
+            if id is None:
+
+                return self.openproject_service.create_user(operation.openproject_user)
+
+            else:
+
+                return self.openproject_service.update_user(operation.openproject_user, id)
+
+        except Exception as e:
+
+            logger.error(f"Error during OP creation of users {operation.gestionale_user.GimiId}: {e}")
+            raise
+
+
     def _update_single_project(self, operation: ProjectSyncOperation) -> OpenProjectProject:
 
         """
@@ -318,6 +389,21 @@ class SyncService:
             raise
 
     
+    def _update_single_user(self, operation: UserSyncOperation) -> OpenProjectUser:
+
+        try:
+
+            return self.openproject_service.update_user(
+                operation.openproject_user,
+                operation.cached_user.openproject_id
+            )
+        
+        except Exception as e:
+
+            logger.error(f"Error during OP update of {operation.gestionale_user.GimiId}: {e}")
+            raise
+
+    
     def _handle_operation_success(self, operation: ProjectSyncOperation, result: OpenProjectProject):
         """Handle operation success"""
         try:
@@ -335,10 +421,10 @@ class SyncService:
             else:
                 self.stats['updated'] += 1
             
-            logger.debug(f"Successo {operation.operation_type} utente: {operation.cached_project.gestionale_id}")
+            logger.debug(f"Successo {operation.operation_type} progetto: {operation.cached_project.gestionale_id}")
             
         except Exception as e:
-            logger.error(f"Errore gestione successo per utente {operation.cached_project.gestionale_id}: {e}")
+            logger.error(f"Errore gestione successo per progetto {operation.cached_project.gestionale_id}: {e}")
     
 
     def _handle_operation_error(self, operation: ProjectSyncOperation, error: Exception):
@@ -360,3 +446,45 @@ class SyncService:
         except Exception as e:
             logger.error(f"Error while failed handling for project {operation.cached_project.gestionale_id}: {e}")
 
+
+    def _handle_operation_success_users(self, operation: UserSyncOperation, result: OpenProjectUser):
+        """Handle operation success"""
+        try:
+            # Update cache information
+            self.user_mapper.mark_sync_success_user(
+                operation.cached_user,
+                result
+            )
+            
+            # Update statistics
+            self.stats['processed'] += 1
+            
+            if operation.operation_type == "create":
+                self.stats['created'] += 1
+            else:
+                self.stats['updated'] += 1
+            
+            logger.debug(f"Successo {operation.operation_type} utente: {operation.cached_user.gestionale_id}")
+            
+        except Exception as e:
+            logger.error(f"Errore gestione successo per utente {operation.cached_user.gestionale_id}: {e}")
+    
+
+    def _handle_operation_error_users(self, operation: UserSyncOperation, error: Exception):
+        """Gestisce errore operazione"""
+        try:
+            # Aggiorna cache con errore
+            error_message = str(error)[:500]  # Limita lunghezza messaggio
+            self.user_mapper.mark_sync_failed_user(
+                operation.cached_user
+            )
+            
+            # Aggiorna statistiche
+            self.stats['failed'] += 1
+            self.stats['processed'] += 1
+            self.stats['errors'].append(f"Utente {operation.cached_user.gestionale_id}: {error_message}")
+            
+            logger.error(f"Error {operation.operation_type} for project {operation.cached_user.gestionale_id}: {error}")
+            
+        except Exception as e:
+            logger.error(f"Error while failed handling for project {operation.cached_user.gestionale_id}: {e}")

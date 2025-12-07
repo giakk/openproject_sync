@@ -3,6 +3,7 @@
 import logging
 from ..config.ConfigManager import OpenProjectConfig
 from ..models.project import OpenProjectProject
+from ..models.user import OpenProjectUser
 
 
 from ..api_connection.requests.post_request import PostRequest
@@ -122,25 +123,77 @@ class OpenProjectInterface:
             return None
         
 
-    # def find_project(self, identifier):
+    def find_user(self, email:str):
 
-    #     search_result = self.get_list_of_projects(identifier)
+        try:
 
-    #     # Verifica che i dati siano validi
-    #     # if not projects_data or '_embedded' not in projects_data:   # TODO: manage exception for invalid data
-    #     #     return None
+            filter_structure = [
+                {
+                    "login": {
+                        "operator": "=",
+                        "values": [email]
+                    }
+                }
+            ]
+
+            filter_json = json.dumps(filter_structure)
+            
+            # URL encode
+            filter_encoded = urllib.parse.quote(filter_json)
+
+            full_url = f"/api/v3/users?filters={filter_encoded}"
+
+            response = GetRequest(connection=self.connection,
+                                context=full_url).execute()
+            
+            if response.get('total') == 0 and response.get('count') == 0:
+                return None
+                
+            element = response['_embedded'].get('elements')
+
+            return element[0].get('id')
         
-    #     # elements = projects_data['_embedded'].get('elements', [])
-        
-    #     # # Ricerca diretta, si ferma al primo match
-    #     # search_result = next((project for project in elements 
-    #     #             if project.get('identifier') == identifier), None)
 
-    #     # Return OpenProject ID if found any 
-    #     if search_result is None:
-    #         return None
+        except requests.exceptions.RequestException as e:
+            logger.error(f"Errore durante la chiamata API: {e}")
+            return None
+        except json.JSONDecodeError as e:
+            logger.error(f"Errore nel parsing del JSON: {e}")
+            return None
     
-    #     return search_result.get('id') 
+
+    def create_user(self, record: OpenProjectUser) -> OpenProjectUser:
+    
+        try:
+
+            payload = record.to_api_payload(is_for_update=False)
+
+            response = PostRequest(connection=self.connection,
+                        context="/api/v3/users",
+                        headers={"Content-Type": "application/json"},
+                        json=payload).execute()
+            
+            
+            record.id = response.get('id')
+            record.created_at = response.get('createdAt')
+            record.updated_at = response.get('updatedAt')
+            
+            logger.info(f"Utente creato con successo: {response.get('login')} (ID: {response.get('id')})")
+
+            return record
+    
+                    
+        except requests.exceptions.HTTPError as e:
+            logging.error(f"Errore HTTP nella creazione dell'utente: {e}")
+            if hasattr(e, 'response') and e.response:
+                logging.error(f"Response body: {e.response.text}")
+            return None
+        except requests.exceptions.RequestException as e:
+            logging.error(f"Errore di rete nella creazione dell'utente: {e}")
+            return None
+        except Exception as e:
+            logging.error(f"Errore generico nella creazione dell'utente: {e}")
+            return None
     
 
     def create_project(self, record: OpenProjectProject) -> OpenProjectProject:
@@ -190,6 +243,39 @@ class OpenProjectInterface:
 
             response = PatchRequest(connection=self.connection,
                                    context=f"/api/v3/projects/{id}",
+                                   headers={"Content-Type": "application/json"},
+                                   json=payload).execute()
+            
+            record.updated_at = response.get('updatedAt')
+            
+            if record.id is None:
+                record.id = response.get('id')
+            
+            logging.info(f"Progetto aggiornato con successo: {response.get('name')} (ID: {response.get('id')})")
+                
+            return record
+                
+        except requests.exceptions.HTTPError as e:
+            logging.error(f"Errore HTTP nella creazione del progetto: {e}")
+            if hasattr(e, 'response') and e.response:
+                logging.error(f"Response body: {e.response.text}")
+            return None
+        except requests.exceptions.RequestException as e:
+            logging.error(f"Errore di rete nella creazione del progetto: {e}")
+            return None
+        except Exception as e:
+            logging.error(f"Errore generico nella creazione del progetto: {e}")
+            return None
+        
+
+    def update_user(self, record: OpenProjectUser, id: int) -> OpenProjectUser:
+
+        try:
+
+            payload = record.to_api_payload(is_for_update=True)
+
+            response = PatchRequest(connection=self.connection,
+                                   context=f"/api/v3/users/{id}",
                                    headers={"Content-Type": "application/json"},
                                    json=payload).execute()
             

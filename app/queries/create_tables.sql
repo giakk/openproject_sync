@@ -19,6 +19,7 @@ CREATE TABLE IF NOT EXISTS cached_users (
     current_hash VARCHAR(64),
     last_sync_hash VARCHAR(64),
     sync_status VARCHAR(32) NOT NULL,
+    email VARCHAR(64) NOT NULL,
     last_sync_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -27,3 +28,4 @@ CREATE TABLE IF NOT EXISTS cached_users (
 
 CREATE INDEX idx_gestionale_user_id ON cached_users(gestionale_id);
 CREATE INDEX idx_openproject_user_id ON cached_users(openproject_id);
+CREATE INDEX idx_openproject_user_email ON cached_users(email);

@@ -425,3 +425,387 @@ AttributeError: 'SyncService' object has no attribute 'run_full_sync_user'
 2025-12-03 22:38:15,878 - INFO - func:_extract_cache_data - Extracted 0 users from cache
 2025-12-03 22:38:15,896 - INFO - func:_extract_cache_data - Extracted 77 projects from cache
 2025-12-03 22:39:15,358 - INFO - func:_identify_sync_operation_users - Cache correctly updated
+2025-12-06 16:01:45,841 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-12-06 16:01:45,844 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-12-06 16:01:47,597 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-12-06 16:01:47,733 - INFO - func:extract_custom_fields_from_schema - Estratti 1 custom fields dallo schema
+2025-12-06 16:01:47,734 - INFO - func:load_custom_fields_to_cache - Custom fields aggiornati con 7 per progetto e 1 per utenti
+2025-12-06 16:01:49,784 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-12-06 16:01:49,786 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-12-06 16:01:55,392 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-12-06 16:01:55,400 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/extractUsers.sql
+2025-12-06 16:01:55,974 - INFO - func:extract_Gimi_manutentori_entries - Extracted 53 maintainers from Gimi database
+2025-12-06 16:01:55,976 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-12-06 16:01:56,029 - INFO - func:_extract_cache_data - Extracted 0 users from cache
+2025-12-06 16:01:56,060 - INFO - func:_extract_cache_data - Extracted 77 projects from cache
+2025-12-06 16:03:16,040 - INFO - func:_identify_sync_operation_users - Cache correctly updated
+2025-12-06 16:03:28,668 - INFO - func:_execute_create_operations_users - Creation of 53 users...
+2025-12-06 16:04:11,017 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-12-06 16:04:11,017 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-12-06 16:04:11,176 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-12-06 16:04:11,254 - INFO - func:extract_custom_fields_from_schema - Estratti 1 custom fields dallo schema
+2025-12-06 16:04:11,256 - INFO - func:load_custom_fields_to_cache - Custom fields aggiornati con 7 per progetto e 1 per utenti
+2025-12-06 16:04:11,986 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-12-06 16:04:11,986 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-12-06 16:04:14,581 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-12-06 16:04:14,584 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/extractUsers.sql
+2025-12-06 16:04:14,710 - INFO - func:extract_Gimi_manutentori_entries - Extracted 53 maintainers from Gimi database
+2025-12-06 16:04:14,713 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-12-06 16:04:14,743 - INFO - func:_extract_cache_data - Extracted 0 users from cache
+2025-12-06 16:04:14,791 - INFO - func:_extract_cache_data - Extracted 77 projects from cache
+2025-12-06 16:04:14,797 - INFO - func:_identify_sync_operation_users - Cache correctly updated
+2025-12-06 16:04:26,393 - INFO - func:_execute_sync_operations_users - Executing 53 operations....
+2025-12-06 16:04:35,310 - INFO - func:_execute_create_operations_users - Creation of 53 users...
+2025-12-06 16:05:01,506 - ERROR - func:create_user - Errore generico nella creazione dell'utente: 'Numero'
+2025-12-06 16:05:15,128 - ERROR - func:_handle_operation_success_users - Errore gestione successo per utente 23: 'NoneType' object has no attribute 'id'
+2025-12-06 16:08:39,180 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-12-06 16:08:39,181 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-12-06 16:08:39,328 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-12-06 16:08:39,389 - INFO - func:extract_custom_fields_from_schema - Estratti 1 custom fields dallo schema
+2025-12-06 16:08:39,390 - INFO - func:load_custom_fields_to_cache - Custom fields aggiornati con 7 per progetto e 1 per utenti
+2025-12-06 16:08:39,792 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-12-06 16:08:39,792 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-12-06 16:08:42,071 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-12-06 16:08:42,074 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/extractUsers.sql
+2025-12-06 16:08:42,207 - INFO - func:extract_Gimi_manutentori_entries - Extracted 53 maintainers from Gimi database
+2025-12-06 16:08:42,210 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-12-06 16:08:42,228 - INFO - func:_extract_cache_data - Extracted 0 users from cache
+2025-12-06 16:08:42,249 - INFO - func:_extract_cache_data - Extracted 77 projects from cache
+2025-12-06 16:08:42,254 - INFO - func:_identify_sync_operation_users - Cache correctly updated
+2025-12-06 16:08:50,323 - INFO - func:_execute_sync_operations_users - Executing 53 operations....
+2025-12-06 16:08:55,077 - INFO - func:_execute_create_operations_users - Creation of 53 users...
+2025-12-06 16:11:04,279 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-12-06 16:11:04,280 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-12-06 16:11:04,364 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-12-06 16:11:04,414 - INFO - func:extract_custom_fields_from_schema - Estratti 1 custom fields dallo schema
+2025-12-06 16:11:04,415 - INFO - func:load_custom_fields_to_cache - Custom fields aggiornati con 7 per progetto e 1 per utenti
+2025-12-06 16:11:04,889 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-12-06 16:11:04,889 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-12-06 16:11:07,117 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-12-06 16:11:07,121 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/extractUsers.sql
+2025-12-06 16:11:07,253 - INFO - func:extract_Gimi_manutentori_entries - Extracted 53 maintainers from Gimi database
+2025-12-06 16:11:07,254 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-12-06 16:11:07,270 - INFO - func:_extract_cache_data - Extracted 0 users from cache
+2025-12-06 16:11:07,296 - INFO - func:_extract_cache_data - Extracted 77 projects from cache
+2025-12-06 16:11:07,309 - INFO - func:_identify_sync_operation_users - Cache correctly updated
+2025-12-06 16:11:09,555 - INFO - func:_execute_sync_operations_users - Executing 53 operations....
+2025-12-06 16:11:09,558 - INFO - func:_execute_create_operations_users - Creation of 53 users...
+2025-12-06 16:11:10,116 - INFO - func:create_user - Utente creato con successo: colaiocco.roberto@tecnolift.it (ID: 14)
+2025-12-06 16:11:10,388 - INFO - func:create_user - Utente creato con successo: derevlean.toader@tecnolift.it (ID: 15)
+2025-12-06 16:11:10,790 - INFO - func:create_user - Utente creato con successo: meloni.maurizio@tecnolift.it (ID: 16)
+2025-12-06 16:11:11,008 - INFO - func:create_user - Utente creato con successo: meani.giuliano@emergenzalift.it (ID: 17)
+2025-12-06 16:11:11,195 - INFO - func:create_user - Utente creato con successo: pomohaci.adrian@tecnolift.it (ID: 18)
+2025-12-06 16:11:11,410 - INFO - func:create_user - Utente creato con successo: cavaglia.marco@tecnolift.it (ID: 19)
+2025-12-06 16:11:11,603 - INFO - func:create_user - Utente creato con successo: bauducco.stefano@tecnolift.it (ID: 20)
+2025-12-06 16:11:11,812 - INFO - func:create_user - Utente creato con successo: barra.simone@tecnolift.it (ID: 21)
+2025-12-06 16:11:12,005 - INFO - func:create_user - Utente creato con successo: pinnelli.gerardo@tecnolift.it (ID: 22)
+2025-12-06 16:11:12,200 - INFO - func:create_user - Utente creato con successo: benzari.khalid@emergenzalift.it (ID: 23)
+2025-12-06 16:11:12,384 - INFO - func:create_user - Utente creato con successo: musso.carlo@tecnolift.it (ID: 24)
+2025-12-06 16:11:12,582 - INFO - func:create_user - Utente creato con successo: popa.ciprian@tecnolift.it (ID: 25)
+2025-12-06 16:11:12,775 - INFO - func:create_user - Utente creato con successo: schellino.enrico@tecnolift.it (ID: 26)
+2025-12-06 16:11:12,966 - INFO - func:create_user - Utente creato con successo: tommasini.antonio@tecnolift.it (ID: 27)
+2025-12-06 16:11:13,160 - INFO - func:create_user - Utente creato con successo: soroberto.carmelo@tecnolift.it (ID: 28)
+2025-12-06 16:11:13,330 - INFO - func:create_user - Utente creato con successo: trullu.giovanni@tecnolift.it (ID: 29)
+2025-12-06 16:11:13,507 - INFO - func:create_user - Utente creato con successo: schiano.mattia@tecnolift.it (ID: 30)
+2025-12-06 16:11:13,707 - INFO - func:create_user - Utente creato con successo: zhekov.zheko@emergenzalift.it (ID: 31)
+2025-12-06 16:11:13,906 - INFO - func:create_user - Utente creato con successo: righetti.marco@tecnolift.it (ID: 32)
+2025-12-06 16:11:14,113 - INFO - func:create_user - Utente creato con successo: commerciale@tecnolift.it (ID: 33)
+2025-12-06 16:11:14,294 - INFO - func:create_user - Utente creato con successo: amministrazione@tecnolift.it (ID: 34)
+2025-12-06 16:11:14,520 - INFO - func:create_user - Utente creato con successo: girotti.alberto@tecnolift.it (ID: 35)
+2025-12-06 16:11:14,728 - INFO - func:create_user - Utente creato con successo: flis.christian@tecnolift.it (ID: 36)
+2025-12-06 16:11:14,880 - INFO - func:create_user - Utente creato con successo: Limongi.Nicola@mail_temporanea.it (ID: 37)
+2025-12-06 16:11:15,069 - INFO - func:create_user - Utente creato con successo: redaelli.mattia@italiatecnomec.com (ID: 38)
+2025-12-06 16:11:15,230 - INFO - func:create_user - Utente creato con successo: Cungu.Millko@mail_temporanea.it (ID: 39)
+2025-12-06 16:11:15,414 - INFO - func:create_user - Utente creato con successo: Iantuc.Gheorghe@mail_temporanea.it (ID: 40)
+2025-12-06 16:11:15,506 - ERROR - func:create_user - Errore generico nella creazione dell'utente: Error running request with the URL (HTTPError): 'http://localhost:3000/api/v3/users'.
+ {"_type":"Error","errorIdentifier":"urn:openproject-org:api:v3:errors:PropertyConstraintViolation","message":"Email non è un indirizzo email valido","_embedded":{"details":{"attribute":"email"}}}
+2025-12-06 16:11:15,507 - ERROR - func:_handle_operation_success_users - Errore gestione successo per utente 109: 'NoneType' object has no attribute 'id'
+2025-12-06 16:11:15,672 - INFO - func:create_user - Utente creato con successo: imerese.andrea@tecnolift.it (ID: 41)
+2025-12-06 16:11:15,826 - INFO - func:create_user - Utente creato con successo: Caggia.Daniele@mail_temporanea.it (ID: 42)
+2025-12-06 16:11:16,035 - INFO - func:create_user - Utente creato con successo: Craciun.Gheorghe@mail_temporanea.it (ID: 43)
+2025-12-06 16:11:16,237 - INFO - func:create_user - Utente creato con successo: bianchi.lorenzo@tecnolift.it (ID: 44)
+2025-12-06 16:11:16,399 - INFO - func:create_user - Utente creato con successo: caretti.marco@tecnolift.it (ID: 45)
+2025-12-06 16:11:16,604 - INFO - func:create_user - Utente creato con successo: stucchi.pasquale@tecnolift.it (ID: 46)
+2025-12-06 16:11:16,814 - INFO - func:create_user - Utente creato con successo: segreteria@tecnolift.it (ID: 47)
+2025-12-06 16:11:16,986 - INFO - func:create_user - Utente creato con successo: suhani.luca@tecnolift.it (ID: 48)
+2025-12-06 16:11:17,196 - INFO - func:create_user - Utente creato con successo: bauducco.andrea@tecnolift.it (ID: 49)
+2025-12-06 16:11:17,381 - INFO - func:create_user - Utente creato con successo: boscolo.mauro@tecnolift.it (ID: 50)
+2025-12-06 16:11:17,568 - INFO - func:create_user - Utente creato con successo: calin.mihai@tecnolift.it (ID: 51)
+2025-12-06 16:11:17,737 - INFO - func:create_user - Utente creato con successo: meletti.marco@tecnolift.it (ID: 52)
+2025-12-06 16:11:17,933 - INFO - func:create_user - Utente creato con successo: perri.luca@tecnolift.it (ID: 53)
+2025-12-06 16:11:18,106 - INFO - func:create_user - Utente creato con successo: Uberti.Paolo@mail_temporanea.it (ID: 54)
+2025-12-06 16:11:18,315 - INFO - func:create_user - Utente creato con successo: Grott.Alessandro@mail_temporanea.it (ID: 55)
+2025-12-06 16:11:18,501 - INFO - func:create_user - Utente creato con successo: Cantoni.Walther@mail_temporanea.it (ID: 56)
+2025-12-06 16:11:18,654 - INFO - func:create_user - Utente creato con successo: Berton.Silvia@mail_temporanea.it (ID: 57)
+2025-12-06 16:11:18,832 - INFO - func:create_user - Utente creato con successo: Chiantor.Stefano@mail_temporanea.it (ID: 58)
+2025-12-06 16:11:18,987 - INFO - func:create_user - Utente creato con successo: Biolatti.Davide@mail_temporanea.it (ID: 59)
+2025-12-06 16:11:19,189 - INFO - func:create_user - Utente creato con successo: Hoxha.Laert@mail_temporanea.it (ID: 60)
+2025-12-06 16:11:19,392 - INFO - func:create_user - Utente creato con successo: musso.roberta@tecnolift.it (ID: 61)
+2025-12-06 16:11:19,552 - INFO - func:create_user - Utente creato con successo: Kola.Marjo@mail_temporanea.it (ID: 62)
+2025-12-06 16:11:19,747 - INFO - func:create_user - Utente creato con successo: bianchiascensori@outlook.it (ID: 63)
+2025-12-06 16:11:19,914 - INFO - func:create_user - Utente creato con successo: Armando.Gjoshi@mail_temporanea.it (ID: 64)
+2025-12-06 16:11:20,108 - INFO - func:create_user - Utente creato con successo: Simone.Marin@mail_temporanea.it (ID: 65)
+2025-12-06 16:25:20,017 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-12-06 16:25:21,048 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-12-06 16:25:21,702 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-12-06 16:25:21,791 - INFO - func:extract_custom_fields_from_schema - Estratti 1 custom fields dallo schema
+2025-12-06 16:25:21,792 - INFO - func:load_custom_fields_to_cache - Custom fields aggiornati con 7 per progetto e 1 per utenti
+2025-12-06 16:25:24,265 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-12-06 16:25:24,949 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-12-06 16:25:27,424 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-12-06 16:25:28,028 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/extractUsers.sql
+2025-12-06 16:25:28,340 - INFO - func:extract_Gimi_manutentori_entries - Extracted 53 maintainers from Gimi database
+2025-12-06 16:25:29,662 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-12-06 16:25:29,683 - INFO - func:_extract_cache_data - Extracted 0 users from cache
+2025-12-06 16:25:29,711 - INFO - func:_extract_cache_data - Extracted 77 projects from cache
+2025-12-06 16:25:30,429 - INFO - func:_identify_sync_operation_users - Cache correctly updated
+2025-12-06 16:25:32,492 - INFO - func:_execute_sync_operations_users - Executing 53 operations....
+2025-12-06 16:25:38,113 - INFO - func:_execute_create_operations_users - Creation of 53 users...
+2025-12-06 20:34:43,978 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-12-06 20:34:43,981 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-12-06 20:34:44,375 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-12-06 20:34:44,582 - INFO - func:extract_custom_fields_from_schema - Estratti 1 custom fields dallo schema
+2025-12-06 20:34:44,582 - INFO - func:load_custom_fields_to_cache - Custom fields aggiornati con 7 per progetto e 1 per utenti
+2025-12-06 20:34:45,165 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-12-06 20:34:45,166 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-12-06 20:34:47,471 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-12-06 20:34:47,475 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/extractUsers.sql
+2025-12-06 20:34:47,585 - INFO - func:extract_Gimi_manutentori_entries - Extracted 53 maintainers from Gimi database
+2025-12-06 20:34:47,588 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-12-06 20:34:47,610 - INFO - func:_extract_cache_data - Extracted 0 users from cache
+2025-12-06 20:34:47,631 - INFO - func:_extract_cache_data - Extracted 77 projects from cache
+2025-12-06 20:34:47,642 - INFO - func:_identify_sync_operation_users - Cache correctly updated
+2025-12-06 20:34:50,664 - INFO - func:_execute_sync_operations_users - Executing 53 operations....
+2025-12-06 20:34:50,667 - INFO - func:_execute_create_operations_users - Creation of 53 users...
+2025-12-07 12:29:47,813 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-12-07 12:29:47,816 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-12-07 12:29:50,619 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-12-07 12:29:50,714 - INFO - func:extract_custom_fields_from_schema - Estratti 1 custom fields dallo schema
+2025-12-07 12:29:50,715 - INFO - func:load_custom_fields_to_cache - Custom fields aggiornati con 7 per progetto e 1 per utenti
+2025-12-07 12:29:51,480 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-12-07 12:29:51,482 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-12-07 12:29:54,828 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-12-07 12:29:54,831 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/extractUsers.sql
+2025-12-07 12:29:55,268 - INFO - func:extract_Gimi_manutentori_entries - Extracted 53 maintainers from Gimi database
+2025-12-07 12:29:55,270 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-12-07 12:29:55,284 - INFO - func:_extract_cache_data - Extracted 0 users from cache
+2025-12-07 12:29:55,301 - INFO - func:_extract_cache_data - Extracted 77 projects from cache
+2025-12-07 12:29:55,305 - INFO - func:_identify_sync_operation_users - Cache correctly updated
+2025-12-07 12:29:58,846 - INFO - func:_execute_sync_operations_users - Executing 53 operations....
+2025-12-07 12:30:07,316 - INFO - func:_execute_create_operations_users - Creation of 53 users...
+2025-12-07 12:30:45,393 - INFO - func:create_user - Utente creato con successo: colaiocco.roberto@tecnolift.it (ID: 66)
+2025-12-07 12:31:15,357 - INFO - func:create_user - Utente creato con successo: derevlean.toader@tecnolift.it (ID: 67)
+2025-12-07 12:31:18,355 - INFO - func:create_user - Utente creato con successo: meloni.maurizio@tecnolift.it (ID: 68)
+2025-12-07 12:31:19,872 - INFO - func:create_user - Utente creato con successo: meani.giuliano@emergenzalift.it (ID: 69)
+2025-12-07 12:31:20,890 - INFO - func:create_user - Utente creato con successo: pomohaci.adrian@tecnolift.it (ID: 70)
+2025-12-07 12:31:21,777 - INFO - func:create_user - Utente creato con successo: cavaglia.marco@tecnolift.it (ID: 71)
+2025-12-07 12:31:22,861 - INFO - func:create_user - Utente creato con successo: bauducco.stefano@tecnolift.it (ID: 72)
+2025-12-07 12:31:26,495 - INFO - func:create_user - Utente creato con successo: barra.simone@tecnolift.it (ID: 73)
+2025-12-07 12:31:27,684 - INFO - func:create_user - Utente creato con successo: pinnelli.gerardo@tecnolift.it (ID: 74)
+2025-12-07 12:31:28,709 - INFO - func:create_user - Utente creato con successo: benzari.khalid@emergenzalift.it (ID: 75)
+2025-12-07 12:31:29,593 - INFO - func:create_user - Utente creato con successo: musso.carlo@tecnolift.it (ID: 76)
+2025-12-07 12:31:30,528 - INFO - func:create_user - Utente creato con successo: popa.ciprian@tecnolift.it (ID: 77)
+2025-12-07 12:31:31,382 - INFO - func:create_user - Utente creato con successo: schellino.enrico@tecnolift.it (ID: 78)
+2025-12-07 12:31:32,179 - INFO - func:create_user - Utente creato con successo: tommasini.antonio@tecnolift.it (ID: 79)
+2025-12-07 12:31:33,220 - INFO - func:create_user - Utente creato con successo: soroberto.carmelo@tecnolift.it (ID: 80)
+2025-12-07 12:31:34,231 - INFO - func:create_user - Utente creato con successo: trullu.giovanni@tecnolift.it (ID: 81)
+2025-12-07 12:31:35,225 - INFO - func:create_user - Utente creato con successo: schiano.mattia@tecnolift.it (ID: 82)
+2025-12-07 12:31:36,224 - INFO - func:create_user - Utente creato con successo: zhekov.zheko@emergenzalift.it (ID: 83)
+2025-12-07 12:31:37,216 - INFO - func:create_user - Utente creato con successo: righetti.marco@tecnolift.it (ID: 84)
+2025-12-07 12:31:38,141 - INFO - func:create_user - Utente creato con successo: commerciale@tecnolift.it (ID: 85)
+2025-12-07 12:31:39,129 - INFO - func:create_user - Utente creato con successo: amministrazione@tecnolift.it (ID: 86)
+2025-12-07 12:31:40,019 - INFO - func:create_user - Utente creato con successo: girotti.alberto@tecnolift.it (ID: 87)
+2025-12-07 12:31:41,201 - INFO - func:create_user - Utente creato con successo: flis.christian@tecnolift.it (ID: 88)
+2025-12-07 12:31:42,187 - INFO - func:create_user - Utente creato con successo: Limongi.Nicola@mail_temporanea.it (ID: 89)
+2025-12-07 12:31:43,294 - INFO - func:create_user - Utente creato con successo: redaelli.mattia@italiatecnomec.com (ID: 90)
+2025-12-07 12:31:45,301 - INFO - func:create_user - Utente creato con successo: Cungu.Millko@mail_temporanea.it (ID: 91)
+2025-12-07 12:31:47,582 - INFO - func:create_user - Utente creato con successo: Iantuc.Gheorghe@mail_temporanea.it (ID: 92)
+2025-12-07 12:31:48,374 - ERROR - func:create_user - Errore generico nella creazione dell'utente: Error running request with the URL (HTTPError): 'http://localhost:3000/api/v3/users'.
+ {"_type":"Error","errorIdentifier":"urn:openproject-org:api:v3:errors:PropertyConstraintViolation","message":"Email non è un indirizzo email valido","_embedded":{"details":{"attribute":"email"}}}
+2025-12-07 12:31:48,375 - ERROR - func:_handle_operation_success_users - Errore gestione successo per utente 109: 'NoneType' object has no attribute 'id'
+2025-12-07 12:32:33,194 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-12-07 12:32:33,195 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-12-07 12:32:33,410 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-12-07 12:32:33,461 - INFO - func:extract_custom_fields_from_schema - Estratti 1 custom fields dallo schema
+2025-12-07 12:32:33,466 - INFO - func:load_custom_fields_to_cache - Custom fields aggiornati con 7 per progetto e 1 per utenti
+2025-12-07 12:32:34,033 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-12-07 12:32:34,034 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-12-07 12:32:36,306 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-12-07 12:32:36,307 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-12-07 12:32:36,381 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-12-07 12:32:36,486 - INFO - func:extract_custom_fields_from_schema - Estratti 1 custom fields dallo schema
+2025-12-07 12:32:36,486 - INFO - func:load_custom_fields_to_cache - Custom fields aggiornati con 7 per progetto e 1 per utenti
+2025-12-07 12:32:36,827 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-12-07 12:32:36,828 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-12-07 12:32:36,886 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-12-07 12:32:36,890 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/extractUsers.sql
+2025-12-07 12:32:37,119 - INFO - func:extract_Gimi_manutentori_entries - Extracted 53 maintainers from Gimi database
+2025-12-07 12:32:37,123 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-12-07 12:32:37,146 - INFO - func:_extract_cache_data - Extracted 0 users from cache
+2025-12-07 12:32:37,171 - INFO - func:_extract_cache_data - Extracted 77 projects from cache
+2025-12-07 12:32:37,178 - INFO - func:_identify_sync_operation_users - Cache correctly updated
+2025-12-07 12:32:39,878 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-12-07 12:32:39,881 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/extractUsers.sql
+2025-12-07 12:32:40,285 - INFO - func:extract_Gimi_manutentori_entries - Extracted 53 maintainers from Gimi database
+2025-12-07 12:32:40,287 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-12-07 12:32:40,308 - INFO - func:_extract_cache_data - Extracted 0 users from cache
+2025-12-07 12:32:40,330 - INFO - func:_extract_cache_data - Extracted 77 projects from cache
+2025-12-07 12:32:40,345 - INFO - func:_identify_sync_operation_users - Cache correctly updated
+2025-12-07 12:32:40,757 - INFO - func:_execute_sync_operations_users - Executing 53 operations....
+2025-12-07 12:32:40,758 - INFO - func:_execute_create_operations_users - Creation of 53 users...
+2025-12-07 12:33:09,339 - ERROR - func:update_project - Errore generico nella creazione del progetto: Error running request with the URL (HTTPError): 'http://localhost:3000/api/v3/projects/66'.
+ {"_type":"Error","errorIdentifier":"urn:openproject-org:api:v3:errors:NotFound","message":"La risorsa richiesta non è stata trovata."}
+2025-12-07 12:33:13,646 - ERROR - func:_handle_operation_success_users - Errore gestione successo per utente 23: 'NoneType' object has no attribute 'id'
+2025-12-07 12:35:04,073 - INFO - func:_execute_sync_operations_users - Executing 53 operations....
+2025-12-07 12:35:04,074 - INFO - func:_execute_create_operations_users - Creation of 53 users...
+2025-12-07 12:35:11,726 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-12-07 12:35:11,727 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-12-07 12:35:11,814 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-12-07 12:35:11,857 - INFO - func:extract_custom_fields_from_schema - Estratti 1 custom fields dallo schema
+2025-12-07 12:35:11,859 - INFO - func:load_custom_fields_to_cache - Custom fields aggiornati con 7 per progetto e 1 per utenti
+2025-12-07 12:35:12,191 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-12-07 12:35:12,192 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-12-07 12:35:14,327 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-12-07 12:35:14,330 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/extractUsers.sql
+2025-12-07 12:35:14,647 - INFO - func:extract_Gimi_manutentori_entries - Extracted 53 maintainers from Gimi database
+2025-12-07 12:35:14,649 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-12-07 12:35:14,662 - INFO - func:_extract_cache_data - Extracted 0 users from cache
+2025-12-07 12:35:14,681 - INFO - func:_extract_cache_data - Extracted 77 projects from cache
+2025-12-07 12:35:14,687 - INFO - func:_identify_sync_operation_users - Cache correctly updated
+2025-12-07 12:35:16,934 - INFO - func:_execute_sync_operations_users - Executing 53 operations....
+2025-12-07 12:35:16,935 - INFO - func:_execute_create_operations_users - Creation of 53 users...
+2025-12-07 12:36:08,753 - INFO - func:update_user - Progetto aggiornato con successo: Roberto Colaiocco (ID: 66)
+2025-12-07 12:36:23,147 - INFO - func:update_user - Progetto aggiornato con successo: Toader Derevlean (ID: 67)
+2025-12-07 12:36:24,264 - INFO - func:update_user - Progetto aggiornato con successo: Maurizio Meloni (ID: 68)
+2025-12-07 12:36:25,057 - INFO - func:update_user - Progetto aggiornato con successo: Giuliano Meani (ID: 69)
+2025-12-07 12:36:28,471 - INFO - func:update_user - Progetto aggiornato con successo: Adrian Pomohaci (ID: 70)
+2025-12-07 12:36:29,490 - INFO - func:update_user - Progetto aggiornato con successo: Marco Cavaglià (ID: 71)
+2025-12-07 12:36:30,417 - INFO - func:update_user - Progetto aggiornato con successo: Stefano Bauducco (ID: 72)
+2025-12-07 12:36:31,167 - INFO - func:update_user - Progetto aggiornato con successo: Simone Barra (ID: 73)
+2025-12-07 12:36:31,935 - INFO - func:update_user - Progetto aggiornato con successo: Gerardo Pinnelli (ID: 74)
+2025-12-07 12:36:32,993 - INFO - func:update_user - Progetto aggiornato con successo: Khalid Benzari (ID: 75)
+2025-12-07 12:36:33,736 - INFO - func:update_user - Progetto aggiornato con successo: Carlo Alberto Musso (ID: 76)
+2025-12-07 12:36:34,449 - INFO - func:update_user - Progetto aggiornato con successo: Ciprian Popa (ID: 77)
+2025-12-07 12:36:35,273 - INFO - func:update_user - Progetto aggiornato con successo: Enrico Schellino (ID: 78)
+2025-12-07 12:36:36,306 - INFO - func:update_user - Progetto aggiornato con successo: Antonio Tommasini (ID: 79)
+2025-12-07 12:36:37,290 - INFO - func:update_user - Progetto aggiornato con successo: Carmelo Soroberto (ID: 80)
+2025-12-07 12:36:38,152 - INFO - func:update_user - Progetto aggiornato con successo: Giovanni Trullu (ID: 81)
+2025-12-07 12:36:39,208 - INFO - func:update_user - Progetto aggiornato con successo: Mattia Schiano (ID: 82)
+2025-12-07 12:36:40,453 - INFO - func:update_user - Progetto aggiornato con successo: Zhekov Zheko (ID: 83)
+2025-12-07 12:36:41,521 - INFO - func:update_user - Progetto aggiornato con successo: Marco Righetti (ID: 84)
+2025-12-07 12:36:42,601 - INFO - func:update_user - Progetto aggiornato con successo: Elena Lisa (ID: 85)
+2025-12-07 12:36:43,808 - INFO - func:update_user - Progetto aggiornato con successo: Marzia Polignone (ID: 86)
+2025-12-07 12:36:45,408 - INFO - func:update_user - Progetto aggiornato con successo: Alberto Girotti (ID: 87)
+2025-12-07 12:36:47,197 - INFO - func:update_user - Progetto aggiornato con successo: Christian Flis (ID: 88)
+2025-12-07 12:36:48,280 - INFO - func:update_user - Progetto aggiornato con successo: Nicola Limongi (ID: 89)
+2025-12-07 12:36:49,664 - INFO - func:update_user - Progetto aggiornato con successo: Mattia Redaelli (ID: 90)
+2025-12-07 12:36:50,687 - INFO - func:update_user - Progetto aggiornato con successo: Millko Cungu (ID: 91)
+2025-12-07 12:36:53,360 - INFO - func:update_user - Progetto aggiornato con successo: Gheorghe Iantuc (ID: 92)
+2025-12-07 12:38:42,535 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-12-07 12:38:42,536 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-12-07 12:38:42,633 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-12-07 12:38:42,695 - INFO - func:extract_custom_fields_from_schema - Estratti 1 custom fields dallo schema
+2025-12-07 12:38:42,695 - INFO - func:load_custom_fields_to_cache - Custom fields aggiornati con 7 per progetto e 1 per utenti
+2025-12-07 12:38:43,053 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-12-07 12:38:43,054 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-12-07 12:38:45,205 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-12-07 12:38:48,125 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/extractUsers.sql
+2025-12-07 12:38:48,460 - INFO - func:extract_Gimi_manutentori_entries - Extracted 53 maintainers from Gimi database
+2025-12-07 12:39:28,846 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-12-07 12:39:28,860 - INFO - func:_extract_cache_data - Extracted 0 users from cache
+2025-12-07 12:39:28,891 - INFO - func:_extract_cache_data - Extracted 77 projects from cache
+2025-12-07 12:45:06,490 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-12-07 12:45:06,491 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-12-07 12:45:06,615 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-12-07 12:45:06,665 - INFO - func:extract_custom_fields_from_schema - Estratti 1 custom fields dallo schema
+2025-12-07 12:45:06,667 - INFO - func:load_custom_fields_to_cache - Custom fields aggiornati con 7 per progetto e 1 per utenti
+2025-12-07 12:45:07,081 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-12-07 12:45:07,082 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-12-07 12:45:09,366 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-12-07 12:45:46,496 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/extractUsers.sql
+2025-12-07 12:45:46,774 - INFO - func:extract_Gimi_manutentori_entries - Extracted 53 maintainers from Gimi database
+2025-12-07 12:45:46,776 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-12-07 12:45:46,790 - INFO - func:_extract_cache_data - Extracted 0 users from cache
+2025-12-07 12:45:46,810 - INFO - func:_extract_cache_data - Extracted 77 projects from cache
+2025-12-07 12:47:53,752 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-12-07 12:47:53,753 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-12-07 12:47:53,864 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-12-07 12:47:53,938 - INFO - func:extract_custom_fields_from_schema - Estratti 1 custom fields dallo schema
+2025-12-07 12:47:53,939 - INFO - func:load_custom_fields_to_cache - Custom fields aggiornati con 7 per progetto e 1 per utenti
+2025-12-07 12:47:54,350 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-12-07 12:47:54,351 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-12-07 12:47:56,568 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-12-07 12:47:59,376 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/extractUsers.sql
+2025-12-07 12:47:59,654 - INFO - func:extract_Gimi_manutentori_entries - Extracted 53 maintainers from Gimi database
+2025-12-07 12:47:59,656 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-12-07 12:47:59,669 - INFO - func:_extract_cache_data - Extracted 0 users from cache
+2025-12-07 12:47:59,687 - INFO - func:_extract_cache_data - Extracted 77 projects from cache
+2025-12-07 12:49:31,294 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-12-07 12:49:31,294 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-12-07 12:49:31,427 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-12-07 12:49:31,463 - INFO - func:extract_custom_fields_from_schema - Estratti 1 custom fields dallo schema
+2025-12-07 12:49:31,463 - INFO - func:load_custom_fields_to_cache - Custom fields aggiornati con 7 per progetto e 1 per utenti
+2025-12-07 12:49:31,817 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-12-07 12:49:31,818 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-12-07 12:49:33,898 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-12-07 12:49:35,945 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/extractUsers.sql
+2025-12-07 12:49:36,240 - INFO - func:extract_Gimi_manutentori_entries - Extracted 53 maintainers from Gimi database
+2025-12-07 12:49:36,241 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-12-07 12:49:36,255 - INFO - func:_extract_cache_data - Extracted 0 users from cache
+2025-12-07 12:49:36,280 - INFO - func:_extract_cache_data - Extracted 77 projects from cache
+2025-12-07 12:50:20,411 - INFO - func:_identify_sync_operation_users - Cache correctly updated
+2025-12-07 12:50:24,445 - INFO - func:_execute_sync_operations_users - Executing 53 operations....
+2025-12-07 12:50:28,691 - INFO - func:_execute_create_operations_users - Creation of 53 users...
+2025-12-07 12:50:34,626 - INFO - func:update_user - Progetto aggiornato con successo: Roberto Colaiocco (ID: 66)
+2025-12-07 12:50:35,651 - INFO - func:update_user - Progetto aggiornato con successo: Toader Derevlean (ID: 67)
+2025-12-07 12:50:36,841 - INFO - func:update_user - Progetto aggiornato con successo: Maurizio Meloni (ID: 68)
+2025-12-07 12:50:39,033 - INFO - func:update_user - Progetto aggiornato con successo: Giuliano Meani (ID: 69)
+2025-12-07 12:50:39,974 - INFO - func:update_user - Progetto aggiornato con successo: Adrian Pomohaci (ID: 70)
+2025-12-07 12:50:40,745 - INFO - func:update_user - Progetto aggiornato con successo: Marco Cavaglià (ID: 71)
+2025-12-07 12:50:41,493 - INFO - func:update_user - Progetto aggiornato con successo: Stefano Bauducco (ID: 72)
+2025-12-07 12:50:42,097 - INFO - func:update_user - Progetto aggiornato con successo: Simone Barra (ID: 73)
+2025-12-07 12:50:42,792 - INFO - func:update_user - Progetto aggiornato con successo: Gerardo Pinnelli (ID: 74)
+2025-12-07 12:50:43,417 - INFO - func:update_user - Progetto aggiornato con successo: Khalid Benzari (ID: 75)
+2025-12-07 12:50:43,960 - INFO - func:update_user - Progetto aggiornato con successo: Carlo Alberto Musso (ID: 76)
+2025-12-07 12:50:44,543 - INFO - func:update_user - Progetto aggiornato con successo: Ciprian Popa (ID: 77)
+2025-12-07 12:50:45,107 - INFO - func:update_user - Progetto aggiornato con successo: Enrico Schellino (ID: 78)
+2025-12-07 12:50:45,636 - INFO - func:update_user - Progetto aggiornato con successo: Antonio Tommasini (ID: 79)
+2025-12-07 12:50:46,252 - INFO - func:update_user - Progetto aggiornato con successo: Carmelo Soroberto (ID: 80)
+2025-12-07 12:50:46,961 - INFO - func:update_user - Progetto aggiornato con successo: Giovanni Trullu (ID: 81)
+2025-12-07 12:50:47,948 - INFO - func:update_user - Progetto aggiornato con successo: Mattia Schiano (ID: 82)
+2025-12-07 12:50:49,303 - INFO - func:update_user - Progetto aggiornato con successo: Zhekov Zheko (ID: 83)
+2025-12-07 12:50:50,384 - INFO - func:update_user - Progetto aggiornato con successo: Marco Righetti (ID: 84)
+2025-12-07 12:50:51,450 - INFO - func:update_user - Progetto aggiornato con successo: Elena Lisa (ID: 85)
+2025-12-07 12:50:52,588 - INFO - func:update_user - Progetto aggiornato con successo: Marzia Polignone (ID: 86)
+2025-12-07 12:50:53,852 - INFO - func:update_user - Progetto aggiornato con successo: Alberto Girotti (ID: 87)
+2025-12-07 12:50:54,807 - INFO - func:update_user - Progetto aggiornato con successo: Christian Flis (ID: 88)
+2025-12-07 12:50:55,761 - INFO - func:update_user - Progetto aggiornato con successo: Nicola Limongi (ID: 89)
+2025-12-07 12:50:56,581 - INFO - func:update_user - Progetto aggiornato con successo: Mattia Redaelli (ID: 90)
+2025-12-07 12:50:57,237 - INFO - func:update_user - Progetto aggiornato con successo: Millko Cungu (ID: 91)
+2025-12-07 12:50:58,074 - INFO - func:update_user - Progetto aggiornato con successo: Gheorghe Iantuc (ID: 92)
+2025-12-07 12:50:58,920 - INFO - func:create_user - Utente creato con successo: Ignea.Rares.Valentin@mail_temporanea.it (ID: 93)
+2025-12-07 12:50:59,753 - INFO - func:create_user - Utente creato con successo: imerese.andrea@tecnolift.it (ID: 94)
+2025-12-07 12:51:08,915 - INFO - func:create_user - Utente creato con successo: Caggia.Daniele@mail_temporanea.it (ID: 95)
+2025-12-07 12:51:09,852 - INFO - func:create_user - Utente creato con successo: Craciun.Gheorghe@mail_temporanea.it (ID: 96)
+2025-12-07 12:51:10,996 - INFO - func:create_user - Utente creato con successo: bianchi.lorenzo@tecnolift.it (ID: 97)
+2025-12-07 12:51:12,319 - INFO - func:create_user - Utente creato con successo: caretti.marco@tecnolift.it (ID: 98)
+2025-12-07 12:51:13,021 - INFO - func:create_user - Utente creato con successo: stucchi.pasquale@tecnolift.it (ID: 99)
+2025-12-07 12:51:13,867 - INFO - func:create_user - Utente creato con successo: segreteria@tecnolift.it (ID: 100)
+2025-12-07 12:51:14,694 - INFO - func:create_user - Utente creato con successo: suhani.luca@tecnolift.it (ID: 101)
+2025-12-07 12:51:19,340 - INFO - func:create_user - Utente creato con successo: bauducco.andrea@tecnolift.it (ID: 102)
+2025-12-07 12:51:19,620 - INFO - func:create_user - Utente creato con successo: boscolo.mauro@tecnolift.it (ID: 103)
+2025-12-07 12:51:19,877 - INFO - func:create_user - Utente creato con successo: calin.mihai@tecnolift.it (ID: 104)
+2025-12-07 12:51:20,094 - INFO - func:create_user - Utente creato con successo: meletti.marco@tecnolift.it (ID: 105)
+2025-12-07 12:51:20,319 - INFO - func:create_user - Utente creato con successo: perri.luca@tecnolift.it (ID: 106)
+2025-12-07 12:51:20,525 - INFO - func:create_user - Utente creato con successo: Uberti.Paolo@mail_temporanea.it (ID: 107)
+2025-12-07 12:51:20,772 - INFO - func:create_user - Utente creato con successo: Grott.Alessandro@mail_temporanea.it (ID: 108)
+2025-12-07 12:51:20,969 - INFO - func:create_user - Utente creato con successo: Cantoni.Walther@mail_temporanea.it (ID: 109)
+2025-12-07 12:51:21,199 - INFO - func:create_user - Utente creato con successo: Berton.Silvia@mail_temporanea.it (ID: 110)
+2025-12-07 12:51:21,427 - INFO - func:create_user - Utente creato con successo: Chiantor.Stefano@mail_temporanea.it (ID: 111)
+2025-12-07 12:51:21,620 - INFO - func:create_user - Utente creato con successo: Biolatti.Davide@mail_temporanea.it (ID: 112)
+2025-12-07 12:51:21,834 - INFO - func:create_user - Utente creato con successo: Hoxha.Laert@mail_temporanea.it (ID: 113)
+2025-12-07 12:51:22,026 - INFO - func:create_user - Utente creato con successo: musso.roberta@tecnolift.it (ID: 114)
+2025-12-07 12:51:22,221 - INFO - func:create_user - Utente creato con successo: Kola.Marjo@mail_temporanea.it (ID: 115)
+2025-12-07 12:51:22,476 - INFO - func:create_user - Utente creato con successo: bianchiascensori@outlook.it (ID: 116)
+2025-12-07 12:51:22,705 - INFO - func:create_user - Utente creato con successo: Armando.Gjoshi@mail_temporanea.it (ID: 117)
+2025-12-07 12:51:22,896 - INFO - func:create_user - Utente creato con successo: Simone.Marin@mail_temporanea.it (ID: 118)
