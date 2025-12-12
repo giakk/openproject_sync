@@ -160,6 +160,9 @@ class OpenProjectProject:
         if self.ordine_di_lavoro:
             work_orders = [wo.strip() for wo in self.ordine_di_lavoro.split(';') if wo.strip()]
 
+        # Remove leading '-' character if present
+        work_orders = [wo[1:].strip() if wo.startswith('-') else wo for wo in work_orders]
+
         # Create markdown list with all the work orders
         markdown_list = "\n".join([f"* {wo}" for wo in work_orders]) if work_orders else ""
 

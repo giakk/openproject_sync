@@ -216,7 +216,7 @@ class OpenProjectInterface:
             logger.info(f"Progetto creato con successo: {response.get('name')} (ID: {response.get('id')})")
 
 
-            if self.config.create_template is True:
+            if self.config.create_template is True and record.name and record.name[0].upper() == 'N':
 
                 self.create_work_packages_template(record.id, datetime.now())
 

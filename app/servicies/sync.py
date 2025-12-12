@@ -47,28 +47,44 @@ class SyncService:
         # 1. Test the connections to all the databases
         self._test_connections()
 
-        # 2. Extract entries from Gimi Database
+        self.run_user_sync()
+        self.run_project_sync()
+
+
+    def run_project_sync(self) -> Dict[str, Any]:
+        
+        # Extract entries from Gimi Database
         logger.info("Extracting project entries from Gimi Database")
         gestionale_project = self.gestionale_service.extract_Gimi_projects_entries()
+
+        # Extract all data from Cache DB
+        self.cached_projects = self.cache_service.get_projects_in_cache()
+        logger.info(f"Extracted {len(self.cached_projects)} projects from cache")
+
+        # Analyse each of the project extracted from Gimi
+        project_sync_operations = self._identify_sync_operation_project(gestionale_project)
+
+        # Execute operations
+        self._execute_sync_operations(project_sync_operations)
+
+        # Update cached project in db
+        self.cache_service.update_cache_db(self.cached_projects)
+
+    def run_user_sync(self) -> Dict[str, Any]:
+
         gimi_manutentori = self.gestionale_service.extract_Gimi_manutentori_entries()
-        self.stats['total_projects'] = len(gestionale_project)
 
-        # 3. Extract all data from Cache DB
-        self._extract_cache_data()
-
+        self.cached_users = self.cache_service.get_users_in_cache()
+        logger.info(f"Extracted {len(self.cached_users)} users from cache")
 
         users_sync_operation = self._identify_sync_operation_users(gimi_manutentori)
+
         self._execute_sync_operations_users(users_sync_operation)
+
         self.cache_service.update_cache_db_for_users(self.cached_users)
 
-        # 4. Analyse each of the project extracted from Gimi
-        # project_sync_operations = self._identify_sync_operation_project(gestionale_project)
 
-        # 5. Execute operations
-        # self._execute_sync_operations(project_sync_operations)
 
-        #6. Update cached project in db
-        # self.cache_service.update_cache_db(self.cached_projects)
 
 
 # Auxiliary Functions

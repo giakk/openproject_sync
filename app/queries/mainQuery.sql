@@ -22,14 +22,12 @@ Select Pre_id as GimiID,
 	iif(pre_stato_doc=4,'Chiusa',iif(pre_stato_doc=5,'Sospesa','Aperta')) as StatoCommessa,
 	iif(Pre_fatturato=1,'Fatturato',iif((select SUM(PREF_IMPONIBILE) from Preventivi_Fatture where PreF_preventivo=Pre_id)>0,'Acconto','Da fatturare')) as StatoFatturaz,
 
-	(SELECT coalesce(
-		(SELECT DISTINCT SUBSTRING(
-			(SELECT ';' + PrePV_descr_lavoro
-			 FROM Preventivi_Pre_voci st1Preventivi_Pre_voci
-			 WHERE st1Preventivi_Pre_voci.PrePV_preventivo = Preventivi_Pre_voci.PrePV_preventivo
-			 	AND st1Preventivi_Pre_voci.PrePV_impianto = Preventivi_Pre_voci.PrePV_impianto
-			 ORDER BY st1Preventivi_Pre_voci.PrePV_descr_lavoro 
-			 FOR XML PATH (''), TYPE).value('.', 'NVARCHAR(MAX)'), 3, 8000) [DescrLavoro]
+	(SELECT coalesce((SELECT DISTINCT SUBSTRING((SELECT ';' + REPLACE(REPLACE(PrePV_descr_lavoro, CHAR(13), ';'), CHAR(10), ';')
+			FROM Preventivi_Pre_voci st1Preventivi_Pre_voci
+			WHERE st1Preventivi_Pre_voci.PrePV_preventivo = Preventivi_Pre_voci.PrePV_preventivo 
+			AND st1Preventivi_Pre_voci.PrePV_impianto = Preventivi_Pre_voci.PrePV_impianto
+			ORDER BY st1Preventivi_Pre_voci.PrePV_descr_lavoro 
+			FOR XML PATH ('')), 3, 8000) [DescrLavoro]
 	FROM Preventivi_Pre_voci Preventivi_Pre_voci
 	WHERE Preventivi_Pre_voci.PrePV_preventivo = Pre_id
 		AND Preventivi_Pre_voci.PrePV_impianto = PreI_impianto),'')) as OrdineLavoro,

@@ -82,6 +82,8 @@ class GestionaleService:
 
         query = self.load_query(self.config.extract_projects_query)
 
+        logging.info(f"Executing query")
+
         try:
             with self.get_gestionale_connection() as conn:
                 with conn.cursor() as cursor:
@@ -132,6 +134,8 @@ class GestionaleService:
     def extract_Gimi_manutentori_entries(self) -> List[GestionaleUser]:
     
         query = self.load_query(self.config.extract_users_query)
+
+        logging.info(f"Executing query")
 
         try:
             with self.get_gestionale_connection() as conn:
