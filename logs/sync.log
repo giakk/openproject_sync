@@ -809,3 +809,365 @@ AttributeError: 'SyncService' object has no attribute 'run_full_sync_user'
 2025-12-07 12:51:22,476 - INFO - func:create_user - Utente creato con successo: bianchiascensori@outlook.it (ID: 116)
 2025-12-07 12:51:22,705 - INFO - func:create_user - Utente creato con successo: Armando.Gjoshi@mail_temporanea.it (ID: 117)
 2025-12-07 12:51:22,896 - INFO - func:create_user - Utente creato con successo: Simone.Marin@mail_temporanea.it (ID: 118)
+2025-12-12 16:43:36,382 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-12-12 16:43:36,385 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-12-12 16:43:37,095 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-12-12 16:43:37,326 - INFO - func:extract_custom_fields_from_schema - Estratti 1 custom fields dallo schema
+2025-12-12 16:43:37,327 - INFO - func:load_custom_fields_to_cache - Custom fields aggiornati con 7 per progetto e 1 per utenti
+2025-12-12 16:43:39,641 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-12-12 16:43:39,644 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-12-12 16:43:44,586 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-12-12 16:43:44,591 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/extractUsers.sql
+2025-12-12 16:43:44,729 - INFO - func:extract_Gimi_manutentori_entries - Extracted 53 maintainers from Gimi database
+2025-12-12 16:43:44,732 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-12-12 16:43:44,784 - INFO - func:_extract_cache_data - Extracted 0 users from cache
+2025-12-12 16:43:44,821 - INFO - func:_extract_cache_data - Extracted 77 projects from cache
+2025-12-12 16:43:48,833 - INFO - func:_identify_sync_operation_users - Cache correctly updated
+2025-12-12 16:43:58,168 - INFO - func:_execute_sync_operations_users - Executing 53 operations....
+2025-12-12 16:44:07,361 - INFO - func:_execute_create_operations_users - Creation of 53 users...
+2025-12-12 16:45:22,018 - INFO - func:update_user - Progetto aggiornato con successo: Roberto Colaiocco (ID: 66)
+2025-12-12 16:45:26,782 - INFO - func:update_user - Progetto aggiornato con successo: Toader Derevlean (ID: 67)
+2025-12-12 16:45:27,388 - INFO - func:update_user - Progetto aggiornato con successo: Maurizio Meloni (ID: 68)
+2025-12-12 16:45:27,694 - INFO - func:update_user - Progetto aggiornato con successo: Giuliano Meani (ID: 69)
+2025-12-12 16:45:27,950 - INFO - func:update_user - Progetto aggiornato con successo: Adrian Pomohaci (ID: 70)
+2025-12-12 16:45:28,228 - INFO - func:update_user - Progetto aggiornato con successo: Marco Cavaglià (ID: 71)
+2025-12-12 16:45:28,505 - INFO - func:update_user - Progetto aggiornato con successo: Stefano Bauducco (ID: 72)
+2025-12-12 16:45:28,762 - INFO - func:update_user - Progetto aggiornato con successo: Simone Barra (ID: 73)
+2025-12-12 16:45:29,032 - INFO - func:update_user - Progetto aggiornato con successo: Gerardo Pinnelli (ID: 74)
+2025-12-12 16:45:29,305 - INFO - func:update_user - Progetto aggiornato con successo: Khalid Benzari (ID: 75)
+2025-12-12 16:45:29,564 - INFO - func:update_user - Progetto aggiornato con successo: Carlo Alberto Musso (ID: 76)
+2025-12-12 16:45:29,826 - INFO - func:update_user - Progetto aggiornato con successo: Ciprian Popa (ID: 77)
+2025-12-12 16:45:30,098 - INFO - func:update_user - Progetto aggiornato con successo: Enrico Schellino (ID: 78)
+2025-12-12 16:45:30,354 - INFO - func:update_user - Progetto aggiornato con successo: Antonio Tommasini (ID: 79)
+2025-12-12 16:45:30,599 - INFO - func:update_user - Progetto aggiornato con successo: Carmelo Soroberto (ID: 80)
+2025-12-12 16:45:30,787 - INFO - func:update_user - Progetto aggiornato con successo: Giovanni Trullu (ID: 81)
+2025-12-12 16:45:31,024 - INFO - func:update_user - Progetto aggiornato con successo: Mattia Schiano (ID: 82)
+2025-12-12 16:45:31,314 - INFO - func:update_user - Progetto aggiornato con successo: Zhekov Zheko (ID: 83)
+2025-12-12 16:45:31,539 - INFO - func:update_user - Progetto aggiornato con successo: Marco Righetti (ID: 84)
+2025-12-12 16:45:31,726 - INFO - func:update_user - Progetto aggiornato con successo: Elena Lisa (ID: 85)
+2025-12-12 16:45:31,932 - INFO - func:update_user - Progetto aggiornato con successo: Marzia Polignone (ID: 86)
+2025-12-12 16:45:32,127 - INFO - func:update_user - Progetto aggiornato con successo: Alberto Girotti (ID: 87)
+2025-12-12 16:45:32,344 - INFO - func:update_user - Progetto aggiornato con successo: Christian Flis (ID: 88)
+2025-12-12 16:45:32,539 - INFO - func:update_user - Progetto aggiornato con successo: Nicola Limongi (ID: 89)
+2025-12-12 16:45:32,736 - INFO - func:update_user - Progetto aggiornato con successo: Mattia Redaelli (ID: 90)
+2025-12-12 16:45:32,990 - INFO - func:update_user - Progetto aggiornato con successo: Millko Cungu (ID: 91)
+2025-12-12 16:45:33,176 - INFO - func:update_user - Progetto aggiornato con successo: Gheorghe Iantuc (ID: 92)
+2025-12-12 16:45:33,383 - INFO - func:update_user - Progetto aggiornato con successo: Rares Valentin Ignea (ID: 93)
+2025-12-12 16:45:33,611 - INFO - func:update_user - Progetto aggiornato con successo: Andrea Imerese (ID: 94)
+2025-12-12 16:45:33,811 - INFO - func:update_user - Progetto aggiornato con successo: Daniele Caggia (ID: 95)
+2025-12-12 16:45:34,029 - INFO - func:update_user - Progetto aggiornato con successo: Gheorghe Craciun (ID: 96)
+2025-12-12 16:45:34,234 - INFO - func:update_user - Progetto aggiornato con successo: Lorenzo Bianchi (ID: 97)
+2025-12-12 16:45:34,424 - INFO - func:update_user - Progetto aggiornato con successo: Marco Caretti (ID: 98)
+2025-12-12 16:45:34,637 - INFO - func:update_user - Progetto aggiornato con successo: Pasquale Stucchi (ID: 99)
+2025-12-12 16:45:34,830 - INFO - func:update_user - Progetto aggiornato con successo: Sara Vallelunga (ID: 100)
+2025-12-12 16:45:35,074 - INFO - func:update_user - Progetto aggiornato con successo: Luca Daniele Suhani (ID: 101)
+2025-12-12 16:45:35,290 - INFO - func:update_user - Progetto aggiornato con successo: Andrea Bauducco (ID: 102)
+2025-12-12 16:45:35,475 - INFO - func:update_user - Progetto aggiornato con successo: Mauro Boscolo (ID: 103)
+2025-12-12 16:45:35,689 - INFO - func:update_user - Progetto aggiornato con successo: Mihai Ionut Calin (ID: 104)
+2025-12-12 16:45:35,876 - INFO - func:update_user - Progetto aggiornato con successo: Marco Meletti (ID: 105)
+2025-12-12 16:45:36,097 - INFO - func:update_user - Progetto aggiornato con successo: Luca Perri (ID: 106)
+2025-12-12 16:45:36,294 - INFO - func:update_user - Progetto aggiornato con successo: Paolo Uberti (ID: 107)
+2025-12-12 16:45:36,534 - INFO - func:update_user - Progetto aggiornato con successo: Alessandro Grott (ID: 108)
+2025-12-12 16:45:36,725 - INFO - func:update_user - Progetto aggiornato con successo: Walther Cantoni (ID: 109)
+2025-12-12 16:45:36,945 - INFO - func:update_user - Progetto aggiornato con successo: Silvia Berton (ID: 110)
+2025-12-12 16:45:37,141 - INFO - func:update_user - Progetto aggiornato con successo: Stefano Chiantor (ID: 111)
+2025-12-12 16:45:37,375 - INFO - func:update_user - Progetto aggiornato con successo: Davide Biolatti (ID: 112)
+2025-12-12 16:45:37,602 - INFO - func:update_user - Progetto aggiornato con successo: Laert Hoxha (ID: 113)
+2025-12-12 16:45:37,792 - INFO - func:update_user - Progetto aggiornato con successo: Roberta Musso (ID: 114)
+2025-12-12 16:45:37,986 - INFO - func:update_user - Progetto aggiornato con successo: Marjo Kola (ID: 115)
+2025-12-12 16:45:38,241 - INFO - func:update_user - Progetto aggiornato con successo: Andrea Bianchi (ID: 116)
+2025-12-12 16:45:38,443 - INFO - func:update_user - Progetto aggiornato con successo: Gjoshi Armando (ID: 117)
+2025-12-12 16:45:38,674 - INFO - func:update_user - Progetto aggiornato con successo: Marin Simone (ID: 118)
+2025-12-12 16:46:34,850 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-12-12 16:46:34,852 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-12-12 16:46:34,946 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-12-12 16:46:35,040 - INFO - func:extract_custom_fields_from_schema - Estratti 1 custom fields dallo schema
+2025-12-12 16:46:35,040 - INFO - func:load_custom_fields_to_cache - Custom fields aggiornati con 7 per progetto e 1 per utenti
+2025-12-12 16:46:35,506 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-12-12 16:46:35,507 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-12-12 16:46:38,454 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-12-12 16:46:38,458 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/extractUsers.sql
+2025-12-12 16:46:38,595 - INFO - func:extract_Gimi_manutentori_entries - Extracted 53 maintainers from Gimi database
+2025-12-12 16:46:38,597 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-12-12 16:46:38,615 - INFO - func:_extract_cache_data - Extracted 0 users from cache
+2025-12-12 16:46:38,636 - INFO - func:_extract_cache_data - Extracted 77 projects from cache
+2025-12-12 16:46:41,961 - INFO - func:_identify_sync_operation_users - Cache correctly updated
+2025-12-12 16:46:41,963 - INFO - func:_execute_sync_operations_users - Executing 53 operations....
+2025-12-12 16:46:41,964 - INFO - func:_execute_create_operations_users - Creation of 53 users...
+2025-12-12 16:46:42,188 - INFO - func:update_user - Progetto aggiornato con successo: Roberto Colaiocco (ID: 66)
+2025-12-12 16:46:42,416 - INFO - func:update_user - Progetto aggiornato con successo: Toader Derevlean (ID: 67)
+2025-12-12 16:46:42,632 - INFO - func:update_user - Progetto aggiornato con successo: Maurizio Meloni (ID: 68)
+2025-12-12 16:46:42,885 - INFO - func:update_user - Progetto aggiornato con successo: Giuliano Meani (ID: 69)
+2025-12-12 16:46:43,090 - INFO - func:update_user - Progetto aggiornato con successo: Adrian Pomohaci (ID: 70)
+2025-12-12 16:46:43,269 - INFO - func:update_user - Progetto aggiornato con successo: Marco Cavaglià (ID: 71)
+2025-12-12 16:46:43,483 - INFO - func:update_user - Progetto aggiornato con successo: Stefano Bauducco (ID: 72)
+2025-12-12 16:46:43,688 - INFO - func:update_user - Progetto aggiornato con successo: Simone Barra (ID: 73)
+2025-12-12 16:46:43,951 - INFO - func:update_user - Progetto aggiornato con successo: Gerardo Pinnelli (ID: 74)
+2025-12-12 16:46:44,134 - INFO - func:update_user - Progetto aggiornato con successo: Khalid Benzari (ID: 75)
+2025-12-12 16:46:44,314 - INFO - func:update_user - Progetto aggiornato con successo: Carlo Alberto Musso (ID: 76)
+2025-12-12 16:46:44,511 - INFO - func:update_user - Progetto aggiornato con successo: Ciprian Popa (ID: 77)
+2025-12-12 16:46:44,710 - INFO - func:update_user - Progetto aggiornato con successo: Enrico Schellino (ID: 78)
+2025-12-12 16:46:44,897 - INFO - func:update_user - Progetto aggiornato con successo: Antonio Tommasini (ID: 79)
+2025-12-12 16:46:45,101 - INFO - func:update_user - Progetto aggiornato con successo: Carmelo Soroberto (ID: 80)
+2025-12-12 16:46:45,309 - INFO - func:update_user - Progetto aggiornato con successo: Giovanni Trullu (ID: 81)
+2025-12-12 16:46:45,479 - INFO - func:update_user - Progetto aggiornato con successo: Mattia Schiano (ID: 82)
+2025-12-12 16:46:45,684 - INFO - func:update_user - Progetto aggiornato con successo: Zhekov Zheko (ID: 83)
+2025-12-12 16:46:45,886 - INFO - func:update_user - Progetto aggiornato con successo: Marco Righetti (ID: 84)
+2025-12-12 16:46:46,083 - INFO - func:update_user - Progetto aggiornato con successo: Elena Lisa (ID: 85)
+2025-12-12 16:46:46,278 - INFO - func:update_user - Progetto aggiornato con successo: Marzia Polignone (ID: 86)
+2025-12-12 16:46:46,467 - INFO - func:update_user - Progetto aggiornato con successo: Alberto Girotti (ID: 87)
+2025-12-12 16:46:46,685 - INFO - func:update_user - Progetto aggiornato con successo: Christian Flis (ID: 88)
+2025-12-12 16:46:46,894 - INFO - func:update_user - Progetto aggiornato con successo: Nicola Limongi (ID: 89)
+2025-12-12 16:46:47,080 - INFO - func:update_user - Progetto aggiornato con successo: Mattia Redaelli (ID: 90)
+2025-12-12 16:46:47,272 - INFO - func:update_user - Progetto aggiornato con successo: Millko Cungu (ID: 91)
+2025-12-12 16:46:47,483 - INFO - func:update_user - Progetto aggiornato con successo: Gheorghe Iantuc (ID: 92)
+2025-12-12 16:46:47,699 - INFO - func:update_user - Progetto aggiornato con successo: Rares Valentin Ignea (ID: 93)
+2025-12-12 16:46:47,880 - INFO - func:update_user - Progetto aggiornato con successo: Andrea Imerese (ID: 94)
+2025-12-12 16:46:48,096 - INFO - func:update_user - Progetto aggiornato con successo: Daniele Caggia (ID: 95)
+2025-12-12 16:46:48,265 - INFO - func:update_user - Progetto aggiornato con successo: Gheorghe Craciun (ID: 96)
+2025-12-12 16:46:48,488 - INFO - func:update_user - Progetto aggiornato con successo: Lorenzo Bianchi (ID: 97)
+2025-12-12 16:46:48,706 - INFO - func:update_user - Progetto aggiornato con successo: Marco Caretti (ID: 98)
+2025-12-12 16:46:48,902 - INFO - func:update_user - Progetto aggiornato con successo: Pasquale Stucchi (ID: 99)
+2025-12-12 16:46:49,110 - INFO - func:update_user - Progetto aggiornato con successo: Sara Vallelunga (ID: 100)
+2025-12-12 16:46:49,337 - INFO - func:update_user - Progetto aggiornato con successo: Luca Daniele Suhani (ID: 101)
+2025-12-12 16:46:49,587 - INFO - func:update_user - Progetto aggiornato con successo: Andrea Bauducco (ID: 102)
+2025-12-12 16:46:49,783 - INFO - func:update_user - Progetto aggiornato con successo: Mauro Boscolo (ID: 103)
+2025-12-12 16:46:49,976 - INFO - func:update_user - Progetto aggiornato con successo: Mihai Ionut Calin (ID: 104)
+2025-12-12 16:46:50,212 - INFO - func:update_user - Progetto aggiornato con successo: Marco Meletti (ID: 105)
+2025-12-12 16:46:50,397 - INFO - func:update_user - Progetto aggiornato con successo: Luca Perri (ID: 106)
+2025-12-12 16:46:50,619 - INFO - func:update_user - Progetto aggiornato con successo: Paolo Uberti (ID: 107)
+2025-12-12 16:46:50,807 - INFO - func:update_user - Progetto aggiornato con successo: Alessandro Grott (ID: 108)
+2025-12-12 16:46:51,032 - INFO - func:update_user - Progetto aggiornato con successo: Walther Cantoni (ID: 109)
+2025-12-12 16:46:51,217 - INFO - func:update_user - Progetto aggiornato con successo: Silvia Berton (ID: 110)
+2025-12-12 16:46:51,428 - INFO - func:update_user - Progetto aggiornato con successo: Stefano Chiantor (ID: 111)
+2025-12-12 16:46:51,618 - INFO - func:update_user - Progetto aggiornato con successo: Davide Biolatti (ID: 112)
+2025-12-12 16:46:51,811 - INFO - func:update_user - Progetto aggiornato con successo: Laert Hoxha (ID: 113)
+2025-12-12 16:46:52,073 - INFO - func:update_user - Progetto aggiornato con successo: Roberta Musso (ID: 114)
+2025-12-12 16:46:52,263 - INFO - func:update_user - Progetto aggiornato con successo: Marjo Kola (ID: 115)
+2025-12-12 16:46:52,506 - INFO - func:update_user - Progetto aggiornato con successo: Andrea Bianchi (ID: 116)
+2025-12-12 16:46:52,706 - INFO - func:update_user - Progetto aggiornato con successo: Gjoshi Armando (ID: 117)
+2025-12-12 16:46:52,929 - INFO - func:update_user - Progetto aggiornato con successo: Marin Simone (ID: 118)
+2025-12-12 16:47:53,278 - ERROR - func:get_cache_connection - Errore connessione gestionale: syntax error at or near "created_at"
+LINE 10:                 created_at,
+                         ^
+
+2025-12-12 16:48:12,711 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-12-12 16:48:12,711 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-12-12 16:48:12,798 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-12-12 16:48:12,862 - INFO - func:extract_custom_fields_from_schema - Estratti 1 custom fields dallo schema
+2025-12-12 16:48:12,863 - INFO - func:load_custom_fields_to_cache - Custom fields aggiornati con 7 per progetto e 1 per utenti
+2025-12-12 16:48:13,237 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-12-12 16:48:13,237 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-12-12 16:48:16,103 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-12-12 16:48:16,106 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/extractUsers.sql
+2025-12-12 16:48:16,512 - INFO - func:extract_Gimi_manutentori_entries - Extracted 53 maintainers from Gimi database
+2025-12-12 16:48:16,514 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-12-12 16:48:16,528 - INFO - func:_extract_cache_data - Extracted 0 users from cache
+2025-12-12 16:48:16,546 - INFO - func:_extract_cache_data - Extracted 77 projects from cache
+2025-12-12 16:48:17,530 - INFO - func:_identify_sync_operation_users - Cache correctly updated
+2025-12-12 16:48:17,533 - INFO - func:_execute_sync_operations_users - Executing 53 operations....
+2025-12-12 16:48:17,533 - INFO - func:_execute_create_operations_users - Creation of 53 users...
+2025-12-12 16:48:17,846 - INFO - func:update_user - Progetto aggiornato con successo: Roberto Colaiocco (ID: 66)
+2025-12-12 16:48:18,113 - INFO - func:update_user - Progetto aggiornato con successo: Toader Derevlean (ID: 67)
+2025-12-12 16:48:18,345 - INFO - func:update_user - Progetto aggiornato con successo: Maurizio Meloni (ID: 68)
+2025-12-12 16:48:18,683 - INFO - func:update_user - Progetto aggiornato con successo: Giuliano Meani (ID: 69)
+2025-12-12 16:48:18,980 - INFO - func:update_user - Progetto aggiornato con successo: Adrian Pomohaci (ID: 70)
+2025-12-12 16:48:19,218 - INFO - func:update_user - Progetto aggiornato con successo: Marco Cavaglià (ID: 71)
+2025-12-12 16:48:19,510 - INFO - func:update_user - Progetto aggiornato con successo: Stefano Bauducco (ID: 72)
+2025-12-12 16:48:19,782 - INFO - func:update_user - Progetto aggiornato con successo: Simone Barra (ID: 73)
+2025-12-12 16:48:19,991 - INFO - func:update_user - Progetto aggiornato con successo: Gerardo Pinnelli (ID: 74)
+2025-12-12 16:48:20,226 - INFO - func:update_user - Progetto aggiornato con successo: Khalid Benzari (ID: 75)
+2025-12-12 16:48:20,478 - INFO - func:update_user - Progetto aggiornato con successo: Carlo Alberto Musso (ID: 76)
+2025-12-12 16:48:20,717 - INFO - func:update_user - Progetto aggiornato con successo: Ciprian Popa (ID: 77)
+2025-12-12 16:48:20,951 - INFO - func:update_user - Progetto aggiornato con successo: Enrico Schellino (ID: 78)
+2025-12-12 16:48:21,131 - INFO - func:update_user - Progetto aggiornato con successo: Antonio Tommasini (ID: 79)
+2025-12-12 16:48:21,358 - INFO - func:update_user - Progetto aggiornato con successo: Carmelo Soroberto (ID: 80)
+2025-12-12 16:48:21,550 - INFO - func:update_user - Progetto aggiornato con successo: Giovanni Trullu (ID: 81)
+2025-12-12 16:48:21,755 - INFO - func:update_user - Progetto aggiornato con successo: Mattia Schiano (ID: 82)
+2025-12-12 16:48:21,953 - INFO - func:update_user - Progetto aggiornato con successo: Zhekov Zheko (ID: 83)
+2025-12-12 16:48:22,170 - INFO - func:update_user - Progetto aggiornato con successo: Marco Righetti (ID: 84)
+2025-12-12 16:48:22,376 - INFO - func:update_user - Progetto aggiornato con successo: Elena Lisa (ID: 85)
+2025-12-12 16:48:22,610 - INFO - func:update_user - Progetto aggiornato con successo: Marzia Polignone (ID: 86)
+2025-12-12 16:48:22,847 - INFO - func:update_user - Progetto aggiornato con successo: Alberto Girotti (ID: 87)
+2025-12-12 16:48:23,027 - INFO - func:update_user - Progetto aggiornato con successo: Christian Flis (ID: 88)
+2025-12-12 16:48:23,210 - INFO - func:update_user - Progetto aggiornato con successo: Nicola Limongi (ID: 89)
+2025-12-12 16:48:23,415 - INFO - func:update_user - Progetto aggiornato con successo: Mattia Redaelli (ID: 90)
+2025-12-12 16:48:23,660 - INFO - func:update_user - Progetto aggiornato con successo: Millko Cungu (ID: 91)
+2025-12-12 16:48:24,037 - INFO - func:update_user - Progetto aggiornato con successo: Gheorghe Iantuc (ID: 92)
+2025-12-12 16:48:24,368 - INFO - func:update_user - Progetto aggiornato con successo: Rares Valentin Ignea (ID: 93)
+2025-12-12 16:48:24,595 - INFO - func:update_user - Progetto aggiornato con successo: Andrea Imerese (ID: 94)
+2025-12-12 16:48:24,824 - INFO - func:update_user - Progetto aggiornato con successo: Daniele Caggia (ID: 95)
+2025-12-12 16:48:25,119 - INFO - func:update_user - Progetto aggiornato con successo: Gheorghe Craciun (ID: 96)
+2025-12-12 16:48:25,309 - INFO - func:update_user - Progetto aggiornato con successo: Lorenzo Bianchi (ID: 97)
+2025-12-12 16:48:25,487 - INFO - func:update_user - Progetto aggiornato con successo: Marco Caretti (ID: 98)
+2025-12-12 16:48:25,734 - INFO - func:update_user - Progetto aggiornato con successo: Pasquale Stucchi (ID: 99)
+2025-12-12 16:48:26,008 - INFO - func:update_user - Progetto aggiornato con successo: Sara Vallelunga (ID: 100)
+2025-12-12 16:48:26,266 - INFO - func:update_user - Progetto aggiornato con successo: Luca Daniele Suhani (ID: 101)
+2025-12-12 16:48:26,504 - INFO - func:update_user - Progetto aggiornato con successo: Andrea Bauducco (ID: 102)
+2025-12-12 16:48:26,754 - INFO - func:update_user - Progetto aggiornato con successo: Mauro Boscolo (ID: 103)
+2025-12-12 16:48:27,005 - INFO - func:update_user - Progetto aggiornato con successo: Mihai Ionut Calin (ID: 104)
+2025-12-12 16:48:27,220 - INFO - func:update_user - Progetto aggiornato con successo: Marco Meletti (ID: 105)
+2025-12-12 16:48:27,454 - INFO - func:update_user - Progetto aggiornato con successo: Luca Perri (ID: 106)
+2025-12-12 16:48:27,692 - INFO - func:update_user - Progetto aggiornato con successo: Paolo Uberti (ID: 107)
+2025-12-12 16:48:27,919 - INFO - func:update_user - Progetto aggiornato con successo: Alessandro Grott (ID: 108)
+2025-12-12 16:48:28,149 - INFO - func:update_user - Progetto aggiornato con successo: Walther Cantoni (ID: 109)
+2025-12-12 16:48:28,424 - INFO - func:update_user - Progetto aggiornato con successo: Silvia Berton (ID: 110)
+2025-12-12 16:48:28,691 - INFO - func:update_user - Progetto aggiornato con successo: Stefano Chiantor (ID: 111)
+2025-12-12 16:48:28,987 - INFO - func:update_user - Progetto aggiornato con successo: Davide Biolatti (ID: 112)
+2025-12-12 16:48:29,234 - INFO - func:update_user - Progetto aggiornato con successo: Laert Hoxha (ID: 113)
+2025-12-12 16:48:29,516 - INFO - func:update_user - Progetto aggiornato con successo: Roberta Musso (ID: 114)
+2025-12-12 16:48:29,843 - INFO - func:update_user - Progetto aggiornato con successo: Marjo Kola (ID: 115)
+2025-12-12 16:48:30,056 - INFO - func:update_user - Progetto aggiornato con successo: Andrea Bianchi (ID: 116)
+2025-12-12 16:48:30,332 - INFO - func:update_user - Progetto aggiornato con successo: Gjoshi Armando (ID: 117)
+2025-12-12 16:48:30,542 - INFO - func:update_user - Progetto aggiornato con successo: Marin Simone (ID: 118)
+2025-12-12 16:48:39,063 - ERROR - func:get_cache_connection - Errore connessione gestionale: invalid input syntax for type timestamp: "colaiocco.roberto@tecnolift.it"
+LINE 12: ...:17.526919'::timestamp,'2025-12-07T11:30:31.258Z','colaiocco...
+                                                              ^
+
+2025-12-12 16:48:47,590 - ERROR - func:main - Fatal error: Connessione gestionale fallita: invalid input syntax for type timestamp: "colaiocco.roberto@tecnolift.it"
+LINE 12: ...:17.526919'::timestamp,'2025-12-07T11:30:31.258Z','colaiocco...
+                                                              ^
+Traceback (most recent call last):
+  File "/home/riccardo/syncer/app/servicies/cacheDatabase.py", line 35, in get_cache_connection
+    yield conn
+  File "/home/riccardo/syncer/app/servicies/cacheDatabase.py", line 421, in update_cache_db_for_users
+    execute_values(cursor, query, values)
+  File "/home/riccardo/syncer/venv/lib/python3.10/site-packages/psycopg2/extras.py", line 1299, in execute_values
+    cur.execute(b''.join(parts))
+psycopg2.errors.InvalidDatetimeFormat: invalid input syntax for type timestamp: "colaiocco.roberto@tecnolift.it"
+LINE 12: ...:17.526919'::timestamp,'2025-12-07T11:30:31.258Z','colaiocco...
+                                                              ^
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/riccardo/syncer/main.py", line 28, in main
+    syncer.run_full_sync()
+  File "/home/riccardo/syncer/app/servicies/sync.py", line 62, in run_full_sync
+    self.cache_service.update_cache_db_for_users(self.cached_users)
+  File "/home/riccardo/syncer/app/servicies/cacheDatabase.py", line 418, in update_cache_db_for_users
+    with self.get_cache_connection() as conn:
+  File "/usr/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/riccardo/syncer/app/servicies/cacheDatabase.py", line 38, in get_cache_connection
+    raise Exception(f"Connessione gestionale fallita: {e}")
+Exception: Connessione gestionale fallita: invalid input syntax for type timestamp: "colaiocco.roberto@tecnolift.it"
+LINE 12: ...:17.526919'::timestamp,'2025-12-07T11:30:31.258Z','colaiocco...
+                                                              ^
+
+2025-12-12 16:52:05,921 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-12-12 16:52:05,922 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-12-12 16:52:06,106 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-12-12 16:52:06,149 - INFO - func:extract_custom_fields_from_schema - Estratti 1 custom fields dallo schema
+2025-12-12 16:52:06,149 - INFO - func:load_custom_fields_to_cache - Custom fields aggiornati con 7 per progetto e 1 per utenti
+2025-12-12 16:52:06,509 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-12-12 16:52:06,509 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-12-12 16:52:09,054 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-12-12 16:52:09,057 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/extractUsers.sql
+2025-12-12 16:52:09,400 - INFO - func:extract_Gimi_manutentori_entries - Extracted 53 maintainers from Gimi database
+2025-12-12 16:52:09,402 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-12-12 16:52:09,417 - INFO - func:_extract_cache_data - Extracted 0 users from cache
+2025-12-12 16:52:09,437 - INFO - func:_extract_cache_data - Extracted 77 projects from cache
+2025-12-12 16:52:09,441 - INFO - func:_identify_sync_operation_users - Cache correctly updated
+2025-12-12 16:52:09,442 - INFO - func:_execute_sync_operations_users - Executing 53 operations....
+2025-12-12 16:52:09,442 - INFO - func:_execute_create_operations_users - Creation of 53 users...
+2025-12-12 16:52:09,679 - INFO - func:update_user - Progetto aggiornato con successo: Roberto Colaiocco (ID: 66)
+2025-12-12 16:52:09,884 - INFO - func:update_user - Progetto aggiornato con successo: Toader Derevlean (ID: 67)
+2025-12-12 16:52:10,087 - INFO - func:update_user - Progetto aggiornato con successo: Maurizio Meloni (ID: 68)
+2025-12-12 16:52:10,277 - INFO - func:update_user - Progetto aggiornato con successo: Giuliano Meani (ID: 69)
+2025-12-12 16:52:10,496 - INFO - func:update_user - Progetto aggiornato con successo: Adrian Pomohaci (ID: 70)
+2025-12-12 16:52:10,678 - INFO - func:update_user - Progetto aggiornato con successo: Marco Cavaglià (ID: 71)
+2025-12-12 16:52:10,896 - INFO - func:update_user - Progetto aggiornato con successo: Stefano Bauducco (ID: 72)
+2025-12-12 16:52:11,100 - INFO - func:update_user - Progetto aggiornato con successo: Simone Barra (ID: 73)
+2025-12-12 16:52:11,310 - INFO - func:update_user - Progetto aggiornato con successo: Gerardo Pinnelli (ID: 74)
+2025-12-12 16:52:11,483 - INFO - func:update_user - Progetto aggiornato con successo: Khalid Benzari (ID: 75)
+2025-12-12 16:52:11,688 - INFO - func:update_user - Progetto aggiornato con successo: Carlo Alberto Musso (ID: 76)
+2025-12-12 16:52:11,916 - INFO - func:update_user - Progetto aggiornato con successo: Ciprian Popa (ID: 77)
+2025-12-12 16:52:12,126 - INFO - func:update_user - Progetto aggiornato con successo: Enrico Schellino (ID: 78)
+2025-12-12 16:52:12,303 - INFO - func:update_user - Progetto aggiornato con successo: Antonio Tommasini (ID: 79)
+2025-12-12 16:52:12,493 - INFO - func:update_user - Progetto aggiornato con successo: Carmelo Soroberto (ID: 80)
+2025-12-12 16:52:12,712 - INFO - func:update_user - Progetto aggiornato con successo: Giovanni Trullu (ID: 81)
+2025-12-12 16:52:12,928 - INFO - func:update_user - Progetto aggiornato con successo: Mattia Schiano (ID: 82)
+2025-12-12 16:52:13,124 - INFO - func:update_user - Progetto aggiornato con successo: Zhekov Zheko (ID: 83)
+2025-12-12 16:52:13,311 - INFO - func:update_user - Progetto aggiornato con successo: Marco Righetti (ID: 84)
+2025-12-12 16:52:13,544 - INFO - func:update_user - Progetto aggiornato con successo: Elena Lisa (ID: 85)
+2025-12-12 16:52:13,754 - INFO - func:update_user - Progetto aggiornato con successo: Marzia Polignone (ID: 86)
+2025-12-12 16:52:13,967 - INFO - func:update_user - Progetto aggiornato con successo: Alberto Girotti (ID: 87)
+2025-12-12 16:52:14,183 - INFO - func:update_user - Progetto aggiornato con successo: Christian Flis (ID: 88)
+2025-12-12 16:52:14,378 - INFO - func:update_user - Progetto aggiornato con successo: Nicola Limongi (ID: 89)
+2025-12-12 16:52:14,586 - INFO - func:update_user - Progetto aggiornato con successo: Mattia Redaelli (ID: 90)
+2025-12-12 16:52:14,812 - INFO - func:update_user - Progetto aggiornato con successo: Millko Cungu (ID: 91)
+2025-12-12 16:52:15,016 - INFO - func:update_user - Progetto aggiornato con successo: Gheorghe Iantuc (ID: 92)
+2025-12-12 16:52:15,208 - INFO - func:update_user - Progetto aggiornato con successo: Rares Valentin Ignea (ID: 93)
+2025-12-12 16:52:15,432 - INFO - func:update_user - Progetto aggiornato con successo: Andrea Imerese (ID: 94)
+2025-12-12 16:52:15,668 - INFO - func:update_user - Progetto aggiornato con successo: Daniele Caggia (ID: 95)
+2025-12-12 16:52:15,847 - INFO - func:update_user - Progetto aggiornato con successo: Gheorghe Craciun (ID: 96)
+2025-12-12 16:52:16,042 - INFO - func:update_user - Progetto aggiornato con successo: Lorenzo Bianchi (ID: 97)
+2025-12-12 16:52:16,294 - INFO - func:update_user - Progetto aggiornato con successo: Marco Caretti (ID: 98)
+2025-12-12 16:52:16,497 - INFO - func:update_user - Progetto aggiornato con successo: Pasquale Stucchi (ID: 99)
+2025-12-12 16:52:16,728 - INFO - func:update_user - Progetto aggiornato con successo: Sara Vallelunga (ID: 100)
+2025-12-12 16:52:16,939 - INFO - func:update_user - Progetto aggiornato con successo: Luca Daniele Suhani (ID: 101)
+2025-12-12 16:52:17,135 - INFO - func:update_user - Progetto aggiornato con successo: Andrea Bauducco (ID: 102)
+2025-12-12 16:52:17,316 - INFO - func:update_user - Progetto aggiornato con successo: Mauro Boscolo (ID: 103)
+2025-12-12 16:52:17,566 - INFO - func:update_user - Progetto aggiornato con successo: Mihai Ionut Calin (ID: 104)
+2025-12-12 16:52:17,756 - INFO - func:update_user - Progetto aggiornato con successo: Marco Meletti (ID: 105)
+2025-12-12 16:52:17,958 - INFO - func:update_user - Progetto aggiornato con successo: Luca Perri (ID: 106)
+2025-12-12 16:52:18,167 - INFO - func:update_user - Progetto aggiornato con successo: Paolo Uberti (ID: 107)
+2025-12-12 16:52:18,395 - INFO - func:update_user - Progetto aggiornato con successo: Alessandro Grott (ID: 108)
+2025-12-12 16:52:18,579 - INFO - func:update_user - Progetto aggiornato con successo: Walther Cantoni (ID: 109)
+2025-12-12 16:52:18,764 - INFO - func:update_user - Progetto aggiornato con successo: Silvia Berton (ID: 110)
+2025-12-12 16:52:18,966 - INFO - func:update_user - Progetto aggiornato con successo: Stefano Chiantor (ID: 111)
+2025-12-12 16:52:19,176 - INFO - func:update_user - Progetto aggiornato con successo: Davide Biolatti (ID: 112)
+2025-12-12 16:52:19,369 - INFO - func:update_user - Progetto aggiornato con successo: Laert Hoxha (ID: 113)
+2025-12-12 16:52:19,598 - INFO - func:update_user - Progetto aggiornato con successo: Roberta Musso (ID: 114)
+2025-12-12 16:52:19,774 - INFO - func:update_user - Progetto aggiornato con successo: Marjo Kola (ID: 115)
+2025-12-12 16:52:20,035 - INFO - func:update_user - Progetto aggiornato con successo: Andrea Bianchi (ID: 116)
+2025-12-12 16:52:20,260 - INFO - func:update_user - Progetto aggiornato con successo: Gjoshi Armando (ID: 117)
+2025-12-12 16:52:20,456 - INFO - func:update_user - Progetto aggiornato con successo: Marin Simone (ID: 118)
+2025-12-12 16:52:37,236 - INFO - func:update_cache_db_for_users - ✓ Updated 53 users in cache db
+2025-12-12 17:08:02,920 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-12-12 17:08:02,923 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-12-12 17:08:03,086 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-12-12 17:08:03,159 - INFO - func:extract_custom_fields_from_schema - Estratti 1 custom fields dallo schema
+2025-12-12 17:08:03,160 - INFO - func:load_custom_fields_to_cache - Custom fields aggiornati con 7 per progetto e 1 per utenti
+2025-12-12 17:08:03,482 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-12-12 17:08:07,010 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-12-12 17:08:09,741 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-12-12 17:08:11,356 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/extractUsers.sql
+2025-12-12 17:08:11,520 - INFO - func:extract_Gimi_manutentori_entries - Extracted 53 maintainers from Gimi database
+2025-12-12 17:08:25,890 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-12-12 17:08:25,921 - INFO - func:_extract_cache_data - Extracted 53 users from cache
+2025-12-12 17:08:25,940 - INFO - func:_extract_cache_data - Extracted 77 projects from cache
+2025-12-12 17:14:12,121 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-12-12 17:14:12,121 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-12-12 17:14:12,339 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-12-12 17:14:12,464 - INFO - func:extract_custom_fields_from_schema - Estratti 1 custom fields dallo schema
+2025-12-12 17:14:12,465 - INFO - func:load_custom_fields_to_cache - Custom fields aggiornati con 7 per progetto e 1 per utenti
+2025-12-12 17:14:12,852 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-12-12 17:14:21,863 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-12-12 17:14:38,778 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-12-12 17:14:41,806 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/extractUsers.sql
+2025-12-12 17:14:42,690 - INFO - func:extract_Gimi_manutentori_entries - Extracted 53 maintainers from Gimi database
+2025-12-12 17:14:45,237 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-12-12 17:14:45,268 - INFO - func:_extract_cache_data - Extracted 53 users from cache
+2025-12-12 17:14:45,293 - INFO - func:_extract_cache_data - Extracted 77 projects from cache
+2025-12-12 17:17:25,129 - ERROR - func:_identify_sync_operation_users - Error while handling user 51: local variable 'new_cache_user' referenced before assignment
+2025-12-12 17:23:28,984 - INFO - func:setup_logging - Logging configurato - Livello: INFO, Console: True, File: /home/riccardo/syncer/logs/sync.log
+2025-12-12 17:23:28,985 - INFO - func:main - === AVVIO SINCRONIZZAZIONE PROGETTI ===
+2025-12-12 17:23:29,143 - INFO - func:extract_custom_fields_from_schema - Estratti 7 custom fields dallo schema
+2025-12-12 17:23:29,211 - INFO - func:extract_custom_fields_from_schema - Estratti 1 custom fields dallo schema
+2025-12-12 17:23:29,213 - INFO - func:load_custom_fields_to_cache - Custom fields aggiornati con 7 per progetto e 1 per utenti
+2025-12-12 17:23:29,507 - INFO - func:run_full_sync - Extracting project entries from Gimi Database
+2025-12-12 17:23:33,165 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/mainQuery.sql
+2025-12-12 17:23:36,317 - INFO - func:extract_Gimi_projects_entries - Estratti 1978 progetti dal database di Gimi
+2025-12-12 17:23:36,320 - INFO - func:load_query - Query SQL caricata da /home/riccardo/syncer/app/queries/extractUsers.sql
+2025-12-12 17:23:36,431 - INFO - func:extract_Gimi_manutentori_entries - Extracted 53 maintainers from Gimi database
+2025-12-12 17:23:36,434 - INFO - func:_extract_cache_data - Extracting data from Cache database...
+2025-12-12 17:23:36,454 - INFO - func:_extract_cache_data - Extracted 53 users from cache
+2025-12-12 17:23:36,480 - INFO - func:_extract_cache_data - Extracted 77 projects from cache
+2025-12-12 17:24:32,411 - INFO - func:_identify_sync_operation_users - Cache correctly updated
+2025-12-12 17:24:35,532 - INFO - func:_execute_sync_operations_users - Executing 1 operations....
+2025-12-12 17:24:43,616 - INFO - func:_execute_update_operations_users - Update of 1 users...
+2025-12-12 17:25:00,276 - INFO - func:update_user - Progetto aggiornato con successo: Ciprian Popa (ID: 77)
+2025-12-12 17:25:43,580 - INFO - func:update_cache_db_for_users - ✓ Updated 53 users in cache db

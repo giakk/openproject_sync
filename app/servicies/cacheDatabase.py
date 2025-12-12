@@ -370,7 +370,7 @@ class CacheDatabaseService:
             print(f"✗ Error during cache update: {e}")
             raise
     
-    def update_cache_de_for_users(self, users: List[CachedUser]):
+    def update_cache_db_for_users(self, users: List[CachedUser]):
 
         if not users:
             return
@@ -383,6 +383,7 @@ class CacheDatabaseService:
                 u.last_sync_hash,
                 u.last_sync_at,
                 u.sync_status,
+                u.email,
                 u.created_at,
                 u.updated_at
             )
@@ -398,16 +399,18 @@ class CacheDatabaseService:
                 last_sync_hash,
                 last_sync_at,
                 sync_status,
+                email,
                 created_at,
                 updated_at
             ) VALUES %s
-            ON CONFLICT (gestionale_id) 
+            ON CONFLICT (gestionale_id)
             DO UPDATE SET
                 openproject_id = EXCLUDED.openproject_id,
                 current_hash = EXCLUDED.current_hash,
                 last_sync_hash = EXCLUDED.last_sync_hash,
                 last_sync_at = EXCLUDED.last_sync_at,
                 sync_status = EXCLUDED.sync_status,
+                email = EXCLUDED.email,
                 updated_at = EXCLUDED.updated_at
         """
         
@@ -448,5 +451,6 @@ class CacheDatabaseService:
             last_sync_at=row['last_sync_at'],
             created_at=row['created_at'],
             updated_at=row['updated_at'],
-            sync_status=row['sync_status']
+            sync_status=row['sync_status'],
+            email=row['email']
         )

@@ -56,10 +56,13 @@ class SyncService:
         # 3. Extract all data from Cache DB
         self._extract_cache_data()
 
-        # 4. Analyse each of the project extracted from Gimi
-        # project_sync_operations = self._identify_sync_operation_project(gestionale_project)
+
         users_sync_operation = self._identify_sync_operation_users(gimi_manutentori)
         self._execute_sync_operations_users(users_sync_operation)
+        self.cache_service.update_cache_db_for_users(self.cached_users)
+
+        # 4. Analyse each of the project extracted from Gimi
+        # project_sync_operations = self._identify_sync_operation_project(gestionale_project)
 
         # 5. Execute operations
         # self._execute_sync_operations(project_sync_operations)
@@ -170,8 +173,8 @@ class SyncService:
 
             try:
 
-                cached_user = next((gimi_user for gimi_user in self.cached_users
-                                       if gimi_user.gestionale_id == user.GimiId), None)
+                cached_user = next((cached_u for cached_u in self.cached_users
+                                       if str(cached_u.gestionale_id).strip() == str(user.GimiId).strip()), None)
                 
                 if cached_user:
 
@@ -185,7 +188,7 @@ class SyncService:
                             operation_type="update",
                             gestionale_user=user,
                             openproject_user=openproject_user,
-                            cached_user= new_cache_user
+                            cached_user= cached_user
                         )
 
                         operations.append(operation)
@@ -353,7 +356,7 @@ class SyncService:
 
         try:
 
-            id = self.openproject_service.find_user(operation.openproject_user.email)
+            id = self.openproject_service.find_user(operation.cached_user.email)
 
             if id is None:
 

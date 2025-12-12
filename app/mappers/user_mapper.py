@@ -35,6 +35,7 @@ class UserMapper:
             cached_user = CachedUser(
                 gestionale_id=Gimi_manutentore.GimiId,
                 current_hash=Gimi_manutentore.calculate_hash(),
+                email=Gimi_manutentore.getEmail(),
                 sync_status="pending",
                 created_at=datetime.now(),
                 updated_at=datetime.now()
@@ -80,6 +81,7 @@ class UserMapper:
             cached_user.openproject_id = op_user.id
             cached_user.last_sync_hash = cached_user.current_hash
             cached_user.updated_at = op_user.updated_at
+            cached_user.email = op_user.email
             cached_user.last_sync_at = datetime.now()
             cached_user.sync_status = "synced"
 
