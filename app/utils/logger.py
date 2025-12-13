@@ -12,7 +12,7 @@ def setup_logging(
     filename: Optional[str] = None,
     max_bytes: int = 10485760,  # 10MB
     backup_count: int = 5,
-    console: bool = True
+    console: bool = False
 ) -> None:
     """
     Configura il sistema di logging
@@ -28,7 +28,9 @@ def setup_logging(
     
     # Formato di default
     if not format_string:
-        format_string = "%(asctime)s - %(levelname)s - func:%(funcName)s - %(message)s"
+        # format_string = "%(asctime)s - %(levelname)s - func:%(funcName)s - %(message)s"
+        format_string = "%(asctime)s - %(levelname)s - %(message)s"
+
     
     # Configurazione base
     root_logger = logging.getLogger()
@@ -69,7 +71,7 @@ def setup_logging(
     
     # Log iniziale
     logger = logging.getLogger(__name__)
-    logger.info(f"Logging configurato - Livello: {level}, Console: {console}, File: {filename}")
+    logger.debug(f"Logging configurato - Livello: {level}, Console: {console}, File: {filename}")
 
 def _configure_external_loggers(level: str) -> None:
     """Configura livelli di logging per librerie esterne"""

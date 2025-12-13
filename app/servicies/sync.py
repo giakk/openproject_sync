@@ -118,7 +118,7 @@ class SyncService:
 
     def _identify_sync_operation_project(self, projects_list: List[GestionaleProject]) -> List[ProjectSyncOperation]:
         
-        logger.info("Analizing the necessary sync operations")
+        logger.info("Analizing the necessary sync operations...")
 
         operations = []
 
@@ -177,11 +177,11 @@ class SyncService:
                 logger.error(f"Error while handling project {project.NrCommessa}: {e}")
                 continue
 
-        logger.info("Cache correctly updated")
-
         return operations
     
     def _identify_sync_operation_users(self, users_list: List[GestionaleUser]) -> List[UserSyncOperation]:
+
+        logger.info("Analizing the necessary sync operations...")
 
         operations = []
 
@@ -233,9 +233,7 @@ class SyncService:
             except Exception as e:
                 logger.error(f"Error while handling user {user.GimiId}: {e}")
                 continue
-
-        logger.info("Cache correctly updated")
-
+            
         return operations
 
 

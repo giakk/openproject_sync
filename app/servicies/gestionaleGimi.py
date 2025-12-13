@@ -70,7 +70,7 @@ class GestionaleService:
         try:
             with open(query_path, 'r', encoding='utf-8') as f:
                 query = f.read().strip()
-            logging.info(f"Query SQL caricata da {query_path}")
+            logging.debug(f"Query SQL caricata da {query_path}")
             return query
 
         except Exception as e:
@@ -82,7 +82,7 @@ class GestionaleService:
 
         query = self.load_query(self.config.extract_projects_query)
 
-        logging.info(f"Executing query")
+        logging.debug(f"Executing query {self.config.extract_projects_query}")
 
         try:
             with self.get_gestionale_connection() as conn:
@@ -105,19 +105,19 @@ class GestionaleService:
                             Description=str(row.DescrCommessa or ""),
                             OrdineDiLavoro=str(row.OrdineLavoro or ""),
                             Ammin=Amministratore(
-                                Name=str(row.Amm_nominativo or ""),
-                                Tel=str(row.Amm_tel_ufficio or ""),
-                                Cell=str(row.Amm_cellulare or ""),
+                                Name=str(row.Amm_nominativo or "").strip(),
+                                Tel=str(row.Amm_tel_ufficio or "").strip().replace(" ", ""),
+                                Cell=str(row.Amm_cellulare or "").strip().replace(" ", ""),
                                 Mail=str(row.Amm_email or ""),
                                 Pec=str("")
                             ),
                             Indirizzo=IndirizzoImpianto(
-                                NominativoImp=str(row.Imp_nominativo or ""),
-                                IndirizzoImp=str(row.Imp_indirizzo or ""),
-                                LocazioneImp=str(row.Imp_locazione or ""),
-                                CapImp=str(row.Imp_cap or ""),
-                                LocalitaImp=str(row.Imp_localita or ""),
-                                ProvImp=str(row.Imp_prov or "")
+                                NominativoImp=str(row.Imp_nominativo or "").strip(),
+                                IndirizzoImp=str(row.Imp_indirizzo or "").strip(),
+                                LocazioneImp=str(row.Imp_locazione or "").strip(),
+                                CapImp=str(row.Imp_cap or "").strip(),
+                                LocalitaImp=str(row.Imp_localita or "").strip(),
+                                ProvImp=str(row.Imp_prov or "").strip()
                             )
                         )
 
@@ -135,7 +135,7 @@ class GestionaleService:
     
         query = self.load_query(self.config.extract_users_query)
 
-        logging.info(f"Executing query")
+        logging.debug(f"Executing query {self.config.extract_users_query}")
 
         try:
             with self.get_gestionale_connection() as conn:

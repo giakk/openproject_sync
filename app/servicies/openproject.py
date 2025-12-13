@@ -325,7 +325,7 @@ class OpenProjectInterface:
             if field_key.startswith('customField'):
                 custom_fields[field_info.get('name')] = field_key
         
-        logging.info(f"Estratti {len(custom_fields)} custom fields dallo schema")
+        logging.debug(f"Estratti {len(custom_fields)} custom fields dallo schema")
         return custom_fields
     
 
