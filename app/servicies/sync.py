@@ -3,9 +3,13 @@
 import logging
 from datetime import datetime
 from typing import List, Dict, Any
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from threading import Lock
+from dataclasses import dataclass
 
 from ..models.project import GestionaleProject, OpenProjectProject, CachedProject, ProjectSyncOperation
 from ..models.user import GestionaleUser, OpenProjectUser, CachedUser, UserSyncOperation
+from ..models.membership import MembershipTask
 from ..servicies.openproject import OpenProjectInterface
 from ..servicies.gestionaleGimi import GestionaleService
 from ..servicies.cacheDatabase import CacheDatabaseService
@@ -14,6 +18,31 @@ from ..mappers.user_mapper import UserMapper
 from ..config import ConfigManager
 
 logger = logging.getLogger(__name__)
+
+
+class MembershipStats:
+    """Thread-safe statistics tracker for membership creation."""
+    def __init__(self):
+        self._lock = Lock()
+        self.total = 0
+        self.successful = 0
+        self.failed = 0
+        self.skipped = 0
+        self.errors = []
+
+    def increment_success(self):
+        with self._lock:
+            self.successful += 1
+
+    def increment_failure(self, error_msg: str):
+        with self._lock:
+            self.failed += 1
+            self.errors.append(error_msg)
+
+    def increment_skipped(self):
+        with self._lock:
+            self.skipped += 1
+
 
 class SyncService:
 
@@ -84,10 +113,16 @@ class SyncService:
 
         self.cache_service.update_cache_db_for_users(self.cached_users)
 
-    def run_membership_sync(self):
+    def run_membership_sync(self, max_workers: int = 10):
         """
-        Sincronizza le membership associando ogni utente a tutti i progetti.
+        Parallelize membership synchronization using ThreadPoolExecutor.
+
+        Args:
+            max_workers: Maximum number of concurrent threads (default: 10)
         """
+        import time
+
+        # Validation
         if not self.cached_users:
             logger.warning("Nessun utente in cache. Esegui prima run_user_sync()")
             return
@@ -96,12 +131,8 @@ class SyncService:
             logger.warning("Nessun progetto in cache. Esegui prima run_project_sync()")
             return
 
-        total_memberships = len(self.cached_users) * len(self.cached_projects)
-        successful = 0
-        failed = 0
-
-        logger.info(f"Inizio sincronizzazione membership: {len(self.cached_users)} utenti × {len(self.cached_projects)} progetti = {total_memberships} membership da creare")
-
+        # Prepare tasks
+        tasks = []
         for user in self.cached_users:
             if user.openproject_id is None:
                 logger.warning(f"Utente {user.gestionale_id} non ha openproject_id, skip")
@@ -112,14 +143,105 @@ class SyncService:
                     logger.warning(f"Progetto {project.gestionale_id} non ha openproject_id, skip")
                     continue
 
-                result = self.openproject_service.create_membership(user.openproject_id, project.openproject_id)
+                tasks.append(MembershipTask(
+                    user_id=user.openproject_id,
+                    project_id=project.openproject_id)
+                    )
 
-                if result:
-                    successful += 1
-                else:
-                    failed += 1
+        # Initialize statistics
+        stats = MembershipStats()
+        stats.total = len(tasks)
 
-        logger.info(f"Sincronizzazione membership completata: {successful} successi, {failed} fallimenti su {total_memberships} totali")
+        logger.info(
+            f"Inizio sincronizzazione membership: {len(self.cached_users)} utenti × "
+            f"{len(self.cached_projects)} progetti = {stats.total} membership da creare"
+        )
+        logger.info(f"Utilizzo {max_workers} worker paralleli")
+
+        start_time = time.time()
+
+        # Execute in parallel
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            # Submit all tasks
+            future_to_task = {
+                executor.submit(self._create_single_membership, task, stats): task
+                for task in tasks
+            }
+
+            # Process completions with progress tracking
+            completed = 0
+            for future in as_completed(future_to_task):
+                completed += 1
+
+                # Log progress every 10% or every 500 memberships
+                if completed % max(1, stats.total // 10) == 0 or completed % 500 == 0:
+                    progress_pct = (completed / stats.total) * 100
+                    logger.info(
+                        f"Progresso: {completed}/{stats.total} ({progress_pct:.1f}%) - "
+                        f"Successi: {stats.successful}, Falliti: {stats.failed}"
+                    )
+
+                # Check for exceptions in future execution
+                try:
+                    future.result()
+                except Exception as e:
+                    logger.error(f"Errore inatteso nel worker thread: {e}")
+
+        # Calculate performance metrics
+        end_time = time.time()
+        duration = end_time - start_time
+        throughput = stats.total / duration if duration > 0 else 0
+
+        # Final summary
+        logger.info(
+            f"Sincronizzazione membership completata: "
+            f"{stats.successful} successi, {stats.failed} fallimenti su {stats.total} totali"
+        )
+        logger.info(
+            f"Metriche performance: Durata: {duration:.2f}s, "
+            f"Throughput: {throughput:.2f} membership/sec"
+        )
+
+        # Log errors if any
+        if stats.errors:
+            logger.warning(f"Riscontrati {len(stats.errors)} errori:")
+            for error in stats.errors[:10]:  # Log first 10 errors
+                logger.warning(f"  - {error}")
+            if len(stats.errors) > 10:
+                logger.warning(f"  ... e altri {len(stats.errors) - 10} errori")
+
+    def _create_single_membership(self, task: MembershipTask, stats: MembershipStats) -> None:
+        """
+        Worker function to create a single membership.
+        Executed in parallel by ThreadPoolExecutor.
+        """
+        try:
+            result = self.openproject_service.create_membership(
+                task.user_id,
+                task.project_id
+            )
+
+            if result:
+                stats.increment_success()
+                logger.debug(
+                    f"Membership created: user {task.user_id} "
+                    f"-> project {task.project_id}"
+                )
+            else:
+                stats.increment_failure(
+                    f"User {task.user_id} -> "
+                    f"Project {task.project_id}: API returned False"
+                )
+
+        except Exception as e:
+            stats.increment_failure(
+                f"User {task.user_id} -> "
+                f"Project {task.project_id}: {str(e)}"
+            )
+            logger.error(
+                f"Error creating membership for user {task.user_id} "
+                f"in project {task.project_id}: {e}"
+            )
 
 
 
