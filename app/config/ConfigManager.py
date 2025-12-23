@@ -61,7 +61,7 @@ class LoggerConfig:
 class ConfigManager:
     """Gestisce la configurazione dell'applicazione"""
     
-    def __init__(self, config_path: str = "/home/riccardo/syncer/config/config.yaml"):
+    def __init__(self, config_path: str = "./config/config.yaml"):
         self.config_path = Path(config_path)
         self._config = None
         self.gestionale_db = None
