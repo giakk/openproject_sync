@@ -15,14 +15,16 @@ def main():
 
     global_settings = ConfigManager()
 
-    setup_logging(
+    log_file = setup_logging(
         level=global_settings.logger.level,
-        filename=global_settings.logger.filename
+        log_directory=global_settings.logger.log_directory,
+        max_log_files=global_settings.logger.max_log_files
     )
 
     try:
 
         logger.info("========= AVVIATA SINCRONIZZAZIONE =========")
+        logger.info(f"Log file: {log_file}")
 
         syncer = SyncService(global_settings)
         syncer.run_full_sync()

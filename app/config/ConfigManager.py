@@ -53,9 +53,8 @@ class SyncConfig:
 class LoggerConfig:
 
     level: str = "INFO"
-    filename: str = "/home/riccardo/syncer/logs/sync.log"
-    max_file_size: int = "10MB"
-    backup_count: int = 5
+    log_directory: str = "logs"  # Directory dove salvare i file di log
+    max_log_files: int = 10  # Numero massimo di giorni di log da mantenere
 
 
 class ConfigManager:
@@ -104,9 +103,8 @@ class ConfigManager:
 
             self.logger = LoggerConfig(
                 level=self.config['logging']['level'],
-                filename=self.config['logging']['file'],
-                backup_count=self.config['logging']['backup_count'],
-                max_file_size=self.config['logging']['max_file_size']
+                log_directory=self.config['logging']['log_directory'],
+                max_log_files=self.config['logging'].get('max_log_files', 10)
             )
             
             self.sync = SyncConfig()

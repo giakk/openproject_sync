@@ -32,31 +32,7 @@ openproject:
 
 logging:
   level: "INFO"
-  file: "/home/riccardo/syncer/logs/sync.log"
-  max_file_size: "10MB"
-  backup_count: 5
-  
-  error_file: "/home/riccardo/syncer/logs/sync_errors.log"
-  
-  # Logging specifico per Ubuntu/systemd
+  log_directory: "logs"  # Directory dove salvare i file di log
+  max_log_files: 10  # Numero massimo di giorni di log da mantenere
   systemd_integration: true
-  console_output: false  # Evita output duplicati in journalctl
-
-web_api:
-  host: "127.0.0.1"  # Solo locale per sicurezza
-  port: 8000
-  api_key: "change-this-secure-api-key-now"
-  
-  cors:
-    allow_origins: 
-      - "http://localhost"
-      - "https://your-domain.com"  # Il tuo dominio OpenProject
-    allow_credentials: true
-    
-# Backup e manutenzione
-maintenance:
-  # Pulizia automatica log vecchi
-  cleanup:
-    enabled: true
-    retain_days: 30
-    
+  console_output: false  # Evita output duplicati in journalctl       
