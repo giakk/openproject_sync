@@ -29,3 +29,18 @@ CREATE TABLE IF NOT EXISTS cached_users (
 CREATE INDEX idx_gestionale_user_id ON cached_users(gestionale_id);
 CREATE INDEX idx_openproject_user_id ON cached_users(openproject_id);
 CREATE INDEX idx_openproject_user_email ON cached_users(email);
+
+CREATE TABLE IF NOT EXISTS cached_memberships (
+    user_id INTEGER NOT NULL,
+    project_id INTEGER NOT NULL,
+    sync_status VARCHAR(32) NOT NULL DEFAULT 'synced',
+    last_sync_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    PRIMARY KEY (user_id, project_id)
+);
+
+CREATE INDEX idx_membership_user_id ON cached_memberships(user_id);
+CREATE INDEX idx_membership_project_id ON cached_memberships(project_id);
+CREATE INDEX idx_membership_status ON cached_memberships(sync_status);

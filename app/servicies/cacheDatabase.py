@@ -180,7 +180,40 @@ class CacheDatabaseService:
         except psycopg2.Error as e:
             logger.error(f"Error during data recover of all users: {e}")
             raise Exception(f"Error during data recover of all users: {e}")
-    
+
+    def get_memberships_in_cache(self) -> List['CachedMembership']:
+        """
+        Recupera tutte le membership dal database cache.
+
+        Returns:
+            Lista di CachedMembership
+        """
+        from ..models.membership import CachedMembership
+
+        memberships = []
+
+        try:
+            with self.get_cache_connection() as conn:
+                with conn.cursor(cursor_factory=RealDictCursor) as cursor:
+                    query = """
+                        SELECT user_id, project_id, sync_status,
+                               last_sync_at, created_at, updated_at
+                        FROM cached_memberships
+                        ORDER BY created_at DESC
+                    """
+                    cursor.execute(query)
+                    rows = cursor.fetchall()
+
+                    for row in rows:
+                        memberships.append(self._row_to_cached_membership(row))
+
+                    logger.debug(f"Retrieved {len(memberships)} cached memberships")
+                    return memberships
+
+        except Exception as e:
+            logger.error(f"Error retrieving cached memberships: {e}")
+            return []
+
     def update_existing_project(self, project: CachedProject) -> CachedProject:
 
         """
@@ -427,7 +460,57 @@ class CacheDatabaseService:
         except psycopg2.Error as e:
             print(f"✗ Error during cache update: {e}")
             raise
-        
+
+    def update_cache_db_for_memberships(self, memberships: List['CachedMembership']):
+        """
+        Aggiorna il database cache con le membership (bulk upsert).
+
+        Args:
+            memberships: Lista di CachedMembership da salvare
+        """
+        from ..models.membership import CachedMembership
+
+        if not memberships:
+            logger.debug("No memberships to update in cache")
+            return
+
+        try:
+            with self.get_cache_connection() as conn:
+                with conn.cursor() as cursor:
+                    # Prepare values for batch insert
+                    values = [
+                        (
+                            m.user_id,
+                            m.project_id,
+                            m.sync_status,
+                            m.last_sync_at,
+                            m.created_at,
+                            m.updated_at
+                        )
+                        for m in memberships
+                    ]
+
+                    # Bulk upsert query
+                    query = """
+                        INSERT INTO cached_memberships
+                        (user_id, project_id, sync_status, last_sync_at, created_at, updated_at)
+                        VALUES %s
+                        ON CONFLICT (user_id, project_id)
+                        DO UPDATE SET
+                            sync_status = EXCLUDED.sync_status,
+                            last_sync_at = EXCLUDED.last_sync_at,
+                            updated_at = EXCLUDED.updated_at
+                    """
+
+                    execute_values(cursor, query, values)
+                    conn.commit()
+
+                    logger.info(f"Updated {len(memberships)} memberships in cache database")
+
+        except Exception as e:
+            logger.error(f"Error updating cached memberships: {e}")
+            raise
+
     def _row_to_cached_project(self, row) -> CachedProject:
 
         return CachedProject(
@@ -453,4 +536,17 @@ class CacheDatabaseService:
             updated_at=row['updated_at'],
             sync_status=row['sync_status'],
             email=row['email']
+        )
+
+    def _row_to_cached_membership(self, row) -> 'CachedMembership':
+        """Converte una row del database in oggetto CachedMembership"""
+        from ..models.membership import CachedMembership
+
+        return CachedMembership(
+            user_id=row['user_id'],
+            project_id=row['project_id'],
+            sync_status=row.get('sync_status', 'synced'),
+            last_sync_at=row.get('last_sync_at'),
+            created_at=row.get('created_at'),
+            updated_at=row.get('updated_at')
         )

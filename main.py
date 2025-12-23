@@ -22,10 +22,13 @@ def main():
 
     try:
 
-        logger.info("========= AVVIO SINCRONIZZAZIONE PROGETTI =========")
+        logger.info("========= AVVIATA SINCRONIZZAZIONE =========")
 
         syncer = SyncService(global_settings)
         syncer.run_full_sync()
+
+        logger.info("========= TERMINATA SINCRONIZZAZIONE =========")
+
 
     except KeyboardInterrupt:
         logger.info("Syncronization process interrupted by user")

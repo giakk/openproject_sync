@@ -9,7 +9,7 @@ from dataclasses import dataclass
 
 from ..models.project import GestionaleProject, OpenProjectProject, CachedProject, ProjectSyncOperation
 from ..models.user import GestionaleUser, OpenProjectUser, CachedUser, UserSyncOperation
-from ..models.membership import MembershipTask
+from ..models.membership import MembershipTask, CachedMembership
 from ..servicies.openproject import OpenProjectInterface
 from ..servicies.gestionaleGimi import GestionaleService
 from ..servicies.cacheDatabase import CacheDatabaseService
@@ -116,6 +116,7 @@ class SyncService:
     def run_membership_sync(self, max_workers: int = 10):
         """
         Parallelize membership synchronization using ThreadPoolExecutor.
+        Only creates memberships that don't exist in cache.
 
         Args:
             max_workers: Maximum number of concurrent threads (default: 10)
@@ -131,8 +132,17 @@ class SyncService:
             logger.warning("Nessun progetto in cache. Esegui prima run_project_sync()")
             return
 
-        # Prepare tasks
+        # Load existing memberships from cache into a Set for O(1) lookup
+        cached_memberships = self.cache_service.get_memberships_in_cache()
+        existing_memberships_set = {
+            (m.user_id, m.project_id) for m in cached_memberships
+        }
+        logger.info(f"Loaded {len(existing_memberships_set)} existing memberships from cache")
+
+        # Prepare tasks - only for memberships that DON'T exist in cache
         tasks = []
+        new_memberships = []  # To track what we'll create
+
         for user in self.cached_users:
             if user.openproject_id is None:
                 logger.warning(f"Utente {user.gestionale_id} non ha openproject_id, skip")
@@ -143,19 +153,40 @@ class SyncService:
                     logger.warning(f"Progetto {project.gestionale_id} non ha openproject_id, skip")
                     continue
 
+                # Check if membership already exists in cache
+                membership_key = (user.openproject_id, project.openproject_id)
+
+                if membership_key in existing_memberships_set:
+                    # Membership already exists, skip
+                    continue
+
+                # New membership - add to tasks
                 tasks.append(MembershipTask(
                     user_id=user.openproject_id,
-                    project_id=project.openproject_id)
-                    )
+                    project_id=project.openproject_id
+                ))
 
         # Initialize statistics
         stats = MembershipStats()
         stats.total = len(tasks)
 
+        total_possible = len(self.cached_users) * len(self.cached_projects)
+
         logger.info(
-            f"Inizio sincronizzazione membership: {len(self.cached_users)} utenti × "
-            f"{len(self.cached_projects)} progetti = {stats.total} membership da creare"
+            f"Inizio sincronizzazione membership: {len(self.cached_users)} utenti * "
+            f"{len(self.cached_projects)} progetti = {total_possible} totali"
         )
+        logger.info(
+            f"Membership già esistenti in cache: {len(existing_memberships_set)}"
+        )
+        logger.info(
+            f"Nuove membership da creare: {stats.total}"
+        )
+
+        if stats.total == 0:
+            logger.info("Tutte le membership sono già sincronizzate. Nessuna operazione necessaria.")
+            return
+
         logger.info(f"Utilizzo {max_workers} worker paralleli")
 
         start_time = time.time()
@@ -192,10 +223,26 @@ class SyncService:
         duration = end_time - start_time
         throughput = stats.total / duration if duration > 0 else 0
 
+        # Prepare new memberships to save in cache
+        for task in tasks:
+            # Only save successfully created memberships
+            if task.success == True:
+                new_memberships.append(CachedMembership(
+                    user_id=task.user_id,
+                    project_id=task.project_id,
+                    sync_status='synced',
+                    last_sync_at=datetime.now()
+                ))
+
+        # Update cache database with new memberships
+        if new_memberships:
+            logger.info(f"Salvando {len(new_memberships)} nuove membership nel cache database")
+            self.cache_service.update_cache_db_for_memberships(new_memberships)
+
         # Final summary
         logger.info(
             f"Sincronizzazione membership completata: "
-            f"{stats.successful} successi, {stats.failed} fallimenti su {stats.total} totali"
+            f"{stats.successful} successi, {stats.failed} fallimenti su {stats.total} nuove membership"
         )
         logger.info(
             f"Metriche performance: Durata: {duration:.2f}s, "
@@ -223,11 +270,13 @@ class SyncService:
 
             if result:
                 stats.increment_success()
+                task.success = True
                 logger.debug(
                     f"Membership created: user {task.user_id} "
                     f"-> project {task.project_id}"
                 )
             else:
+                task.success = False
                 stats.increment_failure(
                     f"User {task.user_id} -> "
                     f"Project {task.project_id}: API returned False"

@@ -371,7 +371,7 @@ class OpenProjectInterface:
             project_id: ID del progetto
 
         Returns:
-            True se la membership è stata creata con successo, False altrimenti
+            True se la membership è stata creata con successo o esiste già, False altrimenti
         """
         try:
             payload = {
@@ -393,6 +393,19 @@ class OpenProjectInterface:
             return True
 
         except requests.exceptions.HTTPError as e:
+            # Check if it's a 422 error indicating membership already exists
+            if hasattr(e, 'response') and e.response and e.response.status_code == 422:
+                try:
+                    error_body = e.response.json()
+                    error_message = error_body.get('message', '')
+
+                    # Check if the error is about membership already existing
+                    if 'già stato usato' in error_message.lower() or 'already' in error_message.lower():
+                        logger.debug(f"Membership già esistente per user {user_id} nel progetto {project_id} (422 error)")
+                        return True  # Treat as success since membership exists
+                except:
+                    pass  # If we can't parse the response, fall through to error handling
+
             logger.error(f"Errore HTTP nella creazione della membership: {e}")
             if hasattr(e, 'response') and e.response:
                 logger.error(f"Response body: {e.response.text}")
