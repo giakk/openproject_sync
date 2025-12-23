@@ -360,6 +360,51 @@ class OpenProjectInterface:
             return False
         
 
+    # MEMBERSHIP
+
+    def create_membership(self, user_id: int = None, project_id: int = None) -> bool:
+        """
+        Crea una membership per associare un utente a un progetto con ruolo predefinito.
+
+        Args:
+            user_id: ID dell'utente
+            project_id: ID del progetto
+
+        Returns:
+            True se la membership è stata creata con successo, False altrimenti
+        """
+        try:
+            payload = {
+                "_links": {
+                    "principal": {"href": f"/api/v3/users/{user_id}"},
+                    "roles": [{"href": "/api/v3/roles/3"}],
+                    "project": {"href": f"/api/v3/projects/{project_id}"}
+                }
+            }
+
+            response = PostRequest(
+                connection=self.connection,
+                context="/api/v3/memberships",
+                headers={"Content-Type": "application/json"},
+                json=payload
+            ).execute()
+
+            logger.debug(f"Membership creata con successo per user {user_id} nel progetto {project_id}")
+            return True
+
+        except requests.exceptions.HTTPError as e:
+            logger.error(f"Errore HTTP nella creazione della membership: {e}")
+            if hasattr(e, 'response') and e.response:
+                logger.error(f"Response body: {e.response.text}")
+            return False
+        except requests.exceptions.RequestException as e:
+            logger.error(f"Errore di rete nella creazione della membership: {e}")
+            return False
+        except Exception as e:
+            logger.error(f"Errore generico nella creazione della membership: {e}")
+            return False
+
+
     # WORK PACKAGE
 
     def create_work_package(self, project_id: int = None, name: str = "") -> int:
@@ -417,12 +462,11 @@ class OpenProjectInterface:
 
         id_2 = self.create_work_package(project_id, "STRUTTURA")
 
-        id_3 = self.create_work_package(project_id, "PROGETTO MECCANICO")
+        id_3 = self.create_work_package(project_id, "PARTE MECCANICO")
 
-        id_4 = self.create_work_package(project_id, "POGETTO ELETTRICO")
+        id_4 = self.create_work_package(project_id, "PARTE ELETTRICO")
 
-        # if (due_date is not None):
-        #     self.create_milestone(due_date.isoformat(), project_id)
+        id_5 = self.create_work_package(project_id, "Attività cliente")
 
         self.create_relations(id_1, id_2)
         self.create_relations(id_2, id_3)

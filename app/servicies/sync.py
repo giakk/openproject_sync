@@ -49,6 +49,7 @@ class SyncService:
 
         self.run_user_sync()
         self.run_project_sync()
+        self.run_membership_sync()
 
 
     def run_project_sync(self) -> Dict[str, Any]:
@@ -83,7 +84,42 @@ class SyncService:
 
         self.cache_service.update_cache_db_for_users(self.cached_users)
 
+    def run_membership_sync(self):
+        """
+        Sincronizza le membership associando ogni utente a tutti i progetti.
+        """
+        if not self.cached_users:
+            logger.warning("Nessun utente in cache. Esegui prima run_user_sync()")
+            return
 
+        if not self.cached_projects:
+            logger.warning("Nessun progetto in cache. Esegui prima run_project_sync()")
+            return
+
+        total_memberships = len(self.cached_users) * len(self.cached_projects)
+        successful = 0
+        failed = 0
+
+        logger.info(f"Inizio sincronizzazione membership: {len(self.cached_users)} utenti × {len(self.cached_projects)} progetti = {total_memberships} membership da creare")
+
+        for user in self.cached_users:
+            if user.openproject_id is None:
+                logger.warning(f"Utente {user.gestionale_id} non ha openproject_id, skip")
+                continue
+
+            for project in self.cached_projects:
+                if project.openproject_id is None:
+                    logger.warning(f"Progetto {project.gestionale_id} non ha openproject_id, skip")
+                    continue
+
+                result = self.openproject_service.create_membership(user.openproject_id, project.openproject_id)
+
+                if result:
+                    successful += 1
+                else:
+                    failed += 1
+
+        logger.info(f"Sincronizzazione membership completata: {successful} successi, {failed} fallimenti su {total_memberships} totali")
 
 
 
