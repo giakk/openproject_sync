@@ -150,3 +150,23 @@ sudo openproject config:set RECOMPILE_ANGULAR_ASSETS="true"
 ```bash
 sudo openproject configure
 ```
+
+### Useful command for Microsoft SQL Server
+If you need to create a user and a login to access the database through the python scritp, you'll need these commands:
+```sql
+-- 1. Create login at server level
+CREATE LOGIN lettore_readonly WITH PASSWORD = 'Password123!';
+GO
+
+-- 2. Set the database
+USE nome_database;
+GO
+
+-- 3. Create user mapped to the login
+CREATE USER lettore_readonly FOR LOGIN lettore_readonly;
+GO
+
+-- 4. Assign read only access to the user
+ALTER ROLE db_datareader ADD MEMBER lettore_readonly;
+GO
+```
