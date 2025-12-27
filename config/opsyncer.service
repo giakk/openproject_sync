@@ -1,0 +1,27 @@
+[Unit]
+Description=User Sync Service - Gestionale to OpenProject
+After=network.target postgresql.service
+
+[Service]
+Type=oneshot
+User=riccardo
+Group=riccardo
+WorkingDirectory=/home/riccardo/syncer
+ExecStart=/home/riccardo/syncer/venv/bin/python /home/riccardo/syncer/main.py
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+
+# Security hardening (opzionale)
+NoNewPrivileges=true
+PrivateTmp=true
+
+# Timeout
+TimeoutStartSec=30s
+
+# Per servizi oneshot con timer
+RemainAfterExit=no
+
+[Install]
+WantedBy=multi-user.target
