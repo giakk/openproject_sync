@@ -170,3 +170,21 @@ GO
 ALTER ROLE db_datareader ADD MEMBER lettore_readonly;
 GO
 ```
+
+### Additional command
+```bash
+sudo systemctl daemon-reload
+
+sudo systemctl enable opsyncer.timer
+
+sudo systemctl start opsyncer.timer
+```
+**Verify correct status**:
+```bash
+sudo systemctl status opsyncer.timer
+
+systemctl list-timers opsyncer.timer
+
+# Vedi i log delle esecuzioni del service
+sudo journalctl -u opsyncer.service -f
+```
