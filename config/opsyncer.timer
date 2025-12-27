@@ -1,0 +1,11 @@
+[Unit]
+Description=User Sync Timer - Runs every 5 minutes
+
+[Timer]
+OnBootSec=30seconds
+OnUnitActiveSec=300seconds
+AccuracySec=1seconds
+Persistent=true
+
+[Install]
+WantedBy=timers.target
